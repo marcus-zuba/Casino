@@ -9,6 +9,6 @@ package Modelo;
  *
  * @author Tony
  */
-public class VinteeUm {
+public class VinteeUm extends JogoCasino{
     
 }

@@ -4,8 +4,15 @@ import Controle.Casino;
 
 public class Jogador{
     private String nome;
+    private String RG;
     private Integer idade;
 
+    public Jogador(String nome, Integer idade, String RG){
+        this.nome = nome;
+        this.idade = idade;
+        this.RG = RG;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -21,6 +28,18 @@ public class Jogador{
     public void setIdade(Integer idade) {
         this.idade = idade;
     }
-    
+
+    public String getRG() {
+        return RG;
+    }
+
+    public void setRG(String RG) {
+        this.RG = RG;
+    }
+
+    public String getDados(){
+        String response = "\n"+this.getNome()+", "+this.getIdade().toString()+"\nRG: "+this.getRG();
+        return response;
+    }
     
 }

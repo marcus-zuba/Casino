@@ -9,6 +9,6 @@ package Modelo;
  *
  * @author Tony
  */
-public class Jackpot {
+public class Jackpot extends JogoCasino{
     
 }
