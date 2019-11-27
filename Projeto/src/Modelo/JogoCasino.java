@@ -20,13 +20,15 @@ public abstract class JogoCasino {
         return this.nomeJogo;
     }
     
-    public JogoCasino(Integer numeroMaximo){
+    public JogoCasino(String nome,Integer numeroMaximo){
         this.numeroMaximoJogadores = numeroMaximo;
+        this.nomeJogo = nome;
         this.jogadores = null;
     }
     
-    public JogoCasino(){
+    public JogoCasino(String nome){
         this.numeroMaximoJogadores = LIMITE_BOM_SENSO_ARBITRARIO;
+        this.nomeJogo = nome;
         this.jogadores = null;
     }
     
@@ -38,7 +40,9 @@ public abstract class JogoCasino {
         return false;
     }
     
-    protected abstract Integer lucroDoDia();
+    //Esse método deve retornar as instruções q deverão aparecer quando clicado em instruções ou help na tela do jogo
+    public abstract String instrucoesDoJogo();
+    public abstract Integer lucroDoDia();
     
     //tira isso daqui antes de entregar o trabalho e bota um valor lá q tá bom
     private final static int LIMITE_BOM_SENSO_ARBITRARIO = 100;
