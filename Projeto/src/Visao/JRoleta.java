@@ -27,17 +27,54 @@ public class JRoleta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButtonMenu = new javax.swing.JButton();
+        jButtonRegras = new javax.swing.JButton();
+        jLabelTítulo = new javax.swing.JLabel();
+        jSeparatorBaixo = new javax.swing.JSeparator();
+        jSeparatorCima = new javax.swing.JSeparator();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButtonMenu.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
+        jButtonMenu.setText("Menu");
+
+        jButtonRegras.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
+        jButtonRegras.setText("Regras");
+
+        jLabelTítulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabelTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTítulo.setText("Roleta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonRegras)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonMenu))
+                    .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelTítulo, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
+                    .addComponent(jSeparatorCima, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelTítulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparatorCima, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
+                .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonMenu)
+                    .addComponent(jButtonRegras))
+                .addContainerGap())
         );
 
         pack();
@@ -79,5 +116,10 @@ public class JRoleta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonMenu;
+    private javax.swing.JButton jButtonRegras;
+    private javax.swing.JLabel jLabelTítulo;
+    private javax.swing.JSeparator jSeparatorBaixo;
+    private javax.swing.JSeparator jSeparatorCima;
     // End of variables declaration//GEN-END:variables
 }

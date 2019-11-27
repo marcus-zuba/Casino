@@ -7,14 +7,14 @@ package Visao;
 
 /**
  *
- * @author Tony
+ * @author eduardo
  */
-public class JJackpot extends javax.swing.JFrame {
+public class JVinteeUm extends javax.swing.JFrame {
 
     /**
-     * Creates new form JJackpot
+     * Creates new form JVinteeUm
      */
-    public JJackpot() {
+    public JVinteeUm() {
         initComponents();
     }
 
@@ -43,7 +43,7 @@ public class JJackpot extends javax.swing.JFrame {
 
         jLabelTítulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabelTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTítulo.setText("Jackpot");
+        jLabelTítulo.setText("Vinte e Um");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,20 +97,20 @@ public class JJackpot extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JJackpot.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JVinteeUm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JJackpot.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JVinteeUm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JJackpot.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JVinteeUm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JJackpot.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JVinteeUm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JJackpot().setVisible(true);
+                new JVinteeUm().setVisible(true);
             }
         });
     }
