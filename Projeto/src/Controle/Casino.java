@@ -2,6 +2,7 @@ package Controle;
 
 import Modelo.Jogador;
 import Modelo.JogoCasino;
+import Modelo.jogadorNaoEncontradoNaColecaoException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,16 +35,6 @@ public class Casino {
         Integer Soma = 0;
         while(it.hasNext())
             Soma += it.next().lucroDoDia();
-        return Soma;
-    }
-    
-    public Integer somaLucros(){
-        Set<Jogador> key = casino.keySet();
-        Iterator<Jogador> it = key.iterator();
-        Integer Soma = 0;
-        while(it.hasNext()){
-            Soma += casino.get(it.next());
-        }
         return Soma;
     }
     
@@ -115,6 +106,22 @@ public class Casino {
             return true;
         }
         return false;
+    }
+    
+    public void colocaNoCasino(HashMap<Jogador,Integer> jogador){
+        Set<Jogador> set = jogador.keySet();
+        Iterator<Jogador> it = set.iterator();
+        Jogador aux;
+        while(it.hasNext()){
+            aux = it.next();
+            this.casino.put(aux, jogador.get(aux));
+        }
+    }
+    
+    public void sairDoCasino(Jogador jogador) throws jogadorNaoEncontradoNaColecaoException{
+        if(!this.casino.containsKey(jogador))
+            throw new jogadorNaoEncontradoNaColecaoException();
+        this.casino.remove(jogador);
     }
     
     public final static Integer IDADEMINIMA = 21;

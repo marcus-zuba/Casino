@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JMenu.java</file>
-            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/JogoCasino.java</file>
-            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/Jackpot.java</file>
-            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/Roleta.java</file>
-            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/Jogador.java</file>
-            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/VinteeUm.java</file>
-            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/ApostaRoleta.java</file>
-            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Controle/Casino.java</file>
-            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JRoleta.java</file>
+            <file>file:/C:/CEFET/2%20p/PC2/Casino-master/Projeto/src/Modelo/jogadorNaoEncontradoNaColecaoException.java</file>
+            <file>file:/C:/CEFET/2%20p/PC2/Casino-master/Projeto/src/Modelo/fichasInsuficientesException.java</file>
+            <file>file:/C:/CEFET/2%20p/PC2/Casino-master/Projeto/src/Modelo/JogoCasino.java</file>
+            <file>file:/C:/CEFET/2%20p/PC2/Casino-master/Projeto/src/Controle/Casino.java</file>
         </group>
     </open-files>
 </project-private>
