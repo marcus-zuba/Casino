@@ -1,7 +1,5 @@
 package Modelo;
 
-import Controle.Casino;
-
 public class Jogador{
     private String nome;
     private Integer idade;
