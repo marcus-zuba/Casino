@@ -29,6 +29,14 @@ public class Casino {
         return casino.get(jogador).toString();
     }
     
+    public Integer lucroDoDia(){
+        Iterator<JogoCasino> it = this.jogos.iterator();
+        Integer Soma = 0;
+        while(it.hasNext())
+            Soma += it.next().lucroDoDia();
+        return Soma;
+    }
+    
     public Integer somaLucros(){
         Set<Jogador> key = casino.keySet();
         Iterator<Jogador> it = key.iterator();
@@ -39,6 +47,18 @@ public class Casino {
         return Soma;
     }
     
+    private boolean isRegistred(String Nome){
+        //if(encontrou o jogador no arquivo)
+            //return true;
+        return false;
+    }
+    
+    private Jogador buscaJogador(String Nome){
+        //Implementação pendente quando descobrir como q mexe em arquivo
+        Jogador jogador = new Jogador("naosei",0,"0");
+        return jogador;
+    }
+    
     private Jogador criaJogador(String Nome){
         Scanner input = new Scanner(System.in);
         String RG;
@@ -47,24 +67,13 @@ public class Casino {
         Integer Idade;
         System.out.print("Digite a idade do jogador: ");
         Idade = input.nextInt();
-        Jogador response = new Jogador(Nome, Idade, RG);        
+        Jogador response = new Jogador(Nome, Idade, RG);
+        this.regJogador(response);
         return response;
     }
-    
-    private Jogador jogadorRegistrado(String Nome){
-        //Implementação pendente quando descobrir como q mexe em arquivo
-        Jogador jogador = new Jogador("naosei",0,"0");
-        return jogador;
-    }
-    
-    private boolean isRegistred(String Nome){
-        //if(encontrou o jogador no arquivo)
-            //return true;
-        return false;
-    }
-    
+        
     private void regJogador(Jogador jogador){
-        //Implementação pendente para registrar jogador no bloco de notas
+        //Implementação pendente para registrar jogador no bloco de notas, nesse registro a quantidade de vezes que ele veio deverá ser 0 pela forma como o adicionaJogadorCasino está
     }
     
     private boolean firstTime(Jogador jogador){ //KAPPA
@@ -79,7 +88,7 @@ public class Casino {
         System.out.print("Digite o nome do jogador: ");
         Nome = input.next();
         if(this.isRegistred(Nome))
-            jogador = this.jogadorRegistrado(Nome);
+            jogador = this.buscaJogador(Nome);
         else
             jogador = this.criaJogador(Nome);
         if(jogador.getIdade() >= IDADEMINIMA && fichas >= FICHASMINIMAS){
