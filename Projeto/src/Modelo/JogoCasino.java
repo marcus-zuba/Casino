@@ -46,5 +46,5 @@ public abstract class JogoCasino {
     public abstract Integer lucroDoDia();
     
     //tira isso daqui antes de entregar o trabalho e bota um valor lá q tá bom
-    private final static int LIMITE_BOM_SENSO_ARBITRARIO = 100;
+    public final static int LIMITE_BOM_SENSO_ARBITRARIO = 100;
 }
