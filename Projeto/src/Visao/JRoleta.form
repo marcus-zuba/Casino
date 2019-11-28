@@ -252,15 +252,17 @@
                           <Component id="jButton12Preto" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton14Preto" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton15Preto" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton16Preto" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton17Preto" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton18Preto" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton13Preto" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelNumeroSorteado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jButtonNumeroSorteado" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton14Preto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton15Preto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton16Preto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton17Preto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton18Preto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton13Preto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelNumeroSorteado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -311,6 +313,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Regras"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonRegrasMousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonMenu">
       <Properties>
@@ -319,6 +324,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Menu"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonMenuMousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1Vermelho">
       <Properties>

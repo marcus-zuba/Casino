@@ -12,12 +12,51 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import Visao.*;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Tony
  */
-public class Handler implements ActionListener, MouseListener, KeyListener{
+public class MenuHandler implements ActionListener, MouseListener, KeyListener{
+    
+    JMenu menu;
+    JInstrucoes instrucoes;
+    JLoja loja;
+    JCadastro cadastro;
+    JRoleta roleta;
+    JJackpot jackpot;
+    JVinteeUm vinteeum;
+    
+    public void setMenu(JMenu menu){
+        this.menu=menu;
+    }
 
+    public void setInstrucoes(JInstrucoes instrucoes) {
+        this.instrucoes = instrucoes;
+    }
+
+    public void setLoja(JLoja loja) {
+        this.loja = loja;
+    }
+
+    public void setCadastro(JCadastro cadastro) {
+        this.cadastro = cadastro;
+    }
+
+    public void setRoleta(JRoleta roleta) {
+        this.roleta = roleta;
+    }
+    
+    public void setVinteeum(JVinteeUm vinteeum) {
+        this.vinteeum = vinteeum;
+    }
+
+    public void setJackpot(JJackpot jackpot) {
+        this.jackpot = jackpot;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent arg0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -29,14 +68,36 @@ public class Handler implements ActionListener, MouseListener, KeyListener{
     }
 
     @Override
-    public void mousePressed(MouseEvent arg0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void mousePressed(MouseEvent e) {
+        
+        if(e.getComponent().getName().equals("Instrucoes")){
+            instrucoes.setVisible(true);
+            menu.setVisible(false);
+        }
+        else if(e.getComponent().getName().equals("Cadastro")){
+            cadastro.setVisible(true);
+            menu.setVisible(false);
+        }
+        else if(e.getComponent().getName().equals("21")){
+            vinteeum.setVisible(true);
+            menu.setVisible(false);
+        }
+        else if(e.getComponent().getName().equals("Loja")){
+            loja.setVisible(true);
+            menu.setVisible(false);
+        }
+        else if(e.getComponent().getName().equals("Jackpot")){
+            jackpot.setVisible(true);
+            menu.setVisible(false);
+        }
+        else if(e.getComponent().getName().equals("Roleta")){
+            roleta.setVisible(true);
+            menu.setVisible(false);
+        }
+        
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public void Botao21mousePressed(MouseEvent arg0){
-        System.out.println("sou gay");
-    
-    }
 
     @Override
     public void mouseReleased(MouseEvent arg0) {

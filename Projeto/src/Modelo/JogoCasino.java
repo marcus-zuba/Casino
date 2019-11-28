@@ -53,10 +53,10 @@ public abstract class JogoCasino {
         return false;
     }
     
-    public HashMap<Jogador,Integer> retiraDoJogo(Jogador jogador, Integer integer) throws jogadorNaoEncontradoNaColecaoException{
+    public HashMap<Jogador,Integer> retiraDoJogo(Jogador jogador, Integer integer) throws JogadorNaoEncontradoException{
         HashMap<Jogador,Integer> response = new HashMap<>();
         if(!this.jogadores.containsKey(jogador))
-            throw new jogadorNaoEncontradoNaColecaoException();
+            throw new JogadorNaoEncontradoException();
         this.jogadores.remove(jogador);
         response.put(jogador,integer);
         return response;

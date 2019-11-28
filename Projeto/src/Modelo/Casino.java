@@ -1,8 +1,8 @@
-package Controle;
+package Modelo;
 
 import Modelo.Jogador;
 import Modelo.JogoCasino;
-import Modelo.jogadorNaoEncontradoNaColecaoException;
+import Modelo.JogadorNaoEncontradoException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -118,9 +118,9 @@ public class Casino {
         }
     }
     
-    public void sairDoCasino(Jogador jogador) throws jogadorNaoEncontradoNaColecaoException{
+    public void sairDoCasino(Jogador jogador) throws JogadorNaoEncontradoException{
         if(!this.casino.containsKey(jogador))
-            throw new jogadorNaoEncontradoNaColecaoException();
+            throw new JogadorNaoEncontradoException();
         this.casino.remove(jogador);
     }
     

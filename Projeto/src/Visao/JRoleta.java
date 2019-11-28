@@ -4,17 +4,24 @@
  * and open the template in the editor.
  */
 package Visao;
-
+import Controle.RoletaHandler;
 /**
  *
  * @author Tony
  */
 public class JRoleta extends javax.swing.JFrame {
 
+    RoletaHandler h;
+    JMenu menu;
+    JInstrucoesRoleta instrucoes;
+    
     /**
      * Creates new form JRoleta
      */
-    public JRoleta() {
+    public JRoleta(RoletaHandler h, JMenu menu) {
+        this.h = h;
+        this.menu = menu;
+        instrucoes = new JInstrucoesRoleta(h);
         initComponents();
     }
 
@@ -90,9 +97,19 @@ public class JRoleta extends javax.swing.JFrame {
 
         jButtonRegras.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonRegras.setText("Regras");
+        jButtonRegras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonRegrasMousePressed(evt);
+            }
+        });
 
         jButtonMenu.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonMenu.setText("Menu");
+        jButtonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonMenuMousePressed(evt);
+            }
+        });
 
         jButton1Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jButton1Vermelho.setForeground(new java.awt.Color(255, 0, 0));
@@ -460,15 +477,16 @@ public class JRoleta extends javax.swing.JFrame {
                             .addComponent(jButton11Preto)
                             .addComponent(jButton12Preto))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton14Preto)
-                            .addComponent(jButton15Preto)
-                            .addComponent(jButton16Preto)
-                            .addComponent(jButton17Preto)
-                            .addComponent(jButton18Preto)
-                            .addComponent(jButton13Preto)
-                            .addComponent(jLabelNumeroSorteado)
-                            .addComponent(jButtonNumeroSorteado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonNumeroSorteado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton14Preto)
+                                .addComponent(jButton15Preto)
+                                .addComponent(jButton16Preto)
+                                .addComponent(jButton17Preto)
+                                .addComponent(jButton18Preto)
+                                .addComponent(jButton13Preto)
+                                .addComponent(jLabelNumeroSorteado)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -492,40 +510,21 @@ public class JRoleta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonRegrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegrasMousePressed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        instrucoes.setVisible(true);
+    }//GEN-LAST:event_jButtonRegrasMousePressed
+
+    private void jButtonMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMousePressed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        menu.setVisible(true);
+    }//GEN-LAST:event_jButtonMenuMousePressed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JRoleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JRoleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JRoleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JRoleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JRoleta().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10Preto;

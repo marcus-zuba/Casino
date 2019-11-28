@@ -4,9 +4,9 @@ package Modelo;
 @author Tony
 */
 
-public class fichasInsuficientesException extends Exception{
+public class FichasInsuficientesException extends Exception{
 
-        public fichasInsuficientesException(){
+        public FichasInsuficientesException(){
             super("Jogador com fichas insuficientes para jogar este jogo");
         }
 }

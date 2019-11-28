@@ -3,12 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+//package Modelo;
 
 /**
  *
  * @author Tony
  */
-public class Jackpot extends JogoCasino{
+//public class Jackpot extends JogoCasino{
+
+//    @Override
+//    public String instrucoesDoJogo() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+
+//    @Override
+//    public Integer lucroDoDia() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
-}
+//}

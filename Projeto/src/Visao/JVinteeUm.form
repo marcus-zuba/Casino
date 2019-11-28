@@ -83,6 +83,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Regras"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonRegrasMousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparatorBaixo">
     </Component>

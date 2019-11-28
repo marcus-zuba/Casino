@@ -5,7 +5,7 @@
  */
 package Visao;
 import Modelo.*;
-import Controle.*;
+import Controle.MenuHandler;
 
 /**
  *
@@ -13,15 +13,15 @@ import Controle.*;
  */
 public class JMenu extends javax.swing.JFrame {
     
-    Handler h;
+    MenuHandler h;
     
     /**
      * Creates new form Principal
      */
-    public JMenu(Handler h) {
+    public JMenu(MenuHandler h) {
         this.h=h;
         initComponents();
-        addListeners();
+        setNames();
     }
 
     /**
@@ -62,24 +62,59 @@ public class JMenu extends javax.swing.JFrame {
 
         jButtonRoleta.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonRoleta.setText("Roleta");
+        jButtonRoleta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MousePressed(evt);
+            }
+        });
 
         jButtonCacaNiqueis.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonCacaNiqueis.setText("Caça-Níquel");
+        jButtonCacaNiqueis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MousePressed(evt);
+            }
+        });
 
         jButtonVinteeUm.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonVinteeUm.setText("Vinte e Um");
+        jButtonVinteeUm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MousePressed(evt);
+            }
+        });
 
         jButtonLoja.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonLoja.setText("Loja");
+        jButtonLoja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MousePressed(evt);
+            }
+        });
 
         jButtonSair.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonSair.setText("Sair");
+        jButtonSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonSairMousePressed(evt);
+            }
+        });
 
         jButtonInstrucoes.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonInstrucoes.setText("Instruções");
+        jButtonInstrucoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MousePressed(evt);
+            }
+        });
 
         jButtonJogadores.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonJogadores.setText("Jogadores");
+        jButtonJogadores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,51 +189,28 @@ public class JMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    
+    private void jButtonSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSairMousePressed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButtonSairMousePressed
+
+    private void MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MousePressed
+        // TODO add your handling code here:
+        h.mousePressed(evt);
+    }//GEN-LAST:event_MousePressed
 
     /**
      * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Handler h = new Handler();
-                new JMenu(h).setVisible(true);
-            }
-        });
-    }
-    
-    public void addListeners(){
-        jButtonVinteeUm.addMouseListener(h);
-        jButtonCacaNiqueis.addMouseListener(h);
-        jButtonRoleta.addMouseListener(h);
-        jButtonLoja.addMouseListener(h);
-        jButtonSair.addMouseListener(h);
-//        Botao21.removeMouseListener(this);
+     */    
+    public void setNames(){
+        jButtonInstrucoes.setName("Instrucoes");
+        jButtonLoja.setName("Loja");
+        jButtonJogadores.setName("Cadastro");
+        jButtonVinteeUm.setName("21");
+        jButtonCacaNiqueis.setName("Jackpot");
+        jButtonRoleta.setName("Roleta");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

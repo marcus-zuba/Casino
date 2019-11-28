@@ -135,6 +135,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Roleta"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCacaNiqueis">
       <Properties>
@@ -143,6 +146,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Ca&#xe7;a-N&#xed;quel"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonVinteeUm">
       <Properties>
@@ -151,6 +157,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Vinte e Um"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MousePressed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Principal_Botao21"/>
       </AuxValues>
@@ -162,6 +171,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Loja"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSair">
       <Properties>
@@ -170,6 +182,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Sair"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonSairMousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonInstrucoes">
       <Properties>
@@ -178,6 +193,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Instru&#xe7;&#xf5;es"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonJogadores">
       <Properties>
@@ -186,6 +204,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Jogadores"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparatorCima">
     </Component>

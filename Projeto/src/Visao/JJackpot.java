@@ -4,17 +4,24 @@
  * and open the template in the editor.
  */
 package Visao;
-
+import Controle.JackpotHandler;
 /**
  *
  * @author Tony
  */
 public class JJackpot extends javax.swing.JFrame {
 
+    JackpotHandler h;
+    JMenu menu;
+    JInstrucoesJackpot instrucoes;
+    
     /**
      * Creates new form JJackpot
      */
-    public JJackpot() {
+    public JJackpot(JackpotHandler h, JMenu menu) {
+        this.h = h;
+        this.menu = menu;
+        instrucoes = new JInstrucoesJackpot(h);
         initComponents();
     }
 
@@ -37,9 +44,19 @@ public class JJackpot extends javax.swing.JFrame {
 
         jButtonMenu.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonMenu.setText("Menu");
+        jButtonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonMenuMousePressed(evt);
+            }
+        });
 
         jButtonRegras.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonRegras.setText("Regras");
+        jButtonRegras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonRegrasMousePressed(evt);
+            }
+        });
 
         jLabelTítulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabelTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -80,41 +97,22 @@ public class JJackpot extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMousePressed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        menu.setVisible(true);
+    }//GEN-LAST:event_jButtonMenuMousePressed
+
+    private void jButtonRegrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegrasMousePressed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        instrucoes.setVisible(true);
+    }//GEN-LAST:event_jButtonRegrasMousePressed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JJackpot.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JJackpot.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JJackpot.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JJackpot.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JJackpot().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonMenu;
     private javax.swing.JButton jButtonRegras;
