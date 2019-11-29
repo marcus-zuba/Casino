@@ -1,23 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controle;
-
+import javax.swing.JFrame;
+import Modelo.*;
 import Visao.*;
-
-/**
- *
- * @author marcus
- */
 public class Main {
     
     public static void main(String[] args) {
         
-        MenuHandler mh = new MenuHandler();
-        JMenu menu = new JMenu(mh);
-        mh.setMenu(menu);
+        j 
+        
+        Menu modeloMenu = new Menu();
+        MenuHandler handlerMenu = new MenuHandler(modeloMenu);     
+        JMenu janelaMenu = new JMenu(handlerMenu, modeloMenu);
+        janelaMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        janelaMenu.setVisible(true);   
+        handlerMenu.setMenu(janelaMenu);
 
         JInstrucoes instrucoes = new JInstrucoes(menu);
         mh.setInstrucoes(instrucoes);
@@ -39,10 +35,11 @@ public class Main {
         mh.setVinteeum(vinteeum);
         
         JackpotHandler jh = new JackpotHandler();
-        JJackpot jackpot = new JJackpot(jh,menu);
+        JCacaNiquel jackpot = new JCacaNiquel(jh,menu);
         mh.setJackpot(jackpot);
         
         menu.setVisible(true);
+        
         
     }
     

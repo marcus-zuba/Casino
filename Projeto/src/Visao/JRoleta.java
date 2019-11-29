@@ -88,6 +88,8 @@ public class JRoleta extends javax.swing.JFrame {
         jLabelValorDeAposta = new javax.swing.JLabel();
         jTextFieldValorDeAposta = new javax.swing.JTextField();
         jLabelJogadorAtual = new javax.swing.JLabel();
+        jButtonSortear = new javax.swing.JButton();
+        jButtonProximoJogador = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,147 +113,147 @@ public class JRoleta extends javax.swing.JFrame {
             }
         });
 
-        jButton1Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton1Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton1Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton1Vermelho.setText("1");
 
-        jButton2Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton2Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton2Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton2Vermelho.setText("2");
 
-        jButton3Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton3Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton3Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton3Vermelho.setText("3");
 
-        jButton4Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton4Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton4Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton4Vermelho.setText("4");
 
-        jButton5Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton5Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton5Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton5Vermelho.setText("5");
 
-        jButton6Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton6Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton6Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton6Vermelho.setText("6");
 
-        jButton7Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton7Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton7Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton7Vermelho.setText("7");
 
-        jButton8Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton8Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton8Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton8Vermelho.setText("8");
 
-        jButton9Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton9Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton9Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton9Vermelho.setText("9");
 
-        jButton10Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton10Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton10Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton10Vermelho.setText("10");
 
-        jButton11Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton11Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton11Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton11Vermelho.setText("11");
 
-        jButton12Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton12Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton12Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton12Vermelho.setText("12");
 
-        jButton13Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton13Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton13Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton13Vermelho.setText("13");
 
-        jButton14Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton14Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton14Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton14Vermelho.setText("14");
 
-        jButton15Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton15Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton15Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton15Vermelho.setText("15");
 
-        jButton16Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton16Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton16Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton16Vermelho.setText("16");
 
-        jButton17Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton17Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton17Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton17Vermelho.setText("17");
 
-        jButton18Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton18Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton18Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton18Vermelho.setText("18");
 
-        jButton16Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton16Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton16Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton16Preto.setText("16");
 
-        jButton17Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton17Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton17Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton17Preto.setText("17");
 
-        jButton18Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton18Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton18Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton18Preto.setText("18");
 
-        jButton1Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton1Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton1Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton1Preto.setText("1");
 
-        jButton2Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton2Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton2Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton2Preto.setText("2");
 
-        jButton3Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton3Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton3Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton3Preto.setText("3");
 
-        jButton4Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton4Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton4Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton4Preto.setText("4");
 
-        jButton5Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton5Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton5Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton5Preto.setText("5");
 
-        jButton6Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton6Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton6Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton6Preto.setText("6");
 
-        jButton7Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton7Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton7Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton7Preto.setText("7");
 
-        jButton8Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton8Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton8Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton8Preto.setText("8");
 
-        jButton9Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton9Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton9Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton9Preto.setText("9");
 
-        jButton10Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton10Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton10Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton10Preto.setText("10");
 
-        jButton11Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton11Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton11Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton11Preto.setText("11");
 
-        jButton12Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton12Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton12Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton12Preto.setText("12");
 
-        jButton13Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton13Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton13Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton13Preto.setText("13");
 
-        jButton14Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton14Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton14Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton14Preto.setText("14");
 
-        jButton15Preto.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jButton15Preto.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton15Preto.setForeground(new java.awt.Color(5, 0, 0));
         jButton15Preto.setText("15");
 
@@ -282,6 +284,12 @@ public class JRoleta extends javax.swing.JFrame {
         jLabelJogadorAtual.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
         jLabelJogadorAtual.setText("Jogador 0");
 
+        jButtonSortear.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
+        jButtonSortear.setText("Sortear");
+
+        jButtonProximoJogador.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
+        jButtonProximoJogador.setText("Próximo Jogador");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -292,6 +300,8 @@ public class JRoleta extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButtonRegras)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonProximoJogador)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonMenu))
                     .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -368,28 +378,30 @@ public class JRoleta extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabelNumero)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabelCor)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jTextFieldCor, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jRadioButtonCor)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jRadioButtonNumero)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jRadioButtonCoreNumero))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(jButtonSortear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(jLabelNumero)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                            .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(jLabelCor)
+                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                            .addComponent(jTextFieldCor, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabelValorDeAposta)
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addGap(25, 25, 25)
-                                                        .addComponent(jTextFieldValorDeAposta, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jRadioButtonCor)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jRadioButtonNumero)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jRadioButtonCoreNumero)))
+                                                        .addComponent(jTextFieldValorDeAposta, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                         .addGap(25, 25, 25))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(67, 67, 67)
@@ -478,7 +490,7 @@ public class JRoleta extends javax.swing.JFrame {
                             .addComponent(jButton12Preto))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonNumeroSorteado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonNumeroSorteado, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButton14Preto)
                                 .addComponent(jButton15Preto)
@@ -486,8 +498,7 @@ public class JRoleta extends javax.swing.JFrame {
                                 .addComponent(jButton17Preto)
                                 .addComponent(jButton18Preto)
                                 .addComponent(jButton13Preto)
-                                .addComponent(jLabelNumeroSorteado)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                .addComponent(jLabelNumeroSorteado))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelCor)
@@ -498,12 +509,16 @@ public class JRoleta extends javax.swing.JFrame {
                             .addComponent(jLabelNumero)
                             .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldValorDeAposta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonSortear)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonMenu)
-                    .addComponent(jButtonRegras))
+                    .addComponent(jButtonRegras)
+                    .addComponent(jButtonProximoJogador))
                 .addContainerGap())
         );
 
@@ -565,7 +580,9 @@ public class JRoleta extends javax.swing.JFrame {
     private javax.swing.JButton jButton9Vermelho;
     private javax.swing.JButton jButtonMenu;
     private javax.swing.JButton jButtonNumeroSorteado;
+    private javax.swing.JButton jButtonProximoJogador;
     private javax.swing.JButton jButtonRegras;
+    private javax.swing.JButton jButtonSortear;
     private javax.swing.JLabel jLabelApostaRealizada;
     private javax.swing.JLabel jLabelCor;
     private javax.swing.JLabel jLabelJogadorAtual;

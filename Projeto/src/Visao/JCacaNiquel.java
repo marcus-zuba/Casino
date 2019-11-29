@@ -9,7 +9,7 @@ import Controle.JackpotHandler;
  *
  * @author Tony
  */
-public class JJackpot extends javax.swing.JFrame {
+public class JCacaNiquel extends javax.swing.JFrame {
 
     JackpotHandler h;
     JMenu menu;
@@ -18,7 +18,7 @@ public class JJackpot extends javax.swing.JFrame {
     /**
      * Creates new form JJackpot
      */
-    public JJackpot(JackpotHandler h, JMenu menu) {
+    public JCacaNiquel(JackpotHandler h, JMenu menu) {
         this.h = h;
         this.menu = menu;
         instrucoes = new JInstrucoesJackpot(h);
@@ -60,7 +60,7 @@ public class JJackpot extends javax.swing.JFrame {
 
         jLabelTítulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabelTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTítulo.setText("Jackpot");
+        jLabelTítulo.setText("Caça-Níquel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

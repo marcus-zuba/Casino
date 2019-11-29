@@ -10,13 +10,11 @@ import java.util.ListIterator; //pesquisar essa classe depois que pode ser útil
 import java.util.Scanner;
 import java.util.Set;
 
-/*
-@author Tony
-*/
 
-public class Casino {
+public class Menu {
     //Integer usado aqui é para HashMap que não aceita tipo primitivo, mas ele funciona como um
     //Vamos evitar usar tipos primitivos em toda aplicação que tia Lulu vai gostar rs
+    
     private HashMap<Jogador,Integer> casino;
     private ArrayList<JogoCasino> jogos;
     

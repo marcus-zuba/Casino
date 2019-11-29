@@ -87,7 +87,7 @@
           <Font name="Ubuntu" size="36" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Jackpot"/>
+        <Property name="text" type="java.lang.String" value="Ca&#xe7;a-N&#xed;quel"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparatorBaixo">
