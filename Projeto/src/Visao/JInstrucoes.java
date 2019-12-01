@@ -5,18 +5,23 @@
  */
 package Visao;
 
+import Controle.InstrucoesHandler;
+
 /**
  *
  * @author eduardo
  */
 public class JInstrucoes extends javax.swing.JFrame {
 
+    InstrucoesHandler ih;
     JMenu menu;
     
     /**
      * Creates new form JInstrucoes
+     * @param ih
      */
-    public JInstrucoes(JMenu menu) {
+    public JInstrucoes(InstrucoesHandler ih,JMenu menu) {
+        this.ih=ih;
         this.menu=menu;
         initComponents();
     }

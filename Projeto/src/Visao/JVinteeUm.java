@@ -57,6 +57,11 @@ public class JVinteeUm extends javax.swing.JFrame {
 
         jButtonMenu.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonMenu.setText("Menu");
+        jButtonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonMenuMouseClicked(evt);
+            }
+        });
 
         jLabelTítulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabelTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -222,6 +227,12 @@ public class JVinteeUm extends javax.swing.JFrame {
         this.setVisible(false);
         instrucoes.setVisible(true);
     }//GEN-LAST:event_jButtonRegrasMousePressed
+
+    private void jButtonMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        menu.setVisible(true);
+    }//GEN-LAST:event_jButtonMenuMouseClicked
 
     /**
      * @param args the command line arguments

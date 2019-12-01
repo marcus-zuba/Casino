@@ -99,10 +99,7 @@ public class Menu {
     }
     
     public boolean colocaEmJogo(Jogador jogador, JogoCasino jogo){
-        if(jogo.adicionaJogador(jogador, casino.get(jogador))){
-            this.casino.remove(jogador);
-            return true;
-        }
+        //JogoCassino agora é uma interface, esse bloco estava dando erro
         return false;
     }
     

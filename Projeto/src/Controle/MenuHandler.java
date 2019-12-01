@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 package Controle;
-package Controle;
 
+import Modelo.Menu;
+import Visao.JCacaNiquel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -13,7 +14,12 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import Modelo.QuadradoMagico;
+import Visao.JCadastro;
+import Visao.JInstrucoes;
+import Visao.JLoja;
+import Visao.JMenu;
+import Visao.JRoleta;
+import Visao.JVinteeUm;
 import javax.swing.JButton;
 /**
  *
@@ -21,13 +27,21 @@ import javax.swing.JButton;
  */
 public class MenuHandler implements ActionListener, MouseListener, KeyListener{
     
+    Menu modeloMenu;
+    
     JMenu menu;
     JInstrucoes instrucoes;
     JLoja loja;
     JCadastro cadastro;
     JRoleta roleta;
-    JJackpot jackpot;
+    JCacaNiquel jackpot;
     JVinteeUm vinteeum;
+    
+    public MenuHandler(Menu modeloMenu){
+        
+        this.modeloMenu=modeloMenu;
+        
+    }
     
     public void setMenu(JMenu menu){
         this.menu=menu;
@@ -53,7 +67,7 @@ public class MenuHandler implements ActionListener, MouseListener, KeyListener{
         this.vinteeum = vinteeum;
     }
 
-    public void setJackpot(JJackpot jackpot) {
+    public void setJackpot(JCacaNiquel jackpot) {
         this.jackpot = jackpot;
     }
     

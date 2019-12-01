@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Controle/RoletaHandler.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/JogoCasino.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/Roleta.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/Jogador.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JVinteeUm.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/Menu.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/ApostaRoleta.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Controle/Main.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JRoleta.java</file>
+        </group>
     </open-files>
 </project-private>

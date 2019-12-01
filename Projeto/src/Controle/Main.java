@@ -6,39 +6,40 @@ public class Main {
     
     public static void main(String[] args) {
         
-        j 
         
         Menu modeloMenu = new Menu();
-        MenuHandler handlerMenu = new MenuHandler(modeloMenu);     
-        JMenu janelaMenu = new JMenu(handlerMenu, modeloMenu);
+        MenuHandler mh = new MenuHandler(modeloMenu);     
+        JMenu janelaMenu = new JMenu(mh);
         janelaMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         janelaMenu.setVisible(true);   
-        handlerMenu.setMenu(janelaMenu);
+        mh.setMenu(janelaMenu);
 
-        JInstrucoes instrucoes = new JInstrucoes(menu);
+        InstrucoesHandler ih = new InstrucoesHandler();
+        JInstrucoes instrucoes = new JInstrucoes(ih,janelaMenu);
         mh.setInstrucoes(instrucoes);
         
         LojaHandler lh = new LojaHandler();
-        JLoja loja = new JLoja(lh, menu);
+        JLoja loja = new JLoja(lh, janelaMenu);
         mh.setLoja(loja);
         
         CadastroHandler ch = new CadastroHandler();
-        JCadastro cadastro = new JCadastro(ch,menu);
+        JCadastro cadastro = new JCadastro(ch,janelaMenu);
         mh.setCadastro(cadastro);
         
-        RoletaHandler rh = new RoletaHandler();
-        JRoleta roleta = new JRoleta(rh, menu);
+        Roleta jogoRoleta = new Roleta();
+        RoletaHandler rh = new RoletaHandler(jogoRoleta);
+        JRoleta roleta = new JRoleta(rh, janelaMenu, jogoRoleta);
         mh.setRoleta(roleta);
         
         VinteeUmHandler vh = new VinteeUmHandler();
-        JVinteeUm vinteeum = new JVinteeUm(vh, menu);
+        JVinteeUm vinteeum = new JVinteeUm(vh, janelaMenu);
         mh.setVinteeum(vinteeum);
         
         JackpotHandler jh = new JackpotHandler();
-        JCacaNiquel jackpot = new JCacaNiquel(jh,menu);
+        JCacaNiquel jackpot = new JCacaNiquel(jh,janelaMenu);
         mh.setJackpot(jackpot);
         
-        menu.setVisible(true);
+        janelaMenu.setVisible(true);
         
         
     }
