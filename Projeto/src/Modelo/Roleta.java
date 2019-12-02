@@ -19,24 +19,36 @@ public class Roleta extends Observable implements JogoCasino{
 
 
     private HashMap <Jogador,ApostaRoleta> apostas;
+    private HashMap <Jogador,Integer> ganhadores;
     private Integer apostaMinima = 100;
-    private int numeroAtual;
-    private String corAtual;
-    private SecureRandom gerador;
-    private String nome;
     private Integer numeroMaximo;
+    private Integer lucroAtual;
+    private String corAtual;
+    private String nome;
+    private SecureRandom gerador;
+    private int numeroAtual;
     
     public Roleta() {
         
         nome = "Roleta";
-        numeroMaximo = JogoCasino.LIMITE_BOM_SENSO_ARBITRARIO;
-        apostas = new HashMap<Jogador,ApostaRoleta>();
-        numeroAtual = 1;
         corAtual = "vermelho";
+        numeroAtual = 1;
+        lucroAtual=0;
         gerador = new SecureRandom();
+        apostas = new HashMap<Jogador,ApostaRoleta>();
+        ganhadores = new HashMap<Jogador,Integer>();
+        numeroMaximo = JogoCasino.LIMITE_BOM_SENSO_ARBITRARIO;
         
     }
     
+    public Integer getLucroAtual() {
+        return lucroAtual;
+    }
+
+    public void setLucroAtual(Integer lucroAtual) {
+        this.lucroAtual = lucroAtual;
+    }
+
     public int getNumeroAtual() {
         return numeroAtual;
     }
@@ -69,15 +81,46 @@ public class Roleta extends Observable implements JogoCasino{
             
     }
     
-    public boolean fazerJogada(Jogador jogador,Integer valorJogada,String jogada){
+    public boolean fazerApostaCor(Jogador jogador,Integer valorJogada,String jogada){
         
         if(apostas.get(jogador).getFichasAtuais()>valorJogada)
         {
-            apostas.get(jogador).fazerAposta(valorJogada, jogada);
+            apostas.get(jogador).fazerApostaCor(valorJogada, jogada);
             return true;
         }
         else
             return false;
+        
+    }
+    
+    public boolean fazerApostaNumero(Jogador jogador,Integer valorJogada,int numero){
+        
+        if(apostas.get(jogador).getFichasAtuais()>valorJogada)
+        {
+            apostas.get(jogador).fazerApostaNumero(valorJogada, numero);
+            return true;
+        }
+        else
+            return false;
+        
+        
+    }
+    
+    public boolean fazerApostaCorNumero(Jogador jogador,Integer valorJogada,String jogada){
+        
+        if(apostas.get(jogador).getFichasAtuais()>valorJogada)
+        {
+            apostas.get(jogador).fazerApostaCorNumero(valorJogada, jogada);
+            return true;
+        }
+        else
+            return false;
+        
+    }
+    
+    public void proximoJogador(){
+        
+        
         
     }
     
@@ -87,11 +130,59 @@ public class Roleta extends Observable implements JogoCasino{
         for(int i=0;i<numeroGerado;i++)
         {
             Thread.currentThread().sleep(200);
-            numeroAtual++;
+            if(numeroAtual==19)
+            {
+                numeroAtual=1;
+                if(corAtual.equals("vermelho"))
+                    corAtual="preto";
+                else
+                    corAtual="vermelho";
+            }
             setChanged();
             notifyObservers();
+            numeroAtual++;
         }
+        checarVencedor();
+        numeroAtual=1;
+        corAtual="vermelho";
         
+    }
+    
+    public void checarVencedor(){
+        
+        String testeCorNumero = "";
+        testeCorNumero += corAtual + numeroAtual;
+        Set<Jogador> k = apostas.keySet();
+        Iterator<Jogador> it = k.iterator();
+        while(it.hasNext())
+        {
+            Jogador aux = it.next();
+            if(apostas.get(aux).getCor().equals(corAtual))
+            {
+                ganhadores.put(aux,apostas.get(aux).getFichasApostadas()*2);
+                apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*2);
+                lucroAtual-=apostas.get(aux).getFichasApostadas()*1;
+            }
+            else if(apostas.get(aux).getNumero().equals(numeroAtual))
+            {
+                ganhadores.put(aux,apostas.get(aux).getFichasApostadas()*4);
+                apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*4);
+                lucroAtual-=apostas.get(aux).getFichasApostadas()*3;
+            }
+            else if(apostas.get(aux).getCorNumero().equals(testeCorNumero))
+            {
+                ganhadores.put(aux,apostas.get(aux).getFichasApostadas()*8);
+                apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*8);
+                lucroAtual-=apostas.get(aux).getFichasApostadas()*7;
+            }
+            else
+            {
+                lucroAtual+=apostas.get(aux).getFichasApostadas();
+            }           
+            apostas.get(aux).setFichasApostadas(0);
+        }
+        setChanged();
+        notifyObservers();
     }
 
     @Override

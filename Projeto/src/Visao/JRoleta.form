@@ -735,17 +735,29 @@
     <Component class="javax.swing.JRadioButton" name="jRadioButtonNumero">
       <Properties>
         <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
+        <Property name="name" type="java.lang.String" value="numero" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonNumeroMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonCor">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cor"/>
+        <Property name="name" type="java.lang.String" value="cor" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonCorMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonCoreNumero">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cor e N&#xfa;mero"/>
+        <Property name="name" type="java.lang.String" value="corNumero" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonCoreNumeroMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelApostaRealizada">
       <Properties>
@@ -764,6 +776,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldCor">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="cor" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="caretPositionChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="jTextFieldCorCaretPositionChanged"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCorKeyPressed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCorKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelNumero">
       <Properties>
@@ -774,6 +794,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNumero">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="numero" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNumeroKeyPressed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNumeroKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelValorDeAposta">
       <Properties>
@@ -784,6 +811,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldValorDeAposta">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="aposta" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldValorDeApostaKeyPressed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldValorDeApostaKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelJogadorAtual">
       <Properties>
@@ -811,6 +845,7 @@
           <Font name="Ubuntu" size="15" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Pr&#xf3;ximo Jogador"/>
+        <Property name="name" type="java.lang.String" value="proximo" noResource="true"/>
       </Properties>
     </Component>
   </SubComponents>

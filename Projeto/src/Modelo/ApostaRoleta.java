@@ -12,15 +12,43 @@ package Modelo;
 public class ApostaRoleta {
 
     private Integer fichasApostadas;
-    private String aposta;
+    private String cor;
+    private String corNumero;
+    private int numero;
     private Integer fichasAtuais;
     
     public ApostaRoleta(Integer fichasAtuais){
         
         fichasApostadas = 0;
-        aposta = "";
+        this.cor=null;
+        this.corNumero=null;
+        this.numero=0;
         this.fichasAtuais = fichasAtuais;
         
+    }
+    
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public String getCorNumero() {
+        return corNumero;
+    }
+
+    public void setCorNumero(String corNumero) {
+        this.corNumero = corNumero;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
     }
     
     public Integer getFichasApostadas() {
@@ -29,14 +57,6 @@ public class ApostaRoleta {
 
     public void setFichasApostadas(Integer fichasApostadas) {
         this.fichasApostadas = fichasApostadas;
-    }
-
-    public String getAposta() {
-        return aposta;
-    }
-
-    public void setAposta(String aposta) {
-        this.aposta = aposta;
     }
     
     public Integer getFichasAtuais() {
@@ -47,11 +67,27 @@ public class ApostaRoleta {
         this.fichasAtuais = fichasAtuais;
     }
     
-    public void fazerAposta(Integer fichasApostadas, String aposta){
+    public void fazerApostaNumero(Integer fichasApostadas, int numero){
         
         this.fichasApostadas = fichasApostadas;
-        this.aposta = aposta;
         this.fichasAtuais -= fichasApostadas; 
+        this.setNumero(numero);
+        
+    }
+    
+    public void fazerApostaCor(Integer fichasApostadas, String cor){
+        
+        this.fichasApostadas = fichasApostadas;
+        this.fichasAtuais -= fichasApostadas; 
+        this.setCor(cor);
+        
+    }
+    
+    public void fazerApostaCorNumero(Integer fichasApostadas, String corNumero){
+        
+        this.fichasApostadas = fichasApostadas;
+        this.fichasAtuais -= fichasApostadas; 
+        this.setCorNumero(corNumero);
         
     }
     
