@@ -12,20 +12,47 @@ import java.util.Set;
 
 
 public class Menu {
+
     //Integer usado aqui é para HashMap que não aceita tipo primitivo, mas ele funciona como um
     //Vamos evitar usar tipos primitivos em toda aplicação que tia Lulu vai gostar rs
     
     private HashMap<Jogador,Integer> casino;
     private ArrayList<JogoCasino> jogos;
     
-    public void addFichas(Jogador jogador,Integer fichasExtras){
-        Integer fichas = this.casino.get(jogador) + fichasExtras;
-        //Conferir metodo merge do HashMap para talvez implementar aqui
-        this.casino.remove(jogador);
-        this.casino.put(jogador, fichas);
+    public Menu(){
+        
+        casino = new HashMap<Jogador,Integer>();
+        jogos = new ArrayList<JogoCasino>();
+        
+    }
+    
+    public HashMap<Jogador,Integer> getCasino() {
+        return casino;
+    }
+
+    public void setCasino(HashMap<Jogador,Integer> casino) {
+        this.casino = casino;
+    }
+    
+    public void addFichas(String nome,Integer fichasExtras){
+        Set k = casino.keySet();
+        Iterator<Jogador> it = k.iterator();
+        Jogador aux;
+        while(it.hasNext()){
+            aux = it.next();
+            if(aux.getNome().equals(nome))
+            {
+                Integer i = casino.get(aux);
+                i+=fichasExtras;
+                casino.remove(aux);
+                casino.put(aux, i);
+                printarJogadores();
+            }
+        }
+        
     }
     public String exibeFichasJogador(Jogador jogador){
-        return casino.get(jogador).toString();
+        return getCasino().get(jogador).toString();
     }
     
     public Integer lucroDoDia(){
@@ -83,7 +110,7 @@ public class Menu {
         if(jogador.getIdade() >= IDADEMINIMA && fichas >= FICHASMINIMAS){
             if(this.firstTime(jogador))
                 this.regJogador(jogador);
-            casino.put(jogador, fichas);
+            getCasino().put(jogador, fichas);
             this.addVez(jogador);
             return true;
         }
@@ -109,14 +136,28 @@ public class Menu {
         Jogador aux;
         while(it.hasNext()){
             aux = it.next();
-            this.casino.put(aux, jogador.get(aux));
+            this.getCasino().put(aux, jogador.get(aux));
         }
+        System.out.println("Colocado");
+        printarJogadores();
+    }
+    
+    public void printarJogadores(){
+
+        Set<Jogador> set = getCasino().keySet();
+        Iterator<Jogador> it = set.iterator();
+        Jogador aux;
+        while(it.hasNext()){
+            aux = it.next();
+            System.out.println(aux.getDados() + " " + getCasino().get(aux));
+        }
+        
     }
     
     public void sairDoCasino(Jogador jogador) throws JogadorNaoEncontradoException{
         if(!this.casino.containsKey(jogador))
             throw new JogadorNaoEncontradoException();
-        this.casino.remove(jogador);
+        this.getCasino().remove(jogador);
     }
     
     public final static Integer IDADEMINIMA = 21;

@@ -5,6 +5,10 @@
  */
 package Visao;
 import Controle.LojaHandler;
+import Modelo.Jogador;
+import Modelo.Menu;
+import java.util.HashMap;
+import java.util.Set;
 
 /**
  *
@@ -14,13 +18,15 @@ public class JLoja extends javax.swing.JFrame {
 
     LojaHandler h;
     JMenu menu;
+    Menu modeloMenu;
     
     /**
      * Creates new form JLoja
      */
-    public JLoja(LojaHandler h, JMenu menu) {
+    public JLoja(LojaHandler h, JMenu menu, Menu modeloMenu) {
         this.h = h;
         this.menu = menu;
+        this.modeloMenu = modeloMenu;
         initComponents();
     }
 
@@ -37,6 +43,11 @@ public class JLoja extends javax.swing.JFrame {
         jLabelTítulo = new javax.swing.JLabel();
         jSeparatorBaixo = new javax.swing.JSeparator();
         jSeparatorCima = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldNome = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextFieldFichas = new javax.swing.JTextField();
+        jButtonComprar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,10 +58,50 @@ public class JLoja extends javax.swing.JFrame {
                 jButtonMenuMousePressed(evt);
             }
         });
+        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMenuActionPerformed(evt);
+            }
+        });
 
         jLabelTítulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabelTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTítulo.setText("Loja");
+
+        jLabel1.setText("Nome do jogador:");
+
+        jTextFieldNome.setName("nome"); // NOI18N
+        jTextFieldNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldNomeKeyReleased(evt);
+            }
+        });
+
+        jLabel2.setText("Fichas:");
+
+        jTextFieldFichas.setName("fichas"); // NOI18N
+        jTextFieldFichas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFichasActionPerformed(evt);
+            }
+        });
+        jTextFieldFichas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldFichasKeyReleased(evt);
+            }
+        });
+
+        jButtonComprar.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
+        jButtonComprar.setText("Comprar");
+        jButtonComprar.setName("comprar"); // NOI18N
+        jButtonComprar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonComprarMousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonComprarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,13 +110,25 @@ public class JLoja extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonMenu))
-                    .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelTítulo, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
-                    .addComponent(jSeparatorCima, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabelTítulo, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                    .addComponent(jSeparatorCima, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldNome)
+                            .addComponent(jTextFieldFichas, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jSeparatorBaixo))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonComprar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonMenu)
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,11 +137,21 @@ public class JLoja extends javax.swing.JFrame {
                 .addComponent(jLabelTítulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparatorCima, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
-                .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonMenu)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextFieldFichas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonMenu)
+                    .addComponent(jButtonComprar))
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -90,14 +163,43 @@ public class JLoja extends javax.swing.JFrame {
         menu.setVisible(true);
     }//GEN-LAST:event_jButtonMenuMousePressed
 
+    private void jButtonComprarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonComprarMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonComprarMousePressed
+
+    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonMenuActionPerformed
+
+    private void jTextFieldFichasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFichasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldFichasActionPerformed
+
+    private void jTextFieldNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNomeKeyReleased
+        h.keyReleased(evt);
+    }//GEN-LAST:event_jTextFieldNomeKeyReleased
+
+    private void jTextFieldFichasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldFichasKeyReleased
+        h.keyReleased(evt);
+    }//GEN-LAST:event_jTextFieldFichasKeyReleased
+
+    private void jButtonComprarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonComprarMouseClicked
+        h.mouseClicked(evt);
+    }//GEN-LAST:event_jButtonComprarMouseClicked
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonComprar;
     private javax.swing.JButton jButtonMenu;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelTítulo;
     private javax.swing.JSeparator jSeparatorBaixo;
     private javax.swing.JSeparator jSeparatorCima;
+    private javax.swing.JTextField jTextFieldFichas;
+    private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables
 }

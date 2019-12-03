@@ -18,11 +18,11 @@ public class Main {
         JInstrucoes instrucoes = new JInstrucoes(ih,janelaMenu);
         mh.setInstrucoes(instrucoes);
         
-        LojaHandler lh = new LojaHandler();
-        JLoja loja = new JLoja(lh, janelaMenu);
+        LojaHandler lh = new LojaHandler(modeloMenu);
+        JLoja loja = new JLoja(lh, janelaMenu,modeloMenu);
         mh.setLoja(loja);
         
-        CadastroHandler ch = new CadastroHandler();
+        CadastroHandler ch = new CadastroHandler(modeloMenu);
         JCadastro cadastro = new JCadastro(ch,janelaMenu);
         mh.setCadastro(cadastro);
         
