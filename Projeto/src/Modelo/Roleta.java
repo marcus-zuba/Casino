@@ -8,36 +8,30 @@ package Modelo;
 import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Observable;
 import java.util.Set;
 
 /**
  *
  * @author Tony
  */
-public class Roleta extends Observable implements JogoCasino{
+public class Roleta extends JogoCasino{
 
 
     private HashMap <Jogador,ApostaRoleta> apostas;
     private HashMap <Jogador,Integer> ganhadores;
-    private Integer apostaMinima = 100;
-    private Integer numeroMaximo;
     private Integer lucroAtual;
     private String corAtual;
-    private String nome;
     private SecureRandom gerador;
     private int numeroAtual;
     
     public Roleta() {
-        
-        nome = "Roleta";
+        super("Roleta",100);
         corAtual = "vermelho";
         numeroAtual = 1;
         lucroAtual=0;
         gerador = new SecureRandom();
-        apostas = new HashMap<Jogador,ApostaRoleta>();
-        ganhadores = new HashMap<Jogador,Integer>();
-        numeroMaximo = JogoCasino.LIMITE_BOM_SENSO_ARBITRARIO;
+        apostas = new HashMap<>();
+        ganhadores = new HashMap<>();
         
     }
     
@@ -68,16 +62,16 @@ public class Roleta extends Observable implements JogoCasino{
     }
     
     @Override
-    public boolean adicionarJogador(Jogador jogador, Integer fichas){
+    public void adicionarJogador(Jogador jogador, Integer fichas) throws FichasInsuficientesException{
         
         if(fichas>=apostaMinima)
         {
+            super.adicionarJogador(jogador, fichas);
             ApostaRoleta temp = new ApostaRoleta(fichas);
             apostas.put(jogador, temp);
-            return true;
         }
         else
-            return false;
+            throw new FichasInsuficientesException();
             
     }
     
@@ -185,75 +179,42 @@ public class Roleta extends Observable implements JogoCasino{
         notifyObservers();
     }
 
-    @Override
-    public String getNomeJogo() {
+    //Remove todos os jogadores do jogo e retorna o HashMap de todos os jogadores removidos com suas respectivas fichas
+    public HashMap<Jogador, Integer> removeTodosOsJogadores() {
         
-        return nome;
-        
-    }
-
-    @Override
-    public Integer getApostaMinima() {
-        
-        return apostaMinima;
-        
-    }
-
-    @Override
-    public Integer getNumeroMaximoJogadores() {
-        
-        return numeroMaximo;
-        
-    }
-
-    @Override
-    public HashMap<Jogador, Integer> getJogadores() {
-        
-        HashMap<Jogador,Integer> jogadores = new HashMap<Jogador,Integer>();
+        HashMap<Jogador,Integer> response = new HashMap<>();
         Set<Jogador> k = apostas.keySet();
         Iterator<Jogador> it = k.iterator();
         while(it.hasNext())
         {
             Jogador aux = it.next();
-            jogadores.put(aux, apostas.get(aux).getFichasAtuais());
-            apostas.remove(aux);
+            response.put(aux, apostas.get(aux).getFichasAtuais());
+            try{
+                this.retiraDoJogo(aux);
+            }catch(JogadorNaoEncontradoException e){
+                System.err.println("HashMap de apostas: "+e.getMessage());
+            }
         }
-        return jogadores;
+        return response;
         
     }
 
     @Override
     public HashMap<Jogador, Integer> retiraDoJogo(Jogador jogador) throws JogadorNaoEncontradoException {
 
-        HashMap<Jogador,Integer> jogadorRetirado = new HashMap<Jogador,Integer>();
-        if(apostas.get(jogador)!=null)
+        HashMap<Jogador,Integer> jogadorRetirado = new HashMap<>();
+        if(apostas.containsKey(jogador))
         {
+            try{
+                super.retiraDoJogo(jogador);
+            }catch(JogadorNaoEncontradoException e){
+                System.err.println("HashMap de jogadores da Roleta: "+e.getMessage());
+            }
             jogadorRetirado.put(jogador, apostas.get(jogador).getFichasAtuais());
             apostas.remove(jogador);
+            return jogadorRetirado;
         }
-        else
-            throw new JogadorNaoEncontradoException();
-        return jogadorRetirado;
-        
-    }
-
-    @Override
-    public HashMap<Jogador, Integer> confereFichas() {
-        
-        HashMap<Jogador,Integer> jogadores = new HashMap<Jogador,Integer>();
-        Set<Jogador> k = apostas.keySet();
-        Iterator<Jogador> it = k.iterator();
-        while(it.hasNext())
-        {
-            Jogador aux = it.next();
-            if(apostas.get(aux).getFichasAtuais()<apostaMinima)
-            {
-                jogadores.put(aux, apostas.get(aux).getFichasAtuais());
-                apostas.remove(aux);
-            }
-        }
-        return jogadores;
-        
+        throw new JogadorNaoEncontradoException();        
     }
     
 }
