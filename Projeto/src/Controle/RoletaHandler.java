@@ -7,6 +7,7 @@ package Controle;
 
 import Modelo.Jogador;
 import Modelo.Roleta;
+import Modelo.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -27,6 +28,7 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
 
 
     private Roleta roleta;
+    private Menu menu;
     private String apostaAtual;
     private Jogador jogadorAtual;
     private String corAtual;
@@ -42,9 +44,10 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
     }
     
     
-    public RoletaHandler(Roleta roleta){
+    public RoletaHandler(Roleta roleta,Menu menu){
         
         this.roleta = roleta;
+        this.menu = menu;
         apostaAtual="";
         
     }
@@ -109,7 +112,10 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
 
     @Override
     public void mousePressed(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(me.getComponent().getName().equals("Menu")){
+            roleta.setVisible(false);
+            menu.setVisible(true);
+        }
     }
 
     @Override

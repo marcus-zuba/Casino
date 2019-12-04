@@ -6,6 +6,7 @@
 package Visao;
 
 import Controle.CadastroHandler;
+import Modelo.Cadastro;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -13,18 +14,21 @@ import java.util.Observer;
  *
  * @author eduardocorno
  */
-public class JCadastro extends javax.swing.JFrame{
+public class JCadastro extends javax.swing.JFrame implements Observer{
 
     CadastroHandler h;
-    JMenu menu;
+    Cadastro modeloCadastro;
     
     /**
      * Creates new form JCadastro
      */
-    public JCadastro(CadastroHandler h, JMenu menu) {
-        this.menu=menu;
+    public JCadastro(CadastroHandler h, Cadastro modeloCadastro) {
+        this.modeloCadastro=modeloCadastro;
         this.h=h;
         initComponents();
+        jButtonMenu.setName("Menu");
+        modeloCadastro.addObserver(this);
+        this.update(modeloCadastro, this);
     }
 
     /**
@@ -170,8 +174,7 @@ public class JCadastro extends javax.swing.JFrame{
 
     private void jButtonMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMousePressed
         // TODO add your handling code here:
-        this.setVisible(false);
-        menu.setVisible(true);
+        h.mousePressed(evt);
     }//GEN-LAST:event_jButtonMenuMousePressed
 
     private void jTextFieldRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRGActionPerformed
@@ -219,5 +222,10 @@ public class JCadastro extends javax.swing.JFrame{
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldRG;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        this.setVisible(modeloCadastro.isVisible());
+    }
 
 }

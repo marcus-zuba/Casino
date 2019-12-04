@@ -5,29 +5,32 @@
  */
 package Visao;
 import Controle.LojaHandler;
-import Modelo.Jogador;
+import Modelo.Loja;
 import Modelo.Menu;
-import java.util.HashMap;
-import java.util.Set;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  *
  * @author eduardo
  */
-public class JLoja extends javax.swing.JFrame {
+public class JLoja extends javax.swing.JFrame implements Observer{
 
     LojaHandler h;
-    JMenu menu;
     Menu modeloMenu;
+    Loja modeloLoja;
     
     /**
      * Creates new form JLoja
      */
-    public JLoja(LojaHandler h, JMenu menu, Menu modeloMenu) {
+    public JLoja(LojaHandler h, Menu modeloMenu, Loja modeloLoja) {
         this.h = h;
-        this.menu = menu;
         this.modeloMenu = modeloMenu;
+        this.modeloLoja = modeloLoja;
         initComponents();
+        jButtonMenu.setName("Menu");
+        modeloLoja.addObserver(this);
+        this.update(modeloLoja, this);
     }
 
     /**
@@ -159,8 +162,7 @@ public class JLoja extends javax.swing.JFrame {
 
     private void jButtonMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMousePressed
         // TODO add your handling code here:
-        this.setVisible(false);
-        menu.setVisible(true);
+        h.mousePressed(evt);
     }//GEN-LAST:event_jButtonMenuMousePressed
 
     private void jButtonComprarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonComprarMousePressed
@@ -187,6 +189,10 @@ public class JLoja extends javax.swing.JFrame {
         h.mouseClicked(evt);
     }//GEN-LAST:event_jButtonComprarMouseClicked
 
+    private void setNames(){
+        jButtonMenu.setName("Menu");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -202,4 +208,9 @@ public class JLoja extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldFichas;
     private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        this.setVisible(modeloLoja.isVisible());
+    }
 }

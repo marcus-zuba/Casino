@@ -5,24 +5,32 @@
  */
 package Visao;
 import Controle.JackpotHandler;
+import Modelo.Jackpot;
+import java.awt.Color;
+import java.util.Observable;
+import java.util.Observer;
 /**
  *
  * @author Tony
  */
-public class JCacaNiquel extends javax.swing.JFrame {
+public class JJackpot extends javax.swing.JFrame implements Observer {
 
-    JackpotHandler h;
-    JMenu menu;
+    JackpotHandler handler;
+    Jackpot modelo;
     JInstrucoesJackpot instrucoes;
     
     /**
      * Creates new form JJackpot
      */
-    public JCacaNiquel(JackpotHandler h, JMenu menu) {
-        this.h = h;
-        this.menu = menu;
-        instrucoes = new JInstrucoesJackpot(h);
+    public JJackpot(Jackpot modelo, JackpotHandler handler) {
+        this.handler = handler;
+        this.modelo = modelo;
+        instrucoes = new JInstrucoesJackpot(modelo, handler);
         initComponents();
+        setNames();
+        initialize();
+        this.modelo.addObserver(this);
+        update(modelo, this);
     }
 
     /**
@@ -78,6 +86,11 @@ public class JCacaNiquel extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jButton1.setText("Jogar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
 
         jLabelJogadorAtual.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
         jLabelJogadorAtual.setText("Jogador 1");
@@ -167,19 +180,37 @@ public class JCacaNiquel extends javax.swing.JFrame {
 
     private void jButtonMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMousePressed
         // TODO add your handling code here:
-        this.setVisible(false);
-        menu.setVisible(true);
+        handler.mousePressed(evt);
     }//GEN-LAST:event_jButtonMenuMousePressed
 
     private void jButtonRegrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegrasMousePressed
         // TODO add your handling code here:
-        this.setVisible(false);
-        instrucoes.setVisible(true);
+        handler.mousePressed(evt);
     }//GEN-LAST:event_jButtonRegrasMousePressed
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        // TODO add your handling code here:
+        handler.mousePressed(evt);
+    }//GEN-LAST:event_jButton1MousePressed
 
     /**
      * @param args the command line arguments
      */
+    
+    private void initialize(){
+        jTextField3.setOpaque(true);
+        jTextField4.setOpaque(true);
+        jTextField5.setOpaque(true);
+        jTextField3.setBackground(Color.RED);
+        jTextField4.setBackground(Color.BLUE);
+        jTextField5.setBackground(Color.GREEN);    
+    }
+       
+    private void setNames(){
+        jButton1.setName("Jogar");
+        jButtonMenu.setName("Menu");
+        jButtonRegras.setName("Regras");
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -196,4 +227,9 @@ public class JCacaNiquel extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextFieldValorDeAposta;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        this.setVisible(modelo.isVisible());
+    }
 }

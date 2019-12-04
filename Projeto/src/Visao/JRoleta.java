@@ -33,6 +33,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         instrucoes = new JInstrucoesRoleta(h);
         this.roleta=roleta;
         initComponents();
+        jButtonMenu.setName("Menu");
         roleta.addObserver(this);
         update(roleta,this);
     }
@@ -587,8 +588,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
 
     private void jButtonMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMousePressed
         // TODO add your handling code here:
-        this.setVisible(false);
-        menu.setVisible(true);
+        h.mousePressed(evt);
     }//GEN-LAST:event_jButtonMenuMousePressed
 
     private void jButtonSortearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSortearMouseClicked
@@ -724,8 +724,8 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
     @Override
     public void update(Observable o, Object o1) {
         
-        String num = "";
-        num += roleta.getNumeroAtual();
+        this.setVisible(roleta.isVisible());
+        String num = Integer.toString(roleta.getNumeroAtual());
         jButtonNumeroSorteado.setText(num);
         String cor = "";
         cor += roleta.getCorAtual();

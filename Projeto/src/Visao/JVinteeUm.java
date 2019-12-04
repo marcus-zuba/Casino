@@ -5,25 +5,31 @@
  */
 package Visao;
 import Controle.VinteeUmHandler;
+import Modelo.VinteeUm;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  *
  * @author eduardo
  */
-public class JVinteeUm extends javax.swing.JFrame {
+public class JVinteeUm extends javax.swing.JFrame implements Observer{
     
     VinteeUmHandler h;
-    JMenu menu;
+    VinteeUm modelo;
     JInstrucoesVinteeUm instrucoes;
 
     /**
      * Creates new form JVinteeUm
      */
-    public JVinteeUm(VinteeUmHandler h, JMenu menu) {
+    public JVinteeUm(VinteeUmHandler h, VinteeUm modelo) {
         this.h = h;
-        this.menu=menu;
+        this.modelo=modelo;
         instrucoes = new JInstrucoesVinteeUm(h,this);
         initComponents();
+        jButtonMenu.setName("Menu");
+        modelo.addObserver(this);
+        this.update(modelo, this);
     }
 
     /**
@@ -230,8 +236,7 @@ public class JVinteeUm extends javax.swing.JFrame {
 
     private void jButtonMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
-        menu.setVisible(true);
+        h.mousePressed(evt);
     }//GEN-LAST:event_jButtonMenuMouseClicked
 
     /**
@@ -257,4 +262,9 @@ public class JVinteeUm extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorBaixo;
     private javax.swing.JSeparator jSeparatorCima;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        this.setVisible(modelo.isVisible());
+    }
 }

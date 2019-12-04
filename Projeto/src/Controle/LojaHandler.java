@@ -5,13 +5,12 @@
  */
 package Controle;
 
-import Modelo.Jogador;
+import Modelo.Loja;
 import Modelo.Menu;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.HashMap;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -23,11 +22,13 @@ public class LojaHandler implements MouseListener,KeyListener {
 
     private String nomeAtual;
     private Integer fichasAtuais;
-    private Menu menu;
+    private Loja modeloLoja;
+    private Menu modeloMenu;
     
-    public LojaHandler(Menu menu){
+    public LojaHandler(Loja modeloLoja,Menu modeloMenu){
         
-        this.menu=menu;
+        this.modeloLoja=modeloLoja;
+        this.modeloMenu=modeloMenu;
         
     }
     
@@ -37,14 +38,17 @@ public class LojaHandler implements MouseListener,KeyListener {
         {
             if(((JButton)me.getSource()).getName().equals("comprar"))
             {
-                menu.addFichas(nomeAtual, fichasAtuais);
+                modeloLoja.addFichas(nomeAtual, fichasAtuais);
             }
         }
     }
 
     @Override
     public void mousePressed(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(me.getComponent().getName().equals("Menu")){
+            modeloMenu.setVisible(true);
+            modeloLoja.setVisible(false);
+        }
     }
 
     @Override

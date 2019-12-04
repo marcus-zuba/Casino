@@ -5,8 +5,7 @@
  */
 package Controle;
 
-import Modelo.Menu;
-import Visao.JCacaNiquel;
+import Modelo.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -14,13 +13,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import Visao.JCadastro;
-import Visao.JInstrucoes;
-import Visao.JLoja;
-import Visao.JMenu;
-import Visao.JRoleta;
-import Visao.JVinteeUm;
-import javax.swing.JButton;
 /**
  *
  * @author Tony
@@ -28,49 +20,48 @@ import javax.swing.JButton;
 public class MenuHandler implements ActionListener, MouseListener, KeyListener{
     
     Menu modeloMenu;
+    Roleta modeloRoleta;
+    Jackpot modeloJackpot;
+    VinteeUm modelo21;
+    Loja modeloLoja;
+    Cadastro modeloCadastro;
+    Instrucoes modeloInstrucoes;
     
-    JMenu menu;
-    JInstrucoes instrucoes;
-    JLoja loja;
-    JCadastro cadastro;
-    JRoleta roleta;
-    JCacaNiquel jackpot;
-    JVinteeUm vinteeum;
     
     public MenuHandler(Menu modeloMenu){
         
         this.modeloMenu=modeloMenu;
         
     }
-    
-    public void setMenu(JMenu menu){
-        this.menu=menu;
+
+    public void setModeloMenu(Menu modeloMenu) {
+        this.modeloMenu = modeloMenu;
     }
 
-    public void setInstrucoes(JInstrucoes instrucoes) {
-        this.instrucoes = instrucoes;
+    public void setModeloRoleta(Roleta modeloRoleta) {
+        this.modeloRoleta = modeloRoleta;
     }
 
-    public void setLoja(JLoja loja) {
-        this.loja = loja;
+    public void setModeloJackpot(Jackpot modeloJackpot) {
+        this.modeloJackpot = modeloJackpot;
     }
 
-    public void setCadastro(JCadastro cadastro) {
-        this.cadastro = cadastro;
+    public void setModelo21(VinteeUm modelo21) {
+        this.modelo21 = modelo21;
     }
 
-    public void setRoleta(JRoleta roleta) {
-        this.roleta = roleta;
-    }
-    
-    public void setVinteeum(JVinteeUm vinteeum) {
-        this.vinteeum = vinteeum;
+    public void setModeloLoja(Loja modeloLoja) {
+        this.modeloLoja = modeloLoja;
     }
 
-    public void setJackpot(JCacaNiquel jackpot) {
-        this.jackpot = jackpot;
+    public void setModeloCadastro(Cadastro modeloCadastro) {
+        this.modeloCadastro = modeloCadastro;
     }
-    
+
+    public void setModeloInstrucoes(Instrucoes modeloInstrucoes) {
+        this.modeloInstrucoes = modeloInstrucoes;
+    }
+        
     @Override
     public void actionPerformed(ActionEvent arg0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -84,32 +75,34 @@ public class MenuHandler implements ActionListener, MouseListener, KeyListener{
     @Override
     public void mousePressed(MouseEvent e) {
         
-        if(e.getComponent().getName().equals("Instrucoes")){
-            instrucoes.setVisible(true);
-            menu.setVisible(false);
+        switch (e.getComponent().getName()) {
+            case "Instrucoes":
+                modeloInstrucoes.setVisible(true);
+                modeloMenu.setVisible(false);
+                break;
+            case "Cadastro":
+                modeloCadastro.setVisible(true);
+                modeloMenu.setVisible(false);
+                break;
+            case "21":
+                modelo21.setVisible(true);
+                modeloMenu.setVisible(false);
+                break;
+            case "Loja":
+                modeloLoja.setVisible(true);
+                modeloMenu.setVisible(false);
+                break;
+            case "Jackpot":
+                modeloJackpot.setVisible(true);
+                modeloMenu.setVisible(false);
+                break;
+            case "Roleta":
+                modeloMenu.setVisible(false);
+                modeloRoleta.setVisible(true);
+                break;
+            default:
+                break;
         }
-        else if(e.getComponent().getName().equals("Cadastro")){
-            cadastro.setVisible(true);
-            menu.setVisible(false);
-        }
-        else if(e.getComponent().getName().equals("21")){
-            vinteeum.setVisible(true);
-            menu.setVisible(false);
-        }
-        else if(e.getComponent().getName().equals("Loja")){
-            loja.setVisible(true);
-            menu.setVisible(false);
-        }
-        else if(e.getComponent().getName().equals("Jackpot")){
-            jackpot.setVisible(true);
-            menu.setVisible(false);
-        }
-        else if(e.getComponent().getName().equals("Roleta")){
-            roleta.setVisible(true);
-            menu.setVisible(false);
-        }
-        
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 

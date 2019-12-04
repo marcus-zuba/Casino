@@ -5,20 +5,29 @@
  */
 package Visao;
 import Controle.JackpotHandler;
+import Modelo.Jackpot;
+import java.util.Observable;
+import java.util.Observer;
 /**
  *
  * @author eduardo
  */
-public class JInstrucoesJackpot extends javax.swing.JFrame {
+public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
 
     JackpotHandler h;
+    Jackpot modelo;
     
     /**
      * Creates new form JInstrucoesJackpot
      */
-    public JInstrucoesJackpot(JackpotHandler h) {
+    public JInstrucoesJackpot(Jackpot modelo, JackpotHandler h) {
+        this.modelo=modelo;
         this.h = h;
         initComponents();
+        jButtonMenu.setName("InstrucoesMenu");
+        jButtonComecar.setName("Comecar");
+        modelo.addObserver(this);
+        this.update(modelo, this);
     }
 
     /**
@@ -55,12 +64,22 @@ public class JInstrucoesJackpot extends javax.swing.JFrame {
 
         jButtonComecar.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
         jButtonComecar.setText("Começar");
+        jButtonComecar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JInstrucoesJackpot.this.mousePressed(evt);
+            }
+        });
 
         jButtonConfirmar.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
         jButtonConfirmar.setText("Confirmar");
 
         jButtonMenu.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonMenu.setText("Menu");
+        jButtonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JInstrucoesJackpot.this.mousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,6 +140,11 @@ public class JInstrucoesJackpot extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void mousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mousePressed
+        // TODO add your handling code here:
+        h.mousePressed(evt);
+    }//GEN-LAST:event_mousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -136,4 +160,10 @@ public class JInstrucoesJackpot extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorCima;
     private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        this.setVisible(modelo.regrasIsVisible());
+        this.setEnabled(modelo.regrasIsVisible());
+    }
 }

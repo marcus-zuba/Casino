@@ -6,24 +6,30 @@
 package Visao;
 
 import Controle.InstrucoesHandler;
+import Modelo.Instrucoes;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  *
  * @author eduardo
  */
-public class JInstrucoes extends javax.swing.JFrame {
+public class JInstrucoes extends javax.swing.JFrame implements Observer {
 
     InstrucoesHandler ih;
-    JMenu menu;
+    Instrucoes modeloInstrucoes;
     
     /**
      * Creates new form JInstrucoes
      * @param ih
      */
-    public JInstrucoes(InstrucoesHandler ih,JMenu menu) {
+    public JInstrucoes(InstrucoesHandler ih,Instrucoes modeloInstrucoes) {
         this.ih=ih;
-        this.menu=menu;
+        this.modeloInstrucoes=modeloInstrucoes;
         initComponents();
+        jButtonMenu.setName("Menu");
+        modeloInstrucoes.addObserver(this);
+        this.update(modeloInstrucoes, this);
     }
 
     /**
@@ -88,8 +94,7 @@ public class JInstrucoes extends javax.swing.JFrame {
 
     private void jButtonMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMousePressed
         // TODO add your handling code here:
-        this.setVisible(false);
-        menu.setVisible(true);
+        ih.mousePressed(evt);
     }//GEN-LAST:event_jButtonMenuMousePressed
 
     /**
@@ -134,4 +139,10 @@ public class JInstrucoes extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorBaixo;
     private javax.swing.JSeparator jSeparatorCima;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        this.setVisible(modeloInstrucoes.isVisible());
+
+    }
 }

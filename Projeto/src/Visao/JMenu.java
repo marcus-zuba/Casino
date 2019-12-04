@@ -4,24 +4,30 @@
  * and open the template in the editor.
  */
 package Visao;
-import Modelo.*;
 import Controle.MenuHandler;
+import Modelo.Menu;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  *
  * @author Tony
  */
-public class JMenu extends javax.swing.JFrame {
+public class JMenu extends javax.swing.JFrame implements Observer {
     
     MenuHandler h;
+    Menu modelo;
     
     /**
      * Creates new form Principal
      */
-    public JMenu(MenuHandler h) {
+    public JMenu(MenuHandler h, Menu modelo) {
         this.h=h;
+        this.modelo = modelo;
         initComponents();
         setNames();
+        modelo.addObserver(this);
+        update(modelo, this);
     }
 
     /**
@@ -227,4 +233,10 @@ public class JMenu extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorBaixo;
     private javax.swing.JSeparator jSeparatorCima;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        this.setVisible(modelo.isVisible());
+        this.setEnabled(modelo.isVisible());
+    }
 }

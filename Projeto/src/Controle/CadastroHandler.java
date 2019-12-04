@@ -6,7 +6,9 @@
 package Controle;
 
 import Modelo.Jogador;
+import Modelo.Cadastro;
 import Modelo.Menu;
+import Modelo.Casino;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -21,14 +23,18 @@ import javax.swing.JTextField;
  */
 public class CadastroHandler implements MouseListener,KeyListener{
 
+    private Cadastro cadastro;
+    private Casino casino;
     private Menu menu;
     
     private String nomeAtual;
     private String RGatual;
     private Integer idadeAtual;
     
-    public CadastroHandler(Menu menu){
+    public CadastroHandler(Cadastro cadastro, Casino casino, Menu menu){
         
+        this.cadastro = cadastro;
+        this.casino = casino;
         this.menu=menu;
         nomeAtual="";
         RGatual="";
@@ -46,14 +52,17 @@ public class CadastroHandler implements MouseListener,KeyListener{
                 Jogador j = new Jogador(nomeAtual,idadeAtual,RGatual);
                 Integer i = 0 ;
                 aux.put(j, i);
-                menu.colocaNoCasino(aux);
+                casino.colocaNoCasino(aux);
             }
         }
     }
 
     @Override
-    public void mousePressed(MouseEvent arg0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void mousePressed(MouseEvent e) {
+        if(e.getComponent().getName().equals("Menu")){
+            cadastro.setVisible(false);
+            menu.setVisible(true);
+        }
     }
     
 

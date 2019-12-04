@@ -16,7 +16,7 @@ import java.util.Set;
  */
 public class Roleta extends JogoCasino{
 
-
+    private boolean isVisible;
     private HashMap <Jogador,ApostaRoleta> apostas;
     private HashMap <Jogador,Integer> ganhadores;
     private Integer lucroAtual;
@@ -26,6 +26,7 @@ public class Roleta extends JogoCasino{
     
     public Roleta() {
         super("Roleta",100);
+        isVisible = false;
         corAtual = "vermelho";
         numeroAtual = 1;
         lucroAtual=0;
@@ -33,6 +34,16 @@ public class Roleta extends JogoCasino{
         apostas = new HashMap<>();
         ganhadores = new HashMap<>();
         
+    }
+    
+    public boolean isVisible(){
+        return isVisible;
+    }
+    
+    public void setVisible(boolean b){
+        isVisible = b;
+        this.setChanged();
+        this.notifyObservers();
     }
     
     public Integer getLucroAtual() {
