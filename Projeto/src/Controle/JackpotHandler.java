@@ -5,10 +5,13 @@
  */
 package Controle;
 
+import Modelo.FichasInsuficientesException;
 import Modelo.Jackpot;
 import Modelo.Menu;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -48,12 +51,16 @@ public class JackpotHandler implements MouseListener{
             modeloJackpot.setRegrasIsVisible(true);
             modeloJackpot.setVisible(false);
         } 
+        else if(e.getComponent().getName().equals("Jogar")){
+            try {
+                modeloJackpot.rodar();
+            } catch (FichasInsuficientesException ex) {
+            }
+        }
     }
 
     @Override
     public void mouseReleased(MouseEvent evt) {
-        if(evt.getComponent().getName().equals("Jogar"))
-            modeloJackpot.rodar();
     }
 
     @Override

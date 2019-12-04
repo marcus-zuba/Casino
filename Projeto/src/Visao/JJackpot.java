@@ -9,6 +9,10 @@ import Modelo.Jackpot;
 import java.awt.Color;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Tony
@@ -47,12 +51,12 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
         jLabelTítulo = new javax.swing.JLabel();
         jSeparatorBaixo = new javax.swing.JSeparator();
         jSeparatorCima = new javax.swing.JSeparator();
-        jTextField3 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jLabelValorDeAposta = new javax.swing.JLabel();
         jTextFieldValorDeAposta = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabelJogadorAtual = new javax.swing.JLabel();
 
@@ -88,7 +92,7 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
         jButton1.setText("Jogar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton1MousePressed(evt);
+                JJackpot.this.mousePressed(evt);
             }
         });
 
@@ -123,15 +127,15 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(185, 185, 185)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,9 +158,9 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -188,22 +192,22 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
         handler.mousePressed(evt);
     }//GEN-LAST:event_jButtonRegrasMousePressed
 
-    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+    private void mousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mousePressed
         // TODO add your handling code here:
         handler.mousePressed(evt);
-    }//GEN-LAST:event_jButton1MousePressed
+    }//GEN-LAST:event_mousePressed
 
     /**
      * @param args the command line arguments
      */
     
     private void initialize(){
+        jTextField2.setOpaque(true);
+        jTextField1.setOpaque(true);
         jTextField3.setOpaque(true);
-        jTextField4.setOpaque(true);
-        jTextField5.setOpaque(true);
-        jTextField3.setBackground(Color.RED);
-        jTextField4.setBackground(Color.BLUE);
-        jTextField5.setBackground(Color.GREEN);    
+        jTextField2.setEditable(false);
+        jTextField1.setEditable(false);
+        jTextField3.setEditable(false);
     }
        
     private void setNames(){
@@ -222,14 +226,99 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
     private javax.swing.JLabel jLabelValorDeAposta;
     private javax.swing.JSeparator jSeparatorBaixo;
     private javax.swing.JSeparator jSeparatorCima;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextFieldValorDeAposta;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void update(Observable arg0, Object arg1) {
+        System.out.println(modelo.getCampo1());
+        System.out.println(modelo.getCampo2());
+        System.out.println(modelo.getCampo3());
         this.setVisible(modelo.isVisible());
+        this.setEnabled(modelo.isVisible());
+        if(modelo.isVisible()){
+        //1-Vermelho 2-Azul 3-Verde 4-Amarelo 5-Preto
+            switch(modelo.getCampo1()){
+                case(10):
+                    jTextField1.setBackground(Color.WHITE);
+                    break;                
+                case(1):
+                    jTextField1.setBackground(Color.RED);
+                    break;
+                case(2):
+                    jTextField1.setBackground(Color.BLUE);
+                    break;
+                case(3):
+                    jTextField1.setBackground(Color.GREEN);
+                    break;
+                case(4):
+                    jTextField1.setBackground(Color.YELLOW);
+                    break;
+                case(0):
+                    jTextField1.setBackground(Color.BLACK);
+                    break;
+            }
+            switch(modelo.getCampo2()){
+                case(10):
+                    jTextField2.setBackground(Color.WHITE);
+                    break;
+                case(1):
+                    jTextField2.setBackground(Color.RED);
+                    break;
+                case(2):
+                    jTextField2.setBackground(Color.BLUE);
+                    break;
+                case(3):
+                    jTextField2.setBackground(Color.GREEN);
+                    break;
+                case(4):
+                    jTextField2.setBackground(Color.YELLOW);
+                    break;
+                case(0):
+                    jTextField2.setBackground(Color.BLACK);
+                    break;            
+            }
+            switch(modelo.getCampo3()){
+                case(10):
+                    jTextField3.setBackground(Color.WHITE);
+                    break;
+                case(1):
+                    jTextField3.setBackground(Color.RED);
+                    break;
+                case(2):
+                    jTextField3.setBackground(Color.BLUE);
+                    break;
+                case(3):
+                    jTextField3.setBackground(Color.GREEN);
+                    break;
+                case(4):
+                    jTextField3.setBackground(Color.YELLOW);
+                    break;
+                case(0):
+                    jTextField3.setBackground(Color.BLACK);
+                    break;
+            }
+            if(modelo.getCampo1()!=10 && modelo.getCampo2()!=10 && modelo.getCampo3()!=10){
+                this.repaint();        
+                try {
+                      TimeUnit.SECONDS.sleep(5);
+                }catch (InterruptedException ex) {
+                      Logger.getLogger(JJackpot.class.getName()).log(Level.SEVERE, null, ex);
+                }                    
+                if(modelo.verificaVitoria()){
+                        JOptionPane.showMessageDialog(this, "GANHOU CARAI", 
+                                "GANHOU", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                        JOptionPane.showMessageDialog(this, "PERDEU CARAI", 
+                                "PERDEU", JOptionPane.INFORMATION_MESSAGE);            
+                }
+            }    
+        }
     }
+        
+    
 }
