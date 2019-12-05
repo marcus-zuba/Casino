@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Observable;
@@ -16,11 +17,11 @@ import java.util.Set;
  */
 public class Loja extends Observable{
     
-    private Casino modeloCasino;
+    private Cadastro modeloCadastro;
     private boolean isVisible;
     
-    public Loja(Casino casino){
-        this.modeloCasino = casino;
+    public Loja(Cadastro cadastro){
+        this.modeloCadastro = cadastro;
         isVisible = false;
     }
     
@@ -35,21 +36,18 @@ public class Loja extends Observable{
     }
     
     public void addFichas(String nome,Integer fichasExtras){
-        HashMap <Jogador,Integer> casino = modeloCasino.getCasino();
-        Set k = casino.keySet();
-        Iterator<Jogador> it = k.iterator();
-        Jogador aux;
-        while(it.hasNext()){
-            aux = it.next();
-            if(aux.getNome().equals(nome))
+        System.out.println(nome);
+        ArrayList <Jogador> jogadores = modeloCadastro.getJogadores();
+        for(int i=0;i<jogadores.size();i++){
+            if(jogadores.get(i).getNome().equals(nome))
             {
-                Integer i = casino.get(aux);
-                i+=fichasExtras;
-                casino.remove(aux);
-                casino.put(aux, i);
-                modeloCasino.printarJogadores();
+                Jogador j = jogadores.get(i);
+                j.addFichas(fichasExtras);
+                jogadores.remove(i);
+                jogadores.add(i, j);
+//                modeloCadastro.printarJogadores();   
             }
         }
-        modeloCasino.setCasino(casino);
+        modeloCadastro.setJogadores(jogadores);
     }
 }

@@ -266,5 +266,6 @@ public class JVinteeUm extends javax.swing.JFrame implements Observer{
     @Override
     public void update(Observable arg0, Object arg1) {
         this.setVisible(modelo.isVisible());
+        this.setEnabled(modelo.isVisible());
     }
 }

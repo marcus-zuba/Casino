@@ -40,13 +40,10 @@ public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
     private void initComponents() {
 
         jLabelTítulo = new javax.swing.JLabel();
-        jLabelNome = new javax.swing.JLabel();
         jLabelInstrucoes = new javax.swing.JLabel();
         jSeparatorBaixo = new javax.swing.JSeparator();
         jSeparatorCima = new javax.swing.JSeparator();
-        jTextFieldNome = new javax.swing.JTextField();
         jButtonComecar = new javax.swing.JButton();
-        jButtonConfirmar = new javax.swing.JButton();
         jButtonMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,10 +51,6 @@ public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
         jLabelTítulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabelTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTítulo.setText("Jackpot");
-
-        jLabelNome.setFont(new java.awt.Font("Ubuntu", 2, 18)); // NOI18N
-        jLabelNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNome.setText("Insira o nome do jogador que deseja participar:");
 
         jLabelInstrucoes.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
         jLabelInstrucoes.setText("Instruções");
@@ -69,9 +62,6 @@ public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
                 JInstrucoesJackpot.this.mousePressed(evt);
             }
         });
-
-        jButtonConfirmar.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-        jButtonConfirmar.setText("Confirmar");
 
         jButtonMenu.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonMenu.setText("Menu");
@@ -87,6 +77,7 @@ public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,24 +85,13 @@ public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jButtonMenu))
                             .addComponent(jLabelTítulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparatorCima, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabelInstrucoes)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparatorCima))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButtonComecar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelInstrucoes)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelNome)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButtonConfirmar)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 502, Short.MAX_VALUE)
+                                .addComponent(jButtonComecar)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -120,15 +100,10 @@ public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
                 .addContainerGap()
                 .addComponent(jLabelTítulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparatorCima, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonConfirmar))
-                .addGap(18, 18, 18)
-                .addComponent(jLabelInstrucoes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparatorCima, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelInstrucoes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
                 .addComponent(jButtonComecar)
                 .addGap(10, 10, 10)
                 .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,14 +126,11 @@ public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonComecar;
-    private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JButton jButtonMenu;
     private javax.swing.JLabel jLabelInstrucoes;
-    private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelTítulo;
     private javax.swing.JSeparator jSeparatorBaixo;
     private javax.swing.JSeparator jSeparatorCima;
-    private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables
 
     @Override

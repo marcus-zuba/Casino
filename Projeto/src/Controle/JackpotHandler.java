@@ -53,7 +53,11 @@ public class JackpotHandler implements MouseListener{
         } 
         else if(e.getComponent().getName().equals("Jogar")){
             try {
-                modeloJackpot.rodar();
+                try {
+                    modeloJackpot.rodar();
+                } catch (InterruptedException ex) {
+//                    Logger.getLogger(JackpotHandler.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } catch (FichasInsuficientesException ex) {
             }
         }

@@ -261,6 +261,7 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
                     jTextField1.setBackground(Color.BLACK);
                     break;
             }
+            jTextField1.repaint();            
             switch(modelo.getCampo2()){
                 case(10):
                     jTextField2.setBackground(Color.WHITE);
@@ -302,19 +303,14 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
                     break;
             }
             if(modelo.getCampo1()!=10 && modelo.getCampo2()!=10 && modelo.getCampo3()!=10){
-                this.repaint();        
-                try {
-                      TimeUnit.SECONDS.sleep(5);
-                }catch (InterruptedException ex) {
-                      Logger.getLogger(JJackpot.class.getName()).log(Level.SEVERE, null, ex);
-                }                    
+//                this.repaint();        
                 if(modelo.verificaVitoria()){
-                        JOptionPane.showMessageDialog(this, "GANHOU CARAI", 
-                                "GANHOU", JOptionPane.INFORMATION_MESSAGE);
+//                        JOptionPane.showMessageDialog(this, "GANHOU CARAI", 
+//                                "GANHOU", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else{
-                        JOptionPane.showMessageDialog(this, "PERDEU CARAI", 
-                                "PERDEU", JOptionPane.INFORMATION_MESSAGE);            
+//                        JOptionPane.showMessageDialog(this, "PERDEU CARAI", 
+//                                "PERDEU", JOptionPane.INFORMATION_MESSAGE);            
                 }
             }    
         }

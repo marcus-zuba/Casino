@@ -51,6 +51,7 @@ public class MenuHandler implements ActionListener, MouseListener, KeyListener{
     }
 
     public void setModeloLoja(Loja modeloLoja) {
+        System.out.println("SETANDO LOJA");
         this.modeloLoja = modeloLoja;
     }
 

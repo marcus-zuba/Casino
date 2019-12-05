@@ -14,7 +14,7 @@ public class VinteeUm extends JogoCasino{
     private boolean isVisible;
     
     public VinteeUm(){
-        super("21",0,0);
+        super();
         isVisible = false;
     }
     
@@ -28,14 +28,5 @@ public class VinteeUm extends JogoCasino{
         this.notifyObservers();
     }
 
-    @Override
-    public String instrucoesDoJogo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Integer lucroDoDia() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

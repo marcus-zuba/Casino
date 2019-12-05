@@ -8,7 +8,6 @@ package Controle;
 import Modelo.Jogador;
 import Modelo.Cadastro;
 import Modelo.Menu;
-import Modelo.Casino;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -24,17 +23,15 @@ import javax.swing.JTextField;
 public class CadastroHandler implements MouseListener,KeyListener{
 
     private Cadastro cadastro;
-    private Casino casino;
     private Menu menu;
     
     private String nomeAtual;
     private String RGatual;
     private Integer idadeAtual;
     
-    public CadastroHandler(Cadastro cadastro, Casino casino, Menu menu){
+    public CadastroHandler(Cadastro cadastro, Menu menu){
         
         this.cadastro = cadastro;
-        this.casino = casino;
         this.menu=menu;
         nomeAtual="";
         RGatual="";
@@ -48,11 +45,7 @@ public class CadastroHandler implements MouseListener,KeyListener{
         {
             if(((JButton)me.getSource()).getName().equals("cadastrar") && idadeAtual>17)
             {
-                HashMap<Jogador,Integer>aux = new HashMap<Jogador,Integer>();
-                Jogador j = new Jogador(nomeAtual,idadeAtual,RGatual);
-                Integer i = 0 ;
-                aux.put(j, i);
-                casino.colocaNoCasino(aux);
+                cadastro.cadastrarJogador(nomeAtual, idadeAtual, RGatual);
             }
         }
     }

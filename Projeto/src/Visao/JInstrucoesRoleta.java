@@ -32,13 +32,10 @@ public class JInstrucoesRoleta extends javax.swing.JFrame {
 
         jButtonComecar = new javax.swing.JButton();
         jButtonMenu = new javax.swing.JButton();
-        jButtonConfirmar = new javax.swing.JButton();
         jLabelTítulo = new javax.swing.JLabel();
         jSeparatorBaixo = new javax.swing.JSeparator();
         jLabelInstrucoes = new javax.swing.JLabel();
         jSeparatorCima = new javax.swing.JSeparator();
-        jLabelNome = new javax.swing.JLabel();
-        jTextFieldNome = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,19 +45,12 @@ public class JInstrucoesRoleta extends javax.swing.JFrame {
         jButtonMenu.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonMenu.setText("Menu");
 
-        jButtonConfirmar.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
-        jButtonConfirmar.setText("Confirmar");
-
         jLabelTítulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabelTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTítulo.setText("Roleta");
 
         jLabelInstrucoes.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
         jLabelInstrucoes.setText("Instruções");
-
-        jLabelNome.setFont(new java.awt.Font("Ubuntu", 2, 18)); // NOI18N
-        jLabelNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelNome.setText("Insira o nome do jogador que deseja participar:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,15 +74,8 @@ public class JInstrucoesRoleta extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jButtonComecar))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelInstrucoes)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelNome)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButtonConfirmar)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(jLabelInstrucoes)
+                                .addGap(0, 444, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -102,14 +85,9 @@ public class JInstrucoesRoleta extends javax.swing.JFrame {
                 .addComponent(jLabelTítulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparatorCima, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonConfirmar))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelInstrucoes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                 .addComponent(jButtonComecar)
                 .addGap(10, 10, 10)
                 .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,13 +105,10 @@ public class JInstrucoesRoleta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonComecar;
-    private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JButton jButtonMenu;
     private javax.swing.JLabel jLabelInstrucoes;
-    private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelTítulo;
     private javax.swing.JSeparator jSeparatorBaixo;
     private javax.swing.JSeparator jSeparatorCima;
-    private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables
 }

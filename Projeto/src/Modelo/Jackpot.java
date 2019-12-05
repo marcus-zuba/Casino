@@ -24,7 +24,7 @@ public class Jackpot extends JogoCasino{
     private int campo3;
     
     public Jackpot(){
-        super("Teste",0);
+        super();
         campo1=10;
         campo2=10;
         campo3=10;
@@ -77,44 +77,13 @@ public class Jackpot extends JogoCasino{
         return campo3;
     }
     
-    private void atualizar(){
-        this.setChanged();
-        this.notifyObservers();
-        try {
-            TimeUnit.SECONDS.sleep(10);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(JJackpot.class.getName()).log(Level.SEVERE, null, ex);
-        }    
-    }
-    
     public void rodar() throws FichasInsuficientesException, InterruptedException{
         SecureRandom gerador = new SecureRandom();
         campo1 = gerador.nextInt(5);
-//        for(int i=0;i<50;i++){
-//            campo1++;
-//            if(campo1==5)
-//                campo1=0;
-//            TimeUnit.MILLISECONDS.sleep(200);
-//            this.setChanged();
-//            this.notifyObservers();
-//        }
-//        atualizar();
         campo2 = gerador.nextInt(5);
-//        atualizar();
         campo3 = gerador.nextInt(5);
         this.setChanged();
         this.notifyObservers();
     }    
-
-    @Override
-    public String instrucoesDoJogo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Integer lucroDoDia() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     
 }
