@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.security.SecureRandom;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -64,6 +65,7 @@ public class Roleta extends JogoCasino{
             return true;
         }
         else
+            JOptionPane.showMessageDialog(null, "Infelizmente você não possui fichas suficientes para realizar essa aposta", "Valor de Aposta", JOptionPane.INFORMATION_MESSAGE);
             return false;
         
     }
@@ -82,6 +84,7 @@ public class Roleta extends JogoCasino{
             return true;
         }
         else
+            JOptionPane.showMessageDialog(null, "Infelizmente você não possui fichas suficientes para realizar essa aposta", "Valor de Aposta", JOptionPane.INFORMATION_MESSAGE);
             return false;
     }
     
@@ -99,6 +102,7 @@ public class Roleta extends JogoCasino{
             return true;
         }
         else
+            JOptionPane.showMessageDialog(null, "Infelizmente você não possui fichas suficientes para realizar essa aposta", "Valor de Aposta", JOptionPane.INFORMATION_MESSAGE);
             return false;
         
     }
@@ -106,8 +110,9 @@ public class Roleta extends JogoCasino{
     public void proximoJogador(){
         this.jogadorAtual++;
         if(jogadorAtual == jogadores.size())
-            jogadorAtual=0;
+            jogadorAtual = 0;
         System.out.println(jogadores.get(jogadorAtual).getNome());
+        
     }
     
     public void girarRoleta() throws InterruptedException{

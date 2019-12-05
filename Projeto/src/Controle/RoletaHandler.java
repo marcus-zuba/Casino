@@ -33,16 +33,7 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
     private Jogador jogadorAtual;
     private String corAtual;
     private int numeroAtual;
-    private Integer valorApostado;
-    
-    public String getApostaAtual() {
-        return apostaAtual;
-    }
-
-    public void setApostaAtual(String apostaAtual) {
-        this.apostaAtual = apostaAtual;
-    }
-    
+    private Integer valorApostado;    
     
     public RoletaHandler(Roleta roleta,Menu menu){
         
@@ -50,6 +41,14 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
         this.menu = menu;
         apostaAtual="";
         
+    }
+    
+    public String getApostaAtual() {
+        return apostaAtual;
+    }
+
+    public void setApostaAtual(String apostaAtual) {
+        this.apostaAtual = apostaAtual;
     }
     
     @Override
@@ -98,7 +97,7 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
                 }
                 else if(((JButton)me.getSource()).getName().equals("proximo"))
                 {
-                    System.out.println("entrou aq");
+                    System.out.println("Chegou aqui");
                     roleta.proximoJogador();
                 }
             }

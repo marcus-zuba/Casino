@@ -6,6 +6,7 @@
 package Visao;
 import Controle.RoletaHandler;
 import Modelo.Roleta;
+import Modelo.JogoCasino;
 import java.awt.Color;
 import java.util.HashSet;
 import java.util.Observable;
@@ -103,6 +104,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         jLabelJogadorAtual = new javax.swing.JLabel();
         jButtonSortear = new javax.swing.JButton();
         jButtonProximoJogador = new javax.swing.JButton();
+        jLabelFichasJogadorAtual = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -378,6 +380,9 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
             }
         });
 
+        jLabelFichasJogadorAtual.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
+        jLabelFichasJogadorAtual.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -394,8 +399,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
                     .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelJogadorAtual)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelTítulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jSeparatorCima, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -483,19 +487,23 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(58, 58, 58)
                                                 .addComponent(jTextFieldValorDeAposta, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(32, 32, 32)))))))
+                                        .addGap(32, 32, 32))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabelFichasJogadorAtual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelTítulo, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelTítulo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabelJogadorAtual)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelTítulo)
+                        .addComponent(jLabelFichasJogadorAtual))
+                    .addComponent(jLabelJogadorAtual))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparatorCima, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -633,6 +641,11 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         h.mousePressed(evt);
     }//GEN-LAST:event_mousePressed
 
+    private void atualizarJogadorAtualRoleta(){
+        jLabelJogadorAtual.setText(roleta.getNomeJogadorAtual());
+        jLabelFichasJogadorAtual.setText(roleta.getFichasJogadorAtual());
+    }
+    
     private void jRadioButtonCoreNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonCoreNumeroMousePressed
         // TODO add your handling code here:
         jRadioButtonNumero.setSelected(false);
@@ -663,6 +676,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
     private void jButtonProximoJogadorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProximoJogadorMousePressed
         // TODO add your handling code here:
         h.mousePressed(evt);
+        atualizarJogadorAtualRoleta();
     }//GEN-LAST:event_jButtonProximoJogadorMousePressed
 
     /**
@@ -713,6 +727,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
     private javax.swing.JButton jButtonSortear;
     private javax.swing.JLabel jLabelApostaRealizada;
     private javax.swing.JLabel jLabelCor;
+    private javax.swing.JLabel jLabelFichasJogadorAtual;
     private javax.swing.JLabel jLabelJogadorAtual;
     private javax.swing.JLabel jLabelNumero;
     private javax.swing.JLabel jLabelNumeroSorteado;

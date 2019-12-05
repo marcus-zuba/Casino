@@ -18,6 +18,7 @@ public abstract class JogoCasino extends Observable{
     protected Integer jogadorAtual;
 
     public JogoCasino(){
+        super();
         this.jogadores = new ArrayList<>();
         jogadorAtual = 0;
     }
