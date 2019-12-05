@@ -6,9 +6,6 @@
 package Modelo;
 
 import java.security.SecureRandom;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
 
 /**
  *
@@ -17,7 +14,7 @@ import java.util.Set;
 public class Roleta extends JogoCasino{
 
     private boolean isVisible;
-    private HashMap <Jogador,ApostaRoleta> apostas;
+    private ApostaRoleta aposta;
     private String corAtual;
     private int numeroAtual;
     private Cadastro modeloCadastro;
@@ -28,7 +25,7 @@ public class Roleta extends JogoCasino{
         isVisible = false;
         corAtual = "vermelho";
         numeroAtual = 1;
-        apostas = new HashMap<>();        
+        aposta = new ApostaRoleta();        
     }
     
     public boolean isVisible(){
@@ -52,12 +49,18 @@ public class Roleta extends JogoCasino{
     public String getCorAtual() {
         return corAtual;
     }
-        
+            
     public boolean fazerApostaCor(Jogador jogador,Integer valorJogada,String jogada){
         
-        if(apostas.get(jogador).getFichasAtuais()>valorJogada)
+        if(jogador.getFichas()>valorJogada)
         {
-            apostas.get(jogador).fazerApostaCor(valorJogada, jogada);
+            aposta.resetarAposta();
+            aposta.setTipoAposta(0);
+            this.jogadores.remove(jogador);
+            jogador.reduzirFichas(valorJogada);
+            this.jogadores.add(jogadorAtual, jogador);
+            modeloCadastro.setJogadores(this.jogadores);
+            aposta.fazerApostaCor(jogada, valorJogada);
             return true;
         }
         else
@@ -67,22 +70,32 @@ public class Roleta extends JogoCasino{
     
     public boolean fazerApostaNumero(Jogador jogador,Integer valorJogada,int numero){
         
-        if(apostas.get(jogador).getFichasAtuais()>valorJogada)
+        if(jogador.getFichas()>valorJogada)
         {
-            apostas.get(jogador).fazerApostaNumero(valorJogada, numero);
+            aposta.resetarAposta();
+            aposta.setTipoAposta(1);
+            this.jogadores.remove(jogador);
+            jogador.reduzirFichas(valorJogada);
+            this.jogadores.add(jogadorAtual, jogador);
+            modeloCadastro.setJogadores(this.jogadores);
+            aposta.fazerApostaNumero(numero,valorJogada);
             return true;
         }
         else
             return false;
-        
-        
     }
     
     public boolean fazerApostaCorNumero(Jogador jogador,Integer valorJogada,String jogada){
         
-        if(apostas.get(jogador).getFichasAtuais()>valorJogada)
+        if(jogador.getFichas()>valorJogada)
         {
-            apostas.get(jogador).fazerApostaCorNumero(valorJogada, jogada);
+            aposta.resetarAposta();
+            aposta.setTipoAposta(2);
+            this.jogadores.remove(jogador);
+            jogador.reduzirFichas(valorJogada);
+            this.jogadores.add(jogadorAtual, jogador);
+            modeloCadastro.setJogadores(this.jogadores);
+            aposta.fazerApostaCorNumero(jogada,valorJogada);
             return true;
         }
         else
@@ -92,10 +105,13 @@ public class Roleta extends JogoCasino{
     
     public void proximoJogador(){
         this.jogadorAtual++;
+        if(jogadorAtual == jogadores.size())
+            jogadorAtual=0;
+        System.out.println(jogadores.get(jogadorAtual).getNome());
     }
     
     public void girarRoleta() throws InterruptedException{
-        //reduzir as fichas do jogador e retornar o arraylist pro cadastro
+        System.out.println(jogadores.get(jogadorAtual).getNome() + jogadores.get(jogadorAtual).getFichas());
         SecureRandom gerador = new SecureRandom();
         int numeroGerado = gerador.nextInt(100);
         for(int i=0;i<numeroGerado;i++)
@@ -120,33 +136,43 @@ public class Roleta extends JogoCasino{
     
     public void checarVencedor(){
         
-        String testeCorNumero = "";
-        testeCorNumero += corAtual + numeroAtual;
-        Set<Jogador> k = apostas.keySet();
-        Iterator<Jogador> it = k.iterator();
-        while(it.hasNext())
-        {
-            Jogador aux = it.next();
-            if(apostas.get(aux).getCor().equals(corAtual))
-            {
-                this.jogadores.get(jogadorAtual).addFichas(apostas.get(aux).getFichasApostadas()*2);
-//                apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*2);
-            }
-            else if(apostas.get(aux).getNumero().equals(numeroAtual))
-            {
-                this.jogadores.get(jogadorAtual).addFichas(apostas.get(aux).getFichasApostadas()*4);
-//                apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*4);
-            }
-            else if(apostas.get(aux).getCorNumero().equals(testeCorNumero))
-            {
-                this.jogadores.get(jogadorAtual).addFichas(apostas.get(aux).getFichasApostadas()*8);
-//                apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*8);
-            }
-            apostas.get(aux).setFichasApostadas(0);
-            
-            //voltar o arraylist pro cadastro
+        System.out.println(aposta.getTipoAposta());
+        String corNumero = "";
+        corNumero += corAtual + numeroAtual;
+        switch (aposta.getTipoAposta()) {
+            case 0:
+                if(aposta.getCor().equals(corAtual))
+                {
+                    Jogador j = this.jogadores.get(jogadorAtual);
+                    this.jogadores.remove(j);
+                    j.addFichas(aposta.getFichasApostadas()*2);
+                    this.jogadores.add(jogadorAtual, j);
+                    //apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*2);
+                }   break;
+            case 1:
+                if(aposta.getNumero().equals(numeroAtual))
+                {
+                    Jogador j = this.jogadores.get(jogadorAtual);
+                    this.jogadores.remove(j);
+                    j.addFichas(aposta.getFichasApostadas()*4);
+                    this.jogadores.add(jogadorAtual, j);
+                    //apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*4);
+                }   break;
+            case 2:
+                if(aposta.getCorNumero().equals(corNumero))
+                {
+                    Jogador j = this.jogadores.get(jogadorAtual);
+                    this.jogadores.remove(j);
+                    j.addFichas(aposta.getFichasApostadas()*8);
+                    this.jogadores.add(jogadorAtual, j);
+                    //apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*8);
+                }   break;    
+            default:
+                break;
         }
-        proximoJogador();
+        aposta.setFichasApostadas(0);
+        modeloCadastro.setJogadores(this.jogadores); //atualiza o ArrayList do cadastro
+            
         setChanged();
         notifyObservers();
     }

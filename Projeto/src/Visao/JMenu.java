@@ -52,6 +52,8 @@ public class JMenu extends javax.swing.JFrame implements Observer {
         jButtonJogadores = new javax.swing.JButton();
         jSeparatorCima = new javax.swing.JSeparator();
         jSeparatorBaixo = new javax.swing.JSeparator();
+        jButtonCadastrar = new javax.swing.JButton();
+        jButtonLer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,6 +125,22 @@ public class JMenu extends javax.swing.JFrame implements Observer {
             }
         });
 
+        jButtonCadastrar.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
+        jButtonCadastrar.setText("Cadastrar no Arquivo");
+        jButtonCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MousePressed(evt);
+            }
+        });
+
+        jButtonLer.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
+        jButtonLer.setText("Ler do Arquivo");
+        jButtonLer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,19 +158,26 @@ public class JMenu extends javax.swing.JFrame implements Observer {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonCacaNiqueis, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButtonVinteeUm, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabelFichasECadastro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jButtonLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jButtonJogadores, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 41, Short.MAX_VALUE))
+                                .addComponent(jButtonVinteeUm, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabelFichasECadastro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jButtonLoja, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButtonJogadores, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonCadastrar)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jButtonLer)
+                                        .addGap(31, 31, 31))))))
                     .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jButtonInstrucoes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
                         .addComponent(jButtonSair)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -177,13 +202,20 @@ public class JMenu extends javax.swing.JFrame implements Observer {
                     .addComponent(jButtonCacaNiqueis)
                     .addComponent(jButtonVinteeUm)
                     .addComponent(jButtonRoleta))
-                .addGap(34, 34, 34)
-                .addComponent(jLabelFichasECadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonLoja)
-                    .addComponent(jButtonJogadores))
-                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabelFichasECadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonLoja)
+                            .addComponent(jButtonJogadores)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jButtonCadastrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonLer)))
+                .addGap(26, 26, 26)
                 .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -200,7 +232,7 @@ public class JMenu extends javax.swing.JFrame implements Observer {
     
     private void jButtonSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSairMousePressed
         // TODO add your handling code here:
-        System.exit(0);
+        h.mousePressed(evt);
     }//GEN-LAST:event_jButtonSairMousePressed
 
     private void MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MousePressed
@@ -215,15 +247,20 @@ public class JMenu extends javax.swing.JFrame implements Observer {
         jButtonInstrucoes.setName("Instrucoes");
         jButtonLoja.setName("Loja");
         jButtonJogadores.setName("Cadastro");
+        jButtonCadastrar.setName("Cadastrar");
+        jButtonLer.setName("Ler");
         jButtonVinteeUm.setName("21");
         jButtonCacaNiqueis.setName("Jackpot");
         jButtonRoleta.setName("Roleta");
+        jButtonSair.setName("Sair");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCacaNiqueis;
+    private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonInstrucoes;
     private javax.swing.JButton jButtonJogadores;
+    private javax.swing.JButton jButtonLer;
     private javax.swing.JButton jButtonLoja;
     private javax.swing.JButton jButtonRoleta;
     private javax.swing.JButton jButtonSair;

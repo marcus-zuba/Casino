@@ -59,6 +59,7 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
         jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabelJogadorAtual = new javax.swing.JLabel();
+        jButtonProximoJogador = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +86,12 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
         jLabelValorDeAposta.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jLabelValorDeAposta.setText("Valor de aposta");
 
+        jTextFieldValorDeAposta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldValorDeApostaKeyReleased(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
         jLabel1.setText("Teste sua sorte");
 
@@ -98,6 +105,14 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
 
         jLabelJogadorAtual.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
         jLabelJogadorAtual.setText("Jogador 1");
+
+        jButtonProximoJogador.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jButtonProximoJogador.setText("Proximo J");
+        jButtonProximoJogador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JJackpot.this.mousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,12 +141,17 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jButtonProximoJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -175,7 +195,9 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabelValorDeAposta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldValorDeAposta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldValorDeAposta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonProximoJogador))
                         .addGap(92, 92, 92))))
         );
 
@@ -197,6 +219,11 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
         handler.mousePressed(evt);
     }//GEN-LAST:event_mousePressed
 
+    private void jTextFieldValorDeApostaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorDeApostaKeyReleased
+        // TODO add your handling code here:
+        handler.keyReleased(evt);
+    }//GEN-LAST:event_jTextFieldValorDeApostaKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -214,11 +241,13 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
         jButton1.setName("Jogar");
         jButtonMenu.setName("Menu");
         jButtonRegras.setName("Regras");
+        jButtonProximoJogador.setName("Proximo");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonMenu;
+    private javax.swing.JButton jButtonProximoJogador;
     private javax.swing.JButton jButtonRegras;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelJogadorAtual;
@@ -234,9 +263,6 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
 
     @Override
     public void update(Observable arg0, Object arg1) {
-        System.out.println(modelo.getCampo1());
-        System.out.println(modelo.getCampo2());
-        System.out.println(modelo.getCampo3());
         this.setVisible(modelo.isVisible());
         this.setEnabled(modelo.isVisible());
         if(modelo.isVisible()){
@@ -302,17 +328,6 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
                     jTextField3.setBackground(Color.BLACK);
                     break;
             }
-            if(modelo.getCampo1()!=10 && modelo.getCampo2()!=10 && modelo.getCampo3()!=10){
-//                this.repaint();        
-                if(modelo.verificaVitoria()){
-//                        JOptionPane.showMessageDialog(this, "GANHOU CARAI", 
-//                                "GANHOU", JOptionPane.INFORMATION_MESSAGE);
-                }
-                else{
-//                        JOptionPane.showMessageDialog(this, "PERDEU CARAI", 
-//                                "PERDEU", JOptionPane.INFORMATION_MESSAGE);            
-                }
-            }    
         }
     }
         

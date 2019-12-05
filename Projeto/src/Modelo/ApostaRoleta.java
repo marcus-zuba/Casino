@@ -11,20 +11,33 @@ package Modelo;
  */
 public class ApostaRoleta {
 
-    private Integer fichasApostadas;
     private String cor;
     private String corNumero;
     private int numero;
-    private Integer fichasAtuais;
+    private Integer fichasApostadas;
+    private int tipoAposta; // 0 para cor, 1 para numero, 2 para corNumero
     
-    public ApostaRoleta(Integer fichasAtuais){
+    public ApostaRoleta(){
         
-        fichasApostadas = 0;
         this.cor=null;
         this.corNumero=null;
         this.numero=0;
-        this.fichasAtuais = fichasAtuais;
+        int tipoAposta = 0;
         
+    }
+    
+    public void resetarAposta(){
+        this.cor=null;
+        this.corNumero=null;
+        this.numero=0;    
+    }
+
+    public void setTipoAposta(int tipoAposta) {
+        this.tipoAposta = tipoAposta;
+    }
+
+    public int getTipoAposta() {
+        return tipoAposta;
     }
     
     public String getCor() {
@@ -50,7 +63,7 @@ public class ApostaRoleta {
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
-    
+
     public Integer getFichasApostadas() {
         return fichasApostadas;
     }
@@ -58,36 +71,25 @@ public class ApostaRoleta {
     public void setFichasApostadas(Integer fichasApostadas) {
         this.fichasApostadas = fichasApostadas;
     }
-    
-    public Integer getFichasAtuais() {
-        return fichasAtuais;
-    }
-
-    public void setFichasAtuais(Integer fichasAtuais) {
-        this.fichasAtuais = fichasAtuais;
-    }
-    
-    public void fazerApostaNumero(Integer fichasApostadas, int numero){
         
-        this.fichasApostadas = fichasApostadas;
-        this.fichasAtuais -= fichasApostadas; 
+    public void fazerApostaNumero(int numero, Integer fichasApostadas){
+        
         this.setNumero(numero);
+        this.fichasApostadas=fichasApostadas;
         
     }
     
-    public void fazerApostaCor(Integer fichasApostadas, String cor){
+    public void fazerApostaCor(String cor, Integer fichasApostadas){
         
-        this.fichasApostadas = fichasApostadas;
-        this.fichasAtuais -= fichasApostadas; 
         this.setCor(cor);
+        this.fichasApostadas=fichasApostadas;
         
     }
     
-    public void fazerApostaCorNumero(Integer fichasApostadas, String corNumero){
+    public void fazerApostaCorNumero(String corNumero, Integer fichasApostadas){
         
-        this.fichasApostadas = fichasApostadas;
-        this.fichasAtuais -= fichasApostadas; 
         this.setCorNumero(corNumero);
+        this.fichasApostadas=fichasApostadas;
         
     }
     

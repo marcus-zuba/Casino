@@ -14,9 +14,6 @@ import java.util.Observable;
  */
 public abstract class JogoCasino extends Observable{
 
-    //Olhem exemplo do jogo do Arthur, ele achou melhor ele mesmo gerenciar o seu HashMap de jogadores com outras classes
-    //Não precisa se ater a este porém já é meio caminho andado caso seja conveniente usá-lo
-    //Caso vá usar outros, sobreescreva os métodos relacionados a ele ams mantenha-o atualizado
     protected ArrayList<Jogador> jogadores;
     protected Integer jogadorAtual;
 
@@ -40,4 +37,13 @@ public abstract class JogoCasino extends Observable{
     public void setJogadorAtual(Integer jogadorAtual) {
         this.jogadorAtual = jogadorAtual;
     }    
+    
+    public String getNomeJogadorAtual(){
+        return jogadores.get(jogadorAtual).getNome();
+    }
+    
+    public String getFichasJogadorAtual(){
+        return Integer.toString(jogadores.get(jogadorAtual).getFichas());
+    }
+
 }

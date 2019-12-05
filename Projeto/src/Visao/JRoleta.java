@@ -287,24 +287,24 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         jRadioButtonNumero.setText("Número");
         jRadioButtonNumero.setName("numero"); // NOI18N
         jRadioButtonNumero.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRadioButtonNumeroMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jRadioButtonNumeroMousePressed(evt);
             }
         });
 
         jRadioButtonCor.setText("Cor");
         jRadioButtonCor.setName("cor"); // NOI18N
         jRadioButtonCor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRadioButtonCorMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jRadioButtonCorMousePressed(evt);
             }
         });
 
         jRadioButtonCoreNumero.setText("Cor e Número");
         jRadioButtonCoreNumero.setName("corNumero"); // NOI18N
         jRadioButtonCoreNumero.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jRadioButtonCoreNumeroMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jRadioButtonCoreNumeroMousePressed(evt);
             }
         });
 
@@ -316,10 +316,10 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
 
         jTextFieldCor.setName("cor"); // NOI18N
         jTextFieldCor.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
                 jTextFieldCorCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jTextFieldCor.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -364,14 +364,19 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         jButtonSortear.setText("Sortear");
         jButtonSortear.setName("sortear"); // NOI18N
         jButtonSortear.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonSortearMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JRoleta.this.mousePressed(evt);
             }
         });
 
         jButtonProximoJogador.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
         jButtonProximoJogador.setText("Próximo Jogador");
         jButtonProximoJogador.setName("proximo"); // NOI18N
+        jButtonProximoJogador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonProximoJogadorMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -591,44 +596,9 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         h.mousePressed(evt);
     }//GEN-LAST:event_jButtonMenuMousePressed
 
-    private void jButtonSortearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSortearMouseClicked
-        
-        try {
-            h.mouseClicked(evt);
-            roleta.girarRoleta();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(JRoleta.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_jButtonSortearMouseClicked
-
     private void jButton1VermelhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1VermelhoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1VermelhoActionPerformed
-
-    private void jRadioButtonCorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonCorMouseClicked
-        jRadioButtonNumero.setSelected(false);
-        jRadioButtonCoreNumero.setSelected(false);
-        jTextFieldCor.setEnabled(true);
-        jTextFieldNumero.setEnabled(false);
-        h.mouseClicked(evt);
-    }//GEN-LAST:event_jRadioButtonCorMouseClicked
-
-    private void jRadioButtonNumeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonNumeroMouseClicked
-        jRadioButtonCoreNumero.setSelected(false);
-        jRadioButtonCor.setSelected(false);
-        jTextFieldCor.setEnabled(false);
-        jTextFieldNumero.setEnabled(true);
-        h.mouseClicked(evt);
-    }//GEN-LAST:event_jRadioButtonNumeroMouseClicked
-
-    private void jRadioButtonCoreNumeroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonCoreNumeroMouseClicked
-        jRadioButtonNumero.setSelected(false);
-        jRadioButtonCor.setSelected(false);
-        jTextFieldCor.setEnabled(true);
-        jTextFieldNumero.setEnabled(true);
-        h.mouseClicked(evt);
-    }//GEN-LAST:event_jRadioButtonCoreNumeroMouseClicked
 
     private void jTextFieldCorCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jTextFieldCorCaretPositionChanged
         // TODO add your handling code here:
@@ -647,16 +617,53 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
     }//GEN-LAST:event_jTextFieldValorDeApostaKeyPressed
 
     private void jTextFieldCorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCorKeyReleased
-        h.keyPressed(evt);
+        h.keyReleased(evt);
     }//GEN-LAST:event_jTextFieldCorKeyReleased
 
     private void jTextFieldNumeroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroKeyReleased
-        h.keyPressed(evt);
+        h.keyReleased(evt);
     }//GEN-LAST:event_jTextFieldNumeroKeyReleased
 
     private void jTextFieldValorDeApostaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorDeApostaKeyReleased
-        h.keyPressed(evt);
+        h.keyReleased(evt);
     }//GEN-LAST:event_jTextFieldValorDeApostaKeyReleased
+
+    private void mousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mousePressed
+        // TODO add your handling code here:
+        h.mousePressed(evt);
+    }//GEN-LAST:event_mousePressed
+
+    private void jRadioButtonCoreNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonCoreNumeroMousePressed
+        // TODO add your handling code here:
+        jRadioButtonNumero.setSelected(false);
+        jRadioButtonCor.setSelected(false);
+        jTextFieldCor.setEnabled(true);
+        jTextFieldNumero.setEnabled(true);
+        h.mousePressed(evt);
+    }//GEN-LAST:event_jRadioButtonCoreNumeroMousePressed
+
+    private void jRadioButtonNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonNumeroMousePressed
+        // TODO add your handling code here:
+        jRadioButtonCoreNumero.setSelected(false);
+        jRadioButtonCor.setSelected(false);
+        jTextFieldCor.setEnabled(false);
+        jTextFieldNumero.setEnabled(true);
+        h.mousePressed(evt);
+    }//GEN-LAST:event_jRadioButtonNumeroMousePressed
+
+    private void jRadioButtonCorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonCorMousePressed
+        // TODO add your handling code here:
+        jRadioButtonNumero.setSelected(false);
+        jRadioButtonCoreNumero.setSelected(false);
+        jTextFieldCor.setEnabled(true);
+        jTextFieldNumero.setEnabled(false);
+        h.mousePressed(evt);        
+    }//GEN-LAST:event_jRadioButtonCorMousePressed
+
+    private void jButtonProximoJogadorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProximoJogadorMousePressed
+        // TODO add your handling code here:
+        h.mousePressed(evt);
+    }//GEN-LAST:event_jButtonProximoJogadorMousePressed
 
     /**
      * @param args the command line arguments
@@ -734,8 +741,6 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
             c = new Color(0,0,0);
         else
             c = new Color((int)255,(int)0,(int)0);
-        jButtonNumeroSorteado.setForeground(c);
-        System.out.println(num + " " + cor);
-        
+        jButtonNumeroSorteado.setForeground(c);        
     }
 }

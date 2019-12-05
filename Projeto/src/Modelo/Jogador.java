@@ -5,14 +5,19 @@ public class Jogador{
     private String RG;
     private Integer idade;
     private Integer fichas;
-    private Integer apostaAtual;
 
     public Jogador(String nome, Integer idade, String RG){
         this.nome = nome;
         this.idade = idade;
         this.RG = RG;
         this.fichas = 0;
-        this.apostaAtual = null;
+    }
+
+    public Jogador(String nome, String RG, Integer idade, Integer fichas) {
+        this.nome = nome;
+        this.RG = RG;
+        this.idade = idade;
+        this.fichas = fichas;
     }
 
     public Integer getFichas() {
@@ -27,18 +32,10 @@ public class Jogador{
         this.fichas=this.fichas-fichas;    
     }
 
-    public Integer getApostaAtual() {
-        return apostaAtual;
-    }
-
     public void setFichas(Integer fichas) {
         this.fichas = fichas;
     }
 
-    public void setApostaAtual(Integer apostaAtual) {
-        this.apostaAtual = apostaAtual;
-    }
-    
     public String getNome() {
         return nome;
     }

@@ -60,54 +60,6 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
     @Override
     public void mouseClicked(MouseEvent me) {
         
-        if(me.getSource() instanceof JButton)
-        {
-            if(((JButton)me.getSource()).getName().equals("sortear"))
-            {
-                try {
-                    roleta.girarRoleta();
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(RoletaHandler.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            else if(((JButton)me.getSource()).getName().equals("proximo"))
-            {
-                if(apostaAtual.equals("cor"))
-                {
-                    roleta.fazerApostaCor(jogadorAtual,valorApostado,corAtual);
-                    roleta.proximoJogador();
-                }
-                else if(apostaAtual.equals("numero"))
-                {
-                    roleta.fazerApostaNumero(jogadorAtual,valorApostado,numeroAtual);
-                    roleta.proximoJogador();
-                }
-                else if(apostaAtual.equals("corNumero"))
-                {
-                    String aux = "";
-                    aux += corAtual + numeroAtual;
-                    roleta.fazerApostaCorNumero(jogadorAtual,valorApostado,aux);
-                    roleta.proximoJogador();
-                }
-            }
-            {
-                try {
-                    roleta.girarRoleta();
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(RoletaHandler.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
-        if(me.getSource() instanceof JRadioButton)
-        {
-            if(((JRadioButton)me.getSource()).getName().equals("cor"))
-                setApostaAtual("cor");
-            else if(((JRadioButton)me.getSource()).getName().equals("numero"))
-                setApostaAtual("numero");
-            else if(((JRadioButton)me.getSource()).getName().equals("corNumero"))
-                setApostaAtual("corNumero");
-        }
-        System.out.println(getApostaAtual());
     }
 
     @Override
@@ -115,6 +67,50 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
         if(me.getComponent().getName().equals("Menu")){
             roleta.setVisible(false);
             menu.setVisible(true);
+        }else{
+            
+            jogadorAtual = roleta.getJogadores().get(roleta.getJogadorAtual());
+//            System.out.println("jogadorAtual do handler " + jogadorAtual.getNome());
+            
+            if(me.getSource() instanceof JButton)
+            {
+                if(((JButton)me.getSource()).getName().equals("sortear"))
+                {
+                    if(apostaAtual.equals("cor"))
+                    {
+                        roleta.fazerApostaCor(jogadorAtual,valorApostado,corAtual);
+                    }
+                    else if(apostaAtual.equals("numero"))
+                    {
+                        roleta.fazerApostaNumero(jogadorAtual,valorApostado,numeroAtual);
+                    }
+                    else if(apostaAtual.equals("corNumero"))
+                    {
+                        String aux = "";
+                        aux += corAtual + numeroAtual;
+                        roleta.fazerApostaCorNumero(jogadorAtual,valorApostado,aux);
+                    }
+                    try {
+                        roleta.girarRoleta();
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(RoletaHandler.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                else if(((JButton)me.getSource()).getName().equals("proximo"))
+                {
+                    System.out.println("entrou aq");
+                    roleta.proximoJogador();
+                }
+            }
+            if(me.getSource() instanceof JRadioButton)
+            {
+                if(((JRadioButton)me.getSource()).getName().equals("cor"))
+                    setApostaAtual("cor");
+                else if(((JRadioButton)me.getSource()).getName().equals("numero"))
+                    setApostaAtual("numero");
+                else if(((JRadioButton)me.getSource()).getName().equals("corNumero"))
+                    setApostaAtual("corNumero");
+            }        
         }
     }
 
@@ -140,6 +136,10 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
 
     @Override
     public void keyPressed(KeyEvent ke) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
         if(ke.getSource() instanceof JTextField)
         {
             if(((JTextField)ke.getSource()).getName().equals("cor"))
@@ -150,11 +150,6 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
                 valorApostado=Integer.parseInt(((JTextField)ke.getSource()).getText());
             System.out.println(numeroAtual + " " + corAtual + " " + valorApostado);
         }
-    }
-
-    @Override
-    public void keyReleased(KeyEvent ke) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

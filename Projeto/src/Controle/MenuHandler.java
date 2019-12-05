@@ -51,7 +51,6 @@ public class MenuHandler implements ActionListener, MouseListener, KeyListener{
     }
 
     public void setModeloLoja(Loja modeloLoja) {
-        System.out.println("SETANDO LOJA");
         this.modeloLoja = modeloLoja;
     }
 
@@ -85,6 +84,12 @@ public class MenuHandler implements ActionListener, MouseListener, KeyListener{
                 modeloCadastro.setVisible(true);
                 modeloMenu.setVisible(false);
                 break;
+            case "Cadastrar":
+                modeloCadastro.cadastrarNoArquivo();                
+                break;
+            case "Ler":
+                modeloCadastro.lerDoArquivo();                
+                break;
             case "21":
                 modelo21.setVisible(true);
                 modeloMenu.setVisible(false);
@@ -100,6 +105,9 @@ public class MenuHandler implements ActionListener, MouseListener, KeyListener{
             case "Roleta":
                 modeloMenu.setVisible(false);
                 modeloRoleta.setVisible(true);
+                break;
+            case "Sair":
+                System.exit(0);
                 break;
             default:
                 break;

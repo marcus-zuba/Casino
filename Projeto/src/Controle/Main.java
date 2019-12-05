@@ -22,20 +22,23 @@ public class Main {
         JRoleta roleta = new JRoleta(rh, janelaMenu, jogoRoleta);
         mh.setModeloRoleta(jogoRoleta);
         
-        VinteeUm modelo21 = new VinteeUm();
-        VinteeUmHandler vh = new VinteeUmHandler(modeloMenu, modelo21);
-        JVinteeUm vinteeum = new JVinteeUm(vh, modelo21);
-        mh.setModelo21(modelo21);
-        
         Jackpot jogoJackpot = new Jackpot();
         JackpotHandler jh = new JackpotHandler(jogoJackpot, modeloMenu);
         JJackpot jackpot = new JJackpot(jogoJackpot, jh);
         mh.setModeloJackpot(jogoJackpot);
 
-        Cadastro modeloCadastro = new Cadastro(jogoRoleta);
+        VinteeUm modelo21 = new VinteeUm();
+        VinteeUmHandler vh = new VinteeUmHandler(modeloMenu, modelo21);
+        JVinteeUm vinteeum = new JVinteeUm(vh, modelo21);
+        mh.setModelo21(modelo21);
+                
+        Cadastro modeloCadastro = new Cadastro(jogoRoleta, jogoJackpot, modelo21);
         CadastroHandler ch = new CadastroHandler(modeloCadastro, modeloMenu);
         JCadastro cadastro = new JCadastro(ch,modeloCadastro);
         mh.setModeloCadastro(modeloCadastro);
+        jogoRoleta.setModeloCadastro(modeloCadastro);
+        jogoJackpot.setModeloCadastro(modeloCadastro);
+        modelo21.setModeloCadastro(modeloCadastro);
 
         Loja modeloLoja = new Loja(modeloCadastro);
         LojaHandler lh = new LojaHandler(modeloLoja, modeloMenu);

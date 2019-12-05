@@ -738,7 +738,7 @@
         <Property name="name" type="java.lang.String" value="numero" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonNumeroMouseClicked"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonNumeroMousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonCor">
@@ -747,7 +747,7 @@
         <Property name="name" type="java.lang.String" value="cor" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonCorMouseClicked"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonCorMousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonCoreNumero">
@@ -756,7 +756,7 @@
         <Property name="name" type="java.lang.String" value="corNumero" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonCoreNumeroMouseClicked"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonCoreNumeroMousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelApostaRealizada">
@@ -836,7 +836,7 @@
         <Property name="name" type="java.lang.String" value="sortear" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonSortearMouseClicked"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonProximoJogador">
@@ -847,6 +847,9 @@
         <Property name="text" type="java.lang.String" value="Pr&#xf3;ximo Jogador"/>
         <Property name="name" type="java.lang.String" value="proximo" noResource="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonProximoJogadorMousePressed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

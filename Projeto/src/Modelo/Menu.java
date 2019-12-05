@@ -34,7 +34,6 @@ public class Menu extends Observable{
     
     public void setVisible(boolean b){
         this.isVisible = b;
-        System.out.println(isVisible);
         cadastro.printarJogadores();
         this.setChanged();
         this.notifyObservers();

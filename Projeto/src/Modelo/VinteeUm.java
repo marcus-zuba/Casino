@@ -12,10 +12,15 @@ package Modelo;
 public class VinteeUm extends JogoCasino{
     
     private boolean isVisible;
+    private Cadastro modeloCadastro;
     
     public VinteeUm(){
         super();
         isVisible = false;
+    }
+
+    public void setModeloCadastro(Cadastro modeloCadastro) {
+        this.modeloCadastro = modeloCadastro;
     }
     
     public boolean isVisible(){

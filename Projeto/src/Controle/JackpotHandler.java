@@ -8,19 +8,23 @@ package Controle;
 import Modelo.FichasInsuficientesException;
 import Modelo.Jackpot;
 import Modelo.Menu;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextField;
 
 /**
  *
  * @author marcus
  */
-public class JackpotHandler implements MouseListener{
+public class JackpotHandler implements MouseListener, KeyListener{
     
     Jackpot modeloJackpot;
     Menu modeloMenu;
+    int aposta;
     
     public JackpotHandler(Jackpot modelo, Menu modeloMenu){
         this.modeloJackpot=modelo;
@@ -34,32 +38,38 @@ public class JackpotHandler implements MouseListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if(e.getComponent().getName().equals("Menu")){
-            modeloJackpot.setVisible(false);
-            modeloMenu.setVisible(true);
-        }
-        else if(e.getComponent().getName().equals("InstrucoesMenu")){
-            modeloJackpot.setVisible(false);
-            modeloJackpot.setRegrasIsVisible(false);
-            modeloMenu.setVisible(true);
-        }
-        else if(e.getComponent().getName().equals("Comecar")){
-            modeloJackpot.setRegrasIsVisible(false);
-            modeloJackpot.setVisible(true);
-        }
-        else if(e.getComponent().getName().equals("Regras")){
-            modeloJackpot.setRegrasIsVisible(true);
-            modeloJackpot.setVisible(false);
-        } 
-        else if(e.getComponent().getName().equals("Jogar")){
-            try {
+        switch (e.getComponent().getName()) {
+            case "Menu":
+                modeloJackpot.setVisible(false);
+                modeloMenu.setVisible(true);
+                break;
+            case "InstrucoesMenu":
+                modeloJackpot.setVisible(false);
+                modeloJackpot.setRegrasIsVisible(false);
+                modeloMenu.setVisible(true);
+                break;
+            case "Comecar":
+                modeloJackpot.setRegrasIsVisible(false);
+                modeloJackpot.setVisible(true);
+                break;
+            case "Regras":
+                modeloJackpot.setRegrasIsVisible(true);
+                modeloJackpot.setVisible(false);
+                break;
+            case "Proximo":
+                modeloJackpot.proximoJogador();
+                break;
+            case "Jogar":
                 try {
-                    modeloJackpot.rodar();
-                } catch (InterruptedException ex) {
+                    try {
+                        modeloJackpot.rodar(aposta);
+                    } catch (InterruptedException ex) {
 //                    Logger.getLogger(JackpotHandler.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            } catch (FichasInsuficientesException ex) {
-            }
+                    }
+                } catch (FichasInsuficientesException ex) {
+                }   break;
+            default:
+                break;
         }
     }
 
@@ -75,6 +85,22 @@ public class JackpotHandler implements MouseListener{
     @Override
     public void mouseExited(MouseEvent arg0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyTyped(KeyEvent arg0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        if(!((JTextField)e.getComponent()).getText().equals(""))
+            aposta = Integer.parseInt(((JTextField)e.getSource()).getText());
+        System.out.println(aposta);
     }
 
 
