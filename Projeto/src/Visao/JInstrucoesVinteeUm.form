@@ -48,6 +48,8 @@
                               <Component id="jLabelInstrucoes" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jLabel6" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="38" max="32767" attributes="0"/>
@@ -74,7 +76,11 @@
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="89" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
               <Component id="jSeparatorBaixo" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -160,6 +166,22 @@
           <Font name="Ubuntu" size="14" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Se a soma dos valores da mesa com os da sua m&#xe3;o, der mais pr&#xf3;ximo de 21, voc&#xea; ganha. "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Recompensas: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Valor Total 20 ou Valor Total 22 : 2x aposta                            Valor Total 21: 8x aposta"/>
       </Properties>
     </Component>
   </SubComponents>

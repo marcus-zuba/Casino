@@ -92,7 +92,6 @@ public class JackpotHandler implements MouseListener, KeyListener{
     public void keyReleased(KeyEvent e) {
         if(!((JTextField)e.getComponent()).getText().equals(""))
             aposta = Integer.parseInt(((JTextField)e.getSource()).getText());
-        System.out.println(aposta);
     }
 
     @Override

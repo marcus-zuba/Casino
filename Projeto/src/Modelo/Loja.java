@@ -34,7 +34,6 @@ public class Loja extends Observable{
     
     public void addFichas(String nome,Integer fichasExtras) throws JogadorNaoEncontradoException{
         boolean conseguiu = false;
-        System.out.println(nome);
         ArrayList <Jogador> jogadores = modeloCadastro.getJogadores();
         for(int i=0;i<jogadores.size();i++){
             if(jogadores.get(i).getNome().equals(nome))

@@ -322,7 +322,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="24" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Pr&#xf3;xima Carta"/>
+        <Property name="text" type="java.lang.String" value="Valor da Mesa"/>
       </Properties>
     </Component>
   </SubComponents>

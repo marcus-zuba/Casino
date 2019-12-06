@@ -21,12 +21,14 @@ public class ApostaRoleta {
         
         this.cor=null;
         this.corNumero=null;
+        fichasApostadas=null;
         this.numero=0;
         int tipoAposta = 0;
         
     }
     
     public void resetarAposta(){
+        this.fichasApostadas=null;
         this.cor=null;
         this.corNumero=null;
         this.numero=0;    

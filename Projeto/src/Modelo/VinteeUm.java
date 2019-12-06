@@ -105,7 +105,6 @@ public class VinteeUm extends JogoCasino{
         }
         valorTotal = valorMao + valorMesa;
         cartasDistribuidas++;
-        System.out.println(this.countObservers());
         this.setChanged();
         this.notifyObservers();
     }

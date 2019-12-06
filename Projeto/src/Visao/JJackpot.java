@@ -291,7 +291,6 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
         this.setEnabled(modelo.isVisible());
         if(modelo.isVisible()){
             //1-Vermelho 2-Azul 3-Verde 4-Amarelo 5-Preto
-            System.out.println(modelo.getNomeJogadorAtual());
             jLabelJogadorAtual.setText(modelo.getNomeJogadorAtual());
             jLabelFichasJogadorAtual.setText("Fichas: " + modelo.getFichasJogadorAtual());
             switch(modelo.getCampo1()){

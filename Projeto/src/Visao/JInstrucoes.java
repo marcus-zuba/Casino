@@ -90,7 +90,7 @@ public class JInstrucoes extends javax.swing.JFrame implements Observer {
         jLabel8.setText("ATENÇÃO: Não digitar números em campos que recebem letras e vice-versa.");
 
         jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel9.setText("Também não é possível jogar sem cadastrar jogadores ou sem apostar.");
+        jLabel9.setText("Também não é possível jogar sem cadastrar jogadores.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,10 +121,10 @@ public class JInstrucoes extends javax.swing.JFrame implements Observer {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(127, 127, 127)
                 .addComponent(jLabel9)
-                .addGap(75, 75, 75))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

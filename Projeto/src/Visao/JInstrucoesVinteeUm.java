@@ -50,6 +50,8 @@ public class JInstrucoesVinteeUm extends javax.swing.JFrame implements Observer 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +90,12 @@ public class JInstrucoesVinteeUm extends javax.swing.JFrame implements Observer 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
         jLabel4.setText("Se a soma dos valores da mesa com os da sua mão, der mais próximo de 21, você ganha. ");
 
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
+        jLabel5.setText("Recompensas: ");
+
+        jLabel6.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
+        jLabel6.setText("Valor Total 20 ou Valor Total 22 : 2x aposta                            Valor Total 21: 8x aposta");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,7 +121,9 @@ public class JInstrucoesVinteeUm extends javax.swing.JFrame implements Observer 
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelInstrucoes)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)))
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 38, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -134,7 +144,11 @@ public class JInstrucoesVinteeUm extends javax.swing.JFrame implements Observer 
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -162,6 +176,8 @@ public class JInstrucoesVinteeUm extends javax.swing.JFrame implements Observer 
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelInstrucoes;
     private javax.swing.JLabel jLabelTítulo;
     private javax.swing.JSeparator jSeparatorBaixo;

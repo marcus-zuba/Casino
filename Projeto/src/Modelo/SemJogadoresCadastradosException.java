@@ -12,7 +12,7 @@ package Modelo;
 public class SemJogadoresCadastradosException extends Exception{
 
     public SemJogadoresCadastradosException() {
-        super("Nao eh possivel acessar os jogos sem jogadores cadastrados!");
+        super("Nao é possivel acessar os jogos sem jogadores cadastrados!");
     }
     
     

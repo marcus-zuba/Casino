@@ -145,7 +145,7 @@ public class JVinteeUm extends javax.swing.JFrame implements Observer{
         jLabelFichasJogadorAtual.setText("Fichas: 150000");
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 3, 24)); // NOI18N
-        jLabel2.setText("Próxima Carta");
+        jLabel2.setText("Valor da Mesa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -311,11 +311,9 @@ public class JVinteeUm extends javax.swing.JFrame implements Observer{
 
     @Override
     public void update(Observable arg0, Object arg1) {
-        System.out.println("entrou adnadaksd 1");        
         this.setVisible(modelo.isVisible());
         this.setEnabled(modelo.isVisible());
         if(this.isEnabled()){
-            System.out.println("entrou adnadaksd 2");
             jLabelJogadorAtual.setText(modelo.getNomeJogadorAtual());
             jLabelFichasJogadorAtual.setText("Fichas: " + modelo.getFichasJogadorAtual());
             jLabelValorJogador.setText(modelo.getValorMao());
