@@ -23,30 +23,25 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jButtonComecar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButtonMenu" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jLabelTítulo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jSeparatorCima" alignment="1" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jButtonMenu" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jSeparatorBaixo" alignment="1" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel1" max="32767" attributes="0"/>
-                          <Component id="jLabelInstrucoes" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="0" min="-2" pref="367" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="0" min="-2" pref="490" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabelTítulo" alignment="0" pref="576" max="32767" attributes="0"/>
+                  <Component id="jSeparatorCima" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" alignment="0" min="-2" pref="550" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" pref="550" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="0" min="-2" pref="550" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" min="-2" pref="550" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="0" min="-2" pref="550" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="0" min="-2" pref="550" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="0" min="-2" pref="550" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -63,35 +58,32 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparatorCima" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelInstrucoes" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="32" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" pref="27" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparatorBaixo" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonMenu" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonComecar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jButtonMenu" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButtonComecar">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Ubuntu" size="15" style="3"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Come&#xe7;ar"/>
-      </Properties>
+    <Component class="javax.swing.JSeparator" name="jSeparatorBaixo">
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparatorCima">
     </Component>
     <Component class="javax.swing.JButton" name="jButtonMenu">
       <Properties>
@@ -100,6 +92,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Menu"/>
       </Properties>
+      <Events>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonMenuMousePressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelT&#xed;tulo">
       <Properties>
@@ -107,39 +102,42 @@
           <Font name="Ubuntu" size="36" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Vinte e Um"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelInstrucoes">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Ubuntu" size="24" style="3"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Instru&#xe7;&#xf5;es"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JSeparator" name="jSeparatorCima">
-    </Component>
-    <Component class="javax.swing.JSeparator" name="jSeparatorBaixo">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value=" - Jogador recebe carta aleat&#xf3;ria do baralho  "/>
+        <Property name="text" type="java.lang.String" value="Bem Vindo ao Cassino"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="- Nova carta &#xe9; aberta"/>
+        <Property name="text" type="java.lang.String" value="Neste estabelecimento o usu&#xe1;rio pode desfrutar de jogos divertidos e realizar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="- Pode pedir para n&#xe3;o continuar se n&#xe3;o quiser apostar mais "/>
+        <Property name="text" type="java.lang.String" value="Para adquirir as fichas, primeiramente &#xe9; necess&#xe1;rio estar cadastrado no sistema:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value=" -Se a soma dos valores da mesa com os da sua m&#xe3;o, der mais pr&#xf3;ximo de 21, voc&#xea; ganha. "/>
+        <Property name="text" type="java.lang.String" value="apostas utilizando as fichas do Cassino."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="um arquivo texto. Al&#xe9;m disso, &#xe9; poss&#xed;vel salvar todos os cadastrados neste "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc9; poss&#xed;vel cadastrar os jogadores individualmente ou cadastr&#xe1;-los por meio de"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="mesmo arquivo texto."/>
       </Properties>
     </Component>
   </SubComponents>
