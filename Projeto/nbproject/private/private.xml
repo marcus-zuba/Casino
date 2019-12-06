@@ -3,19 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Visao/JVinteeUm.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Visao/JJackpot.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Visao/JInstrucoesVinteeUm.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Controle/VinteeUmHandler.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Visao/JInstrucoesJackpot.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Modelo/Jackpot.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Modelo/JogadorBlackJack.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Controle/Main.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Modelo/VinteeUm.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Controle/MenuHandler.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Modelo/BlackJack1.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Modelo/ApostaRoleta.java</file>
-            <file>file:/home/felipe/PC2/Casino/Projeto/src/Modelo/JogoCasino.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Controle/RoletaHandler.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Controle/MenuHandler.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/Roleta.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JLoja.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/Menu.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/VinteeUm.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Controle/Main.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JInstrucoesRoleta.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JInstrucoesJackpot.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JMenu.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Controle/LojaHandler.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/JogoCasino.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JInstrucoesVinteeUm.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/Jogador.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JVinteeUm.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JCadastro.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Controle/VinteeUmHandler.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Controle/CadastroHandler.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Modelo/ApostaRoleta.java</file>
+            <file>file:/home/arthur/Desktop/Casino/Projeto/src/Visao/JRoleta.java</file>
         </group>
     </open-files>
 </project-private>
