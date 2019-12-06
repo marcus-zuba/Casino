@@ -49,7 +49,7 @@
                                   <Component id="jLabel6" alignment="0" min="-2" pref="550" max="-2" attributes="0"/>
                                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="52" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -83,7 +83,7 @@
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="jSeparatorBaixo" min="-2" pref="10" max="-2" attributes="0"/>
@@ -143,31 +143,49 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="14" style="3"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="No Jackpot o jogador precisa ter a sorte de tirar cores iguais para ganhar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="14" style="3"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Em caso de duas igualdades, voc&#xea; ir&#xe1; receber 2x o valor apostado."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="14" style="3"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Em caso de tr&#xea;s igualdades, voc&#xea; ganha 8x o valor investido na aposta."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="14" style="3"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Para realizar uma jogada, basta digitar um valor num&#xe9;rico no campo &quot;aposta&quot;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="14" style="3"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="e clicar no bot&#xe3;o &quot;rodar&quot;."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Ubuntu" size="14" style="3"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Voc&#xea; pode clicar no bot&#xe3;o &quot;pr&#xf3;ximo jogador&quot; para alternar entre os jogadores cadastrados"/>
       </Properties>
     </Component>

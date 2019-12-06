@@ -80,16 +80,22 @@ public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
         jLabel1.setText("No Jackpot o jogador precisa ter a sorte de tirar cores iguais para ganhar");
 
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
         jLabel2.setText("Em caso de duas igualdades, você irá receber 2x o valor apostado.");
 
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
         jLabel3.setText("Em caso de três igualdades, você ganha 8x o valor investido na aposta.");
 
+        jLabel6.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
         jLabel6.setText("Para realizar uma jogada, basta digitar um valor numérico no campo \"aposta\"");
 
+        jLabel5.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
         jLabel5.setText("e clicar no botão \"rodar\".");
 
+        jLabel7.setFont(new java.awt.Font("Ubuntu", 3, 14)); // NOI18N
         jLabel7.setText("Você pode clicar no botão \"próximo jogador\" para alternar entre os jogadores cadastrados");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,7 +125,7 @@ public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel7))
-                                .addGap(0, 20, Short.MAX_VALUE)))))
+                                .addGap(0, 52, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -145,7 +151,7 @@ public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(16, 16, 16)
                 .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)

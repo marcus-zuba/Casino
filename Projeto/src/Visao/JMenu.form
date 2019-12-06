@@ -33,19 +33,19 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelFichasECadastro" alignment="0" min="-2" pref="278" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButtonRoleta" linkSize="1" pref="100" max="32767" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButtonCacaNiqueis" linkSize="1" min="-2" pref="130" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButtonVinteeUm" linkSize="1" min="-2" pref="93" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jButtonLoja" min="-2" pref="130" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jButtonLer" max="32767" attributes="0"/>
                                   <Component id="jButtonJogadores" pref="193" max="32767" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jButtonCacaNiqueis" linkSize="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jButtonVinteeUm" linkSize="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jButtonRoleta" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -80,9 +80,9 @@
               <Component id="jLabelJogos" min="-2" pref="27" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonCacaNiqueis" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonVinteeUm" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonRoleta" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCacaNiqueis" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonVinteeUm" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonRoleta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="jLabelFichasECadastro" min="-2" pref="27" max="-2" attributes="0"/>
