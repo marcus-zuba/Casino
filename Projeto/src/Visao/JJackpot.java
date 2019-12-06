@@ -5,6 +5,7 @@
  */
 package Visao;
 import Controle.JackpotHandler;
+import Modelo.FichasInsuficientesException;
 import Modelo.Jackpot;
 import java.awt.Color;
 import java.util.Observable;
@@ -174,12 +175,12 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
+                .addComponent(jLabelJogadorAtual)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelTítulo)
-                        .addComponent(jLabelFichasJogadorAtual))
-                    .addComponent(jLabelJogadorAtual))
+                    .addComponent(jLabelTítulo)
+                    .addComponent(jLabelFichasJogadorAtual))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparatorCima, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
@@ -189,7 +190,7 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
@@ -212,23 +213,36 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMousePressed
-        // TODO add your handling code here:
-        handler.mousePressed(evt);
+        try {
+            // TODO add your handling code here:
+            handler.mousePressedd(evt);
+        } catch (FichasInsuficientesException ex) { //Nunca sera pega aqui
+        }
     }//GEN-LAST:event_jButtonMenuMousePressed
 
     private void jButtonRegrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegrasMousePressed
-        // TODO add your handling code here:
-        handler.mousePressed(evt);
+        try {
+            // TODO add your handling code here:
+            handler.mousePressedd(evt);
+        } catch (FichasInsuficientesException ex) { //Nunca sera pega aqui
+        }
     }//GEN-LAST:event_jButtonRegrasMousePressed
 
     private void mousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mousePressed
-        // TODO add your handling code here:
-        handler.mousePressed(evt);
+        try {
+            // TODO add your handling code here:
+            handler.mousePressedd(evt);
+        } catch (FichasInsuficientesException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), 
+                            "Fichas Insuficientes", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_mousePressed
 
     private void jTextFieldValorDeApostaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorDeApostaKeyReleased
         // TODO add your handling code here:
-        handler.keyReleased(evt);
+        try{
+            handler.keyReleased(evt);  //Colocando esse try-catch para evitar excecao no metoto ParseInt de palavra
+        }catch(Exception e){}    //Pois estamos assumindo que só sera digitado numero, conforme as instruções      
     }//GEN-LAST:event_jTextFieldValorDeApostaKeyReleased
 
     /**
@@ -274,7 +288,10 @@ public class JJackpot extends javax.swing.JFrame implements Observer {
         this.setVisible(modelo.isVisible());
         this.setEnabled(modelo.isVisible());
         if(modelo.isVisible()){
-        //1-Vermelho 2-Azul 3-Verde 4-Amarelo 5-Preto
+            //1-Vermelho 2-Azul 3-Verde 4-Amarelo 5-Preto
+            System.out.println(modelo.getNomeJogadorAtual());
+            jLabelJogadorAtual.setText(modelo.getNomeJogadorAtual());
+            jLabelFichasJogadorAtual.setText("Fichas: " + modelo.getFichasJogadorAtual());
             switch(modelo.getCampo1()){
                 case(10):
                     jTextField1.setBackground(Color.WHITE);

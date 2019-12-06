@@ -1,16 +1,6 @@
 package Modelo;
 
-import Modelo.Jogador;
-import Modelo.JogoCasino;
-import Modelo.JogadorNaoEncontradoException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.ListIterator; //pesquisar essa classe depois que pode ser útil
 import java.util.Observable;
-import java.util.Scanner;
-import java.util.Set;
-
 
 public class Menu extends Observable{
 
@@ -34,7 +24,6 @@ public class Menu extends Observable{
     
     public void setVisible(boolean b){
         this.isVisible = b;
-        cadastro.printarJogadores();
         this.setChanged();
         this.notifyObservers();
     }

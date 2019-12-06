@@ -295,7 +295,7 @@
         <Property name="text" type="java.lang.String" value="Regras"/>
       </Properties>
       <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonRegrasMousePressed"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonMenu">
@@ -306,7 +306,7 @@
         <Property name="text" type="java.lang.String" value="Menu"/>
       </Properties>
       <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonMenuMousePressed"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1Vermelho">
@@ -319,9 +319,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1VermelhoActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2Vermelho">
       <Properties>
@@ -741,7 +738,7 @@
         <Property name="name" type="java.lang.String" value="numero" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonNumeroMousePressed"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonCor">
@@ -750,7 +747,7 @@
         <Property name="name" type="java.lang.String" value="cor" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonCorMousePressed"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonCoreNumero">
@@ -759,7 +756,7 @@
         <Property name="name" type="java.lang.String" value="corNumero" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jRadioButtonCoreNumeroMousePressed"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelApostaRealizada">
@@ -783,8 +780,6 @@
         <Property name="name" type="java.lang.String" value="cor" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="caretPositionChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="jTextFieldCorCaretPositionChanged"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCorKeyPressed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCorKeyReleased"/>
       </Events>
     </Component>
@@ -801,7 +796,6 @@
         <Property name="name" type="java.lang.String" value="numero" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNumeroKeyPressed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNumeroKeyReleased"/>
       </Events>
     </Component>
@@ -818,7 +812,6 @@
         <Property name="name" type="java.lang.String" value="aposta" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldValorDeApostaKeyPressed"/>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldValorDeApostaKeyReleased"/>
       </Events>
     </Component>
@@ -851,7 +844,7 @@
         <Property name="name" type="java.lang.String" value="proximo" noResource="true"/>
       </Properties>
       <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonProximoJogadorMousePressed"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelFichasJogadorAtual">

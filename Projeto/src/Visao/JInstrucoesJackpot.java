@@ -5,9 +5,12 @@
  */
 package Visao;
 import Controle.JackpotHandler;
+import Modelo.FichasInsuficientesException;
 import Modelo.Jackpot;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author eduardo
@@ -157,8 +160,11 @@ public class JInstrucoesJackpot extends javax.swing.JFrame implements Observer{
     }// </editor-fold>//GEN-END:initComponents
 
     private void mousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mousePressed
-        // TODO add your handling code here:
-        h.mousePressed(evt);
+        try {
+            // TODO add your handling code here:
+            h.mousePressedd(evt);
+        } catch (FichasInsuficientesException ex) { //Nunca vai pegar aqui
+        }
     }//GEN-LAST:event_mousePressed
 
     /**

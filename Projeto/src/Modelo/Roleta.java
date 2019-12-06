@@ -6,7 +6,6 @@
 package Modelo;
 
 import java.security.SecureRandom;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +14,7 @@ import javax.swing.JOptionPane;
 public class Roleta extends JogoCasino{
 
     private boolean isVisible;
+    private boolean regrasIsVisible;
     private ApostaRoleta aposta;
     private String corAtual;
     private int numeroAtual;
@@ -38,6 +38,16 @@ public class Roleta extends JogoCasino{
         this.setChanged();
         this.notifyObservers();
     }
+    
+    public boolean regrasIsVisible(){
+        return regrasIsVisible;
+    }
+    
+    public void setRegrasIsVisible(boolean b){
+        this.regrasIsVisible=b;    
+        this.setChanged();
+        this.notifyObservers();
+    }
 
     public void setModeloCadastro(Cadastro modeloCadastro) {
         this.modeloCadastro = modeloCadastro;
@@ -51,9 +61,10 @@ public class Roleta extends JogoCasino{
         return corAtual;
     }
             
-    public boolean fazerApostaCor(Jogador jogador,Integer valorJogada,String jogada){
+    public void fazerApostaCor(Jogador jogador,Integer valorJogada,String jogada) throws FichasInsuficientesException{
         
-        if(jogador.getFichas()>valorJogada)
+        if(jogador.getFichas()<valorJogada)
+            throw new FichasInsuficientesException();
         {
             aposta.resetarAposta();
             aposta.setTipoAposta(0);
@@ -62,17 +73,13 @@ public class Roleta extends JogoCasino{
             this.jogadores.add(jogadorAtual, jogador);
             modeloCadastro.setJogadores(this.jogadores);
             aposta.fazerApostaCor(jogada, valorJogada);
-            return true;
-        }
-        else
-            JOptionPane.showMessageDialog(null, "Infelizmente você não possui fichas suficientes para realizar essa aposta", "Valor de Aposta", JOptionPane.INFORMATION_MESSAGE);
-            return false;
-        
+        }        
     }
     
-    public boolean fazerApostaNumero(Jogador jogador,Integer valorJogada,int numero){
+    public void fazerApostaNumero(Jogador jogador,Integer valorJogada,int numero) throws FichasInsuficientesException{
         
-        if(jogador.getFichas()>valorJogada)
+        if(jogador.getFichas()<valorJogada)
+            throw new FichasInsuficientesException();
         {
             aposta.resetarAposta();
             aposta.setTipoAposta(1);
@@ -81,16 +88,13 @@ public class Roleta extends JogoCasino{
             this.jogadores.add(jogadorAtual, jogador);
             modeloCadastro.setJogadores(this.jogadores);
             aposta.fazerApostaNumero(numero,valorJogada);
-            return true;
         }
-        else
-            JOptionPane.showMessageDialog(null, "Infelizmente você não possui fichas suficientes para realizar essa aposta", "Valor de Aposta", JOptionPane.INFORMATION_MESSAGE);
-            return false;
     }
     
-    public boolean fazerApostaCorNumero(Jogador jogador,Integer valorJogada,String jogada){
+    public void fazerApostaCorNumero(Jogador jogador,Integer valorJogada,String jogada) throws FichasInsuficientesException{
         
-        if(jogador.getFichas()>valorJogada)
+        if(jogador.getFichas()<valorJogada)
+            throw new FichasInsuficientesException();
         {
             aposta.resetarAposta();
             aposta.setTipoAposta(2);
@@ -99,24 +103,18 @@ public class Roleta extends JogoCasino{
             this.jogadores.add(jogadorAtual, jogador);
             modeloCadastro.setJogadores(this.jogadores);
             aposta.fazerApostaCorNumero(jogada,valorJogada);
-            return true;
-        }
-        else
-            JOptionPane.showMessageDialog(null, "Infelizmente você não possui fichas suficientes para realizar essa aposta", "Valor de Aposta", JOptionPane.INFORMATION_MESSAGE);
-            return false;
-        
+        }        
     }
     
     public void proximoJogador(){
         this.jogadorAtual++;
         if(jogadorAtual == jogadores.size())
             jogadorAtual = 0;
-        System.out.println(jogadores.get(jogadorAtual).getNome());
-        
+        this.setChanged();
+        this.notifyObservers();
     }
     
     public void girarRoleta() throws InterruptedException{
-        System.out.println(jogadores.get(jogadorAtual).getNome() + jogadores.get(jogadorAtual).getFichas());
         SecureRandom gerador = new SecureRandom();
         int numeroGerado = gerador.nextInt(100);
         for(int i=0;i<numeroGerado;i++)
@@ -141,7 +139,6 @@ public class Roleta extends JogoCasino{
     
     public void checarVencedor(){
         
-        System.out.println(aposta.getTipoAposta());
         String corNumero = "";
         corNumero += corAtual + numeroAtual;
         switch (aposta.getTipoAposta()) {
@@ -152,7 +149,6 @@ public class Roleta extends JogoCasino{
                     this.jogadores.remove(j);
                     j.addFichas(aposta.getFichasApostadas()*2);
                     this.jogadores.add(jogadorAtual, j);
-                    //apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*2);
                 }   break;
             case 1:
                 if(aposta.getNumero().equals(numeroAtual))
@@ -161,7 +157,6 @@ public class Roleta extends JogoCasino{
                     this.jogadores.remove(j);
                     j.addFichas(aposta.getFichasApostadas()*4);
                     this.jogadores.add(jogadorAtual, j);
-                    //apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*4);
                 }   break;
             case 2:
                 if(aposta.getCorNumero().equals(corNumero))
@@ -170,7 +165,6 @@ public class Roleta extends JogoCasino{
                     this.jogadores.remove(j);
                     j.addFichas(aposta.getFichasApostadas()*8);
                     this.jogadores.add(jogadorAtual, j);
-                    //apostas.get(aux).setFichasAtuais(apostas.get(aux).getFichasAtuais() + apostas.get(aux).getFichasApostadas()*8);
                 }   break;    
             default:
                 break;

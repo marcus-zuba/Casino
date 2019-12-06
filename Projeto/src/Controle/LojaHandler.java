@@ -5,6 +5,7 @@
  */
 package Controle;
 
+import Modelo.JogadorNaoEncontradoException;
 import Modelo.Loja;
 import Modelo.Menu;
 import java.awt.event.KeyEvent;
@@ -32,8 +33,7 @@ public class LojaHandler implements MouseListener,KeyListener {
         
     }
     
-    @Override
-    public void mouseClicked(MouseEvent me) {
+    public void mousePressedd(MouseEvent me) throws JogadorNaoEncontradoException {
         if(me.getSource() instanceof JButton)
         {
             if(((JButton)me.getSource()).getName().equals("comprar"))
@@ -84,8 +84,12 @@ public class LojaHandler implements MouseListener,KeyListener {
                 nomeAtual=((JTextField)ke.getSource()).getText();
             if(((JTextField)ke.getSource()).getName().equals("fichas"))
                 fichasAtuais=(Integer.parseInt(((JTextField)ke.getSource()).getText()));
-            System.out.println(nomeAtual + " " + fichasAtuais);
         }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent arg0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

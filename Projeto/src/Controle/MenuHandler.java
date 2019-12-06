@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
 /**
  *
@@ -72,8 +73,7 @@ public class MenuHandler implements ActionListener, MouseListener, KeyListener{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
+    public void mousePressedd(MouseEvent e) throws SemJogadoresCadastradosException, IOException{
         
         switch (e.getComponent().getName()) {
             case "Instrucoes":
@@ -91,6 +91,8 @@ public class MenuHandler implements ActionListener, MouseListener, KeyListener{
                 modeloCadastro.lerDoArquivo();                
                 break;
             case "21":
+                if(modeloCadastro.getJogadores().isEmpty())
+                    throw new SemJogadoresCadastradosException();
                 modelo21.setVisible(true);
                 modeloMenu.setVisible(false);
                 break;
@@ -99,10 +101,14 @@ public class MenuHandler implements ActionListener, MouseListener, KeyListener{
                 modeloMenu.setVisible(false);
                 break;
             case "Jackpot":
+                if(modeloCadastro.getJogadores().isEmpty())
+                    throw new SemJogadoresCadastradosException();
                 modeloJackpot.setVisible(true);
                 modeloMenu.setVisible(false);
                 break;
             case "Roleta":
+                if(modeloCadastro.getJogadores().isEmpty())
+                    throw new SemJogadoresCadastradosException();                
                 modeloMenu.setVisible(false);
                 modeloRoleta.setVisible(true);
                 break;
@@ -142,6 +148,11 @@ public class MenuHandler implements ActionListener, MouseListener, KeyListener{
 
     @Override
     public void keyReleased(KeyEvent arg0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mousePressed(MouseEvent arg0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

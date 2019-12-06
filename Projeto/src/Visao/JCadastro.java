@@ -7,12 +7,16 @@ package Visao;
 
 import Controle.CadastroHandler;
 import Modelo.Cadastro;
+import Modelo.IdadeInsuficienteException;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author eduardocorno
+ * @author eduardo
  */
 public class JCadastro extends javax.swing.JFrame implements Observer{
 
@@ -27,6 +31,7 @@ public class JCadastro extends javax.swing.JFrame implements Observer{
         this.h=h;
         initComponents();
         jButtonMenu.setName("Menu");
+        jButtonCadastrar.setEnabled(true);
         modeloCadastro.addObserver(this);
         this.update(modeloCadastro, this);
     }
@@ -71,28 +76,23 @@ public class JCadastro extends javax.swing.JFrame implements Observer{
         jLabel2.setText("RG:");
 
         jTextFieldRG.setName("RG"); // NOI18N
-        jTextFieldRG.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldRGActionPerformed(evt);
-            }
-        });
         jTextFieldRG.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldRGKeyReleased(evt);
+                JCadastro.this.keyReleased(evt);
             }
         });
 
         jTextFieldNome.setName("nome"); // NOI18N
         jTextFieldNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldNomeKeyReleased(evt);
+                JCadastro.this.keyReleased(evt);
             }
         });
 
         jTextFieldIdade.setName("idade"); // NOI18N
         jTextFieldIdade.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldIdadeKeyReleased(evt);
+                JCadastro.this.keyReleased(evt);
             }
         });
 
@@ -105,9 +105,6 @@ public class JCadastro extends javax.swing.JFrame implements Observer{
         jButtonCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButtonCadastrarMousePressed(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonCadastrarMouseClicked(evt);
             }
         });
 
@@ -177,33 +174,22 @@ public class JCadastro extends javax.swing.JFrame implements Observer{
         h.mousePressed(evt);
     }//GEN-LAST:event_jButtonMenuMousePressed
 
-    private void jTextFieldRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRGActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRGActionPerformed
-
     private void jButtonCadastrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCadastrarMousePressed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            h.mousePressedd(evt);
+            JOptionPane.showMessageDialog(this, "Cadastro feito com sucesso!", 
+                            "Cadastro concluído!", JOptionPane.INFORMATION_MESSAGE);                    
+        } catch (IdadeInsuficienteException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), 
+                            "Idade Insuficiente", JOptionPane.ERROR_MESSAGE);        
+        }
     }//GEN-LAST:event_jButtonCadastrarMousePressed
 
-    private void jTextFieldNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNomeKeyReleased
+    private void keyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyReleased
+        // TODO add your handling code here:
         h.keyReleased(evt);
-    }//GEN-LAST:event_jTextFieldNomeKeyReleased
-
-    private void jTextFieldRGKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldRGKeyReleased
-        h.keyReleased(evt);
-    }//GEN-LAST:event_jTextFieldRGKeyReleased
-
-    private void jTextFieldIdadeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldIdadeKeyReleased
-        h.keyReleased(evt);
-        if(Integer.parseInt(jTextFieldIdade.getText())>17)
-            jButtonCadastrar.setEnabled(true);
-        else
-            jButtonCadastrar.setEnabled(false);
-    }//GEN-LAST:event_jTextFieldIdadeKeyReleased
-
-    private void jButtonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCadastrarMouseClicked
-        h.mouseClicked(evt);
-    }//GEN-LAST:event_jButtonCadastrarMouseClicked
+    }//GEN-LAST:event_keyReleased
 
     /**
      * @param args the command line arguments

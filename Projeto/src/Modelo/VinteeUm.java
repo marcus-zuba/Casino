@@ -1,6 +1,9 @@
 package Modelo;
 
 //REGRAS DO JOGO
+
+import java.security.SecureRandom;
+
 // -Recebe carta aleatória do baralho
 // -Nova carta é aberta
 // -Pode pedir para não continuar se não quiser apostar mais
@@ -13,23 +16,33 @@ package Modelo;
 public class VinteeUm extends JogoCasino{
     
     private boolean isVisible;
+    private boolean regrasIsVisible;
     private Cadastro modeloCadastro;
-    
-    private Baralho copag;
-    private JogadorBlackJack j1;
-    private JogadorBlackJack mesa;
-    private boolean contj1;
-    private boolean cont;
+    private int aposta;
+    private int valorMesa;
+    private int valorMao;
+    private int valorTotal;
+    private int cartasDistribuidas;
     
     public VinteeUm(){
         super();
+        resetarJogo();
+        jogadorAtual=0;
         isVisible = false;
-        this.contj1 = true;
-        this.cont = true; 
     }
 
     public void setModeloCadastro(Cadastro modeloCadastro) {
         this.modeloCadastro = modeloCadastro;
+    }
+
+    public boolean RegrasIsVisible() {
+        return regrasIsVisible;
+    }
+
+    public void setRegrasIsVisible(boolean regrasIsVisible) {
+        this.regrasIsVisible = regrasIsVisible;
+        this.setChanged();
+        this.notifyObservers();
     }
     
     public boolean isVisible(){
@@ -38,42 +51,87 @@ public class VinteeUm extends JogoCasino{
     
     public void setVisible(boolean b){
         isVisible = b;
-        
+        this.setChanged();
+        this.notifyObservers();
+    }
+
+    public void proximoJogador(){
+        resetarJogo();
+        this.jogadorAtual++;
+        if(jogadorAtual == jogadores.size())
+            jogadorAtual=0;
+        this.setChanged();
+        this.notifyObservers();
+    }
+
+    public void setAposta(int aposta) {
+        this.aposta = aposta;
+    }
+    
+    public String getValorMesa(){
+        return Integer.toString(valorMesa);
+    }
+
+    public String getValorMao(){
+        return Integer.toString(valorMao);
+    }
+    
+    public String getValorTotal(){
+        return Integer.toString(valorTotal);
+    }
+    
+    public void resetarJogo(){
+        valorMesa = 0;
+        valorMao = 0;
+        valorTotal=0;
+        cartasDistribuidas=0;
+        aposta =0;
+    }
+    
+    public void adicionarCarta() throws FichasInsuficientesException{
+        SecureRandom gerador = new SecureRandom();
+        if(cartasDistribuidas==0){
+            Jogador j = this.jogadores.get(jogadorAtual);
+            if(aposta > j.getFichas())
+                throw new FichasInsuficientesException();
+            this.jogadores.remove(j);
+            j.reduzirFichas(aposta);
+            this.jogadores.add(jogadorAtual, j);   
+            modeloCadastro.setJogadores(jogadores);
+            valorMao = gerador.nextInt(12);
+        }
+        else{
+            valorMesa += gerador.nextInt(12);
+        }
+        valorTotal = valorMao + valorMesa;
+        cartasDistribuidas++;
+        System.out.println(this.countObservers());
         this.setChanged();
         this.notifyObservers();
     }
     
-    public void inicializarJogo(){
-        // embaralha as cartas
-        copag.embaralharCartas();
-        
-        //atribui carta aleatória para o jogador e para mesa
-        j1.recebeCarta(copag.distribuirCarta());     
-        mesa.recebeCarta(copag.distribuirCarta());
-    }
-    
-    public void adicionarCartaAMesa(){
-      
-            mesa.recebeCarta(copag.distribuirCarta());
-            
-    }
-    
-    public void resetarJogo(){
-        mesa.
-        
-    }
-
-    public void game(){
-        // setup inicial do jogo
-        inicializarJogo();
-        
-        //definindo os valores da pontuação
-        int v1 = mesa.getValorTotal()+j1.getValorTotal();        
-        
-        //verificar se estourou
-        v1 = mesa.getValorTotal()+j1.getValorTotal();
-        
-        
+    public void parar(){
+        int premio;
+        switch (valorTotal) {
+            case 21:
+                premio = 8;
+                break;
+            case 20:
+            case 22:
+                premio = 2;
+                break;
+            default:
+                premio = 0;
+                break;
+        }
+        Jogador j = jogadores.get(jogadorAtual);
+        jogadores.remove(j);
+        j.addFichas(aposta*premio);
+        jogadores.add(jogadorAtual, j);
+        modeloCadastro.setJogadores(jogadores);
+        resetarJogo();
+        this.setChanged();
+        this.notifyObservers();        
     }    
   
 }

@@ -12,8 +12,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JTextField;
 
 /**
@@ -36,8 +34,8 @@ public class JackpotHandler implements MouseListener, KeyListener{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void mousePressed(MouseEvent e) {
+    
+    public void mousePressedd(MouseEvent e) throws FichasInsuficientesException{
         switch (e.getComponent().getName()) {
             case "Menu":
                 modeloJackpot.setVisible(false);
@@ -60,14 +58,8 @@ public class JackpotHandler implements MouseListener, KeyListener{
                 modeloJackpot.proximoJogador();
                 break;
             case "Jogar":
-                try {
-                    try {
-                        modeloJackpot.rodar(aposta);
-                    } catch (InterruptedException ex) {
-//                    Logger.getLogger(JackpotHandler.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                } catch (FichasInsuficientesException ex) {
-                }   break;
+                    modeloJackpot.rodar(aposta);
+                    break;
             default:
                 break;
         }
@@ -101,6 +93,11 @@ public class JackpotHandler implements MouseListener, KeyListener{
         if(!((JTextField)e.getComponent()).getText().equals(""))
             aposta = Integer.parseInt(((JTextField)e.getSource()).getText());
         System.out.println(aposta);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent arg0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

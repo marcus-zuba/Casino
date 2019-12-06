@@ -5,15 +5,14 @@
  */
 package Visao;
 import Controle.RoletaHandler;
+import Modelo.FichasInsuficientesException;
 import Modelo.Roleta;
-import Modelo.JogoCasino;
 import java.awt.Color;
-import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Tony
@@ -31,10 +30,11 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
     public JRoleta(RoletaHandler h, JMenu menu, Roleta roleta) {
         this.h = h;
         this.menu = menu;
-        instrucoes = new JInstrucoesRoleta(h);
+        instrucoes = new JInstrucoesRoleta(h, roleta);
         this.roleta=roleta;
         initComponents();
         jButtonMenu.setName("Menu");
+        jButtonRegras.setName("Regras");
         roleta.addObserver(this);
         update(roleta,this);
     }
@@ -116,7 +116,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         jButtonRegras.setText("Regras");
         jButtonRegras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButtonRegrasMousePressed(evt);
+                JRoleta.this.mousePressed(evt);
             }
         });
 
@@ -124,18 +124,13 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         jButtonMenu.setText("Menu");
         jButtonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButtonMenuMousePressed(evt);
+                JRoleta.this.mousePressed(evt);
             }
         });
 
         jButton1Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton1Vermelho.setForeground(new java.awt.Color(255, 0, 0));
         jButton1Vermelho.setText("1");
-        jButton1Vermelho.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1VermelhoActionPerformed(evt);
-            }
-        });
 
         jButton2Vermelho.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
         jButton2Vermelho.setForeground(new java.awt.Color(255, 0, 0));
@@ -290,7 +285,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         jRadioButtonNumero.setName("numero"); // NOI18N
         jRadioButtonNumero.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jRadioButtonNumeroMousePressed(evt);
+                JRoleta.this.mousePressed(evt);
             }
         });
 
@@ -298,7 +293,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         jRadioButtonCor.setName("cor"); // NOI18N
         jRadioButtonCor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jRadioButtonCorMousePressed(evt);
+                JRoleta.this.mousePressed(evt);
             }
         });
 
@@ -306,7 +301,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         jRadioButtonCoreNumero.setName("corNumero"); // NOI18N
         jRadioButtonCoreNumero.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jRadioButtonCoreNumeroMousePressed(evt);
+                JRoleta.this.mousePressed(evt);
             }
         });
 
@@ -317,17 +312,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         jLabelCor.setText("Cor");
 
         jTextFieldCor.setName("cor"); // NOI18N
-        jTextFieldCor.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-                jTextFieldCorCaretPositionChanged(evt);
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
-        });
         jTextFieldCor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextFieldCorKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldCorKeyReleased(evt);
             }
@@ -338,9 +323,6 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
 
         jTextFieldNumero.setName("numero"); // NOI18N
         jTextFieldNumero.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextFieldNumeroKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldNumeroKeyReleased(evt);
             }
@@ -351,9 +333,6 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
 
         jTextFieldValorDeAposta.setName("aposta"); // NOI18N
         jTextFieldValorDeAposta.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTextFieldValorDeApostaKeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldValorDeApostaKeyReleased(evt);
             }
@@ -376,7 +355,7 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         jButtonProximoJogador.setName("proximo"); // NOI18N
         jButtonProximoJogador.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButtonProximoJogadorMousePressed(evt);
+                JRoleta.this.mousePressed(evt);
             }
         });
 
@@ -593,92 +572,37 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonRegrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegrasMousePressed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        instrucoes.setVisible(true);
-    }//GEN-LAST:event_jButtonRegrasMousePressed
-
-    private void jButtonMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMousePressed
-        // TODO add your handling code here:
-        h.mousePressed(evt);
-    }//GEN-LAST:event_jButtonMenuMousePressed
-
-    private void jButton1VermelhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1VermelhoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1VermelhoActionPerformed
-
-    private void jTextFieldCorCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jTextFieldCorCaretPositionChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCorCaretPositionChanged
-
-    private void jTextFieldCorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCorKeyPressed
-//        h.keyPressed(evt);
-    }//GEN-LAST:event_jTextFieldCorKeyPressed
-
-    private void jTextFieldNumeroKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroKeyPressed
-//        h.keyPressed(evt);
-    }//GEN-LAST:event_jTextFieldNumeroKeyPressed
-
-    private void jTextFieldValorDeApostaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorDeApostaKeyPressed
-//        h.keyPressed(evt);
-    }//GEN-LAST:event_jTextFieldValorDeApostaKeyPressed
-
     private void jTextFieldCorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCorKeyReleased
         h.keyReleased(evt);
     }//GEN-LAST:event_jTextFieldCorKeyReleased
 
     private void jTextFieldNumeroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroKeyReleased
-        h.keyReleased(evt);
+        try{
+            h.keyReleased(evt);
+        }catch(Exception e){} //Evitando o erro de String pra numero 
+                            // -> assumindo que so vai digitar numero, ta na instrucao
     }//GEN-LAST:event_jTextFieldNumeroKeyReleased
 
     private void jTextFieldValorDeApostaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorDeApostaKeyReleased
-        h.keyReleased(evt);
+        try{
+            h.keyReleased(evt);
+        }catch(Exception e){} //Evitando o erro de String pra numero 
+                              //-> assumindo que so vai digitar numero, ta na instrucao
     }//GEN-LAST:event_jTextFieldValorDeApostaKeyReleased
 
     private void mousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mousePressed
-        // TODO add your handling code here:
-        h.mousePressed(evt);
+        try {
+            // TODO add your handling code here:
+            h.mousePressedd(evt);
+        } catch (FichasInsuficientesException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), 
+                            "Fichas Insuficientes", JOptionPane.ERROR_MESSAGE);        
+        }
     }//GEN-LAST:event_mousePressed
 
     private void atualizarJogadorAtualRoleta(){
-        jLabelJogadorAtual.setText(roleta.getNomeJogadorAtual());
-        jLabelFichasJogadorAtual.setText(roleta.getFichasJogadorAtual());
     }
     
-    private void jRadioButtonCoreNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonCoreNumeroMousePressed
-        // TODO add your handling code here:
-        jRadioButtonNumero.setSelected(false);
-        jRadioButtonCor.setSelected(false);
-        jTextFieldCor.setEnabled(true);
-        jTextFieldNumero.setEnabled(true);
-        h.mousePressed(evt);
-    }//GEN-LAST:event_jRadioButtonCoreNumeroMousePressed
-
-    private void jRadioButtonNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonNumeroMousePressed
-        // TODO add your handling code here:
-        jRadioButtonCoreNumero.setSelected(false);
-        jRadioButtonCor.setSelected(false);
-        jTextFieldCor.setEnabled(false);
-        jTextFieldNumero.setEnabled(true);
-        h.mousePressed(evt);
-    }//GEN-LAST:event_jRadioButtonNumeroMousePressed
-
-    private void jRadioButtonCorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButtonCorMousePressed
-        // TODO add your handling code here:
-        jRadioButtonNumero.setSelected(false);
-        jRadioButtonCoreNumero.setSelected(false);
-        jTextFieldCor.setEnabled(true);
-        jTextFieldNumero.setEnabled(false);
-        h.mousePressed(evt);        
-    }//GEN-LAST:event_jRadioButtonCorMousePressed
-
-    private void jButtonProximoJogadorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonProximoJogadorMousePressed
-        // TODO add your handling code here:
-        h.mousePressed(evt);
-        atualizarJogadorAtualRoleta();
-    }//GEN-LAST:event_jButtonProximoJogadorMousePressed
-
     /**
      * @param args the command line arguments
      */
@@ -747,6 +671,10 @@ public class JRoleta extends javax.swing.JFrame implements Observer {
     public void update(Observable o, Object o1) {
         
         this.setVisible(roleta.isVisible());
+        if(this.isVisible()){
+            jLabelJogadorAtual.setText(roleta.getNomeJogadorAtual());
+            jLabelFichasJogadorAtual.setText("Fichas: " + roleta.getFichasJogadorAtual());    
+        }
         String num = Integer.toString(roleta.getNumeroAtual());
         jButtonNumeroSorteado.setText(num);
         String cor = "";

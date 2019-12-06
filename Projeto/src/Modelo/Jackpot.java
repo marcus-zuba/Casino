@@ -44,7 +44,8 @@ public class Jackpot extends JogoCasino{
         this.jogadorAtual++;
         if(jogadorAtual == jogadores.size())
             jogadorAtual=0;
-        System.out.println(jogadores.get(jogadorAtual).getNome());
+        this.setChanged();
+        this.notifyObservers();
     }
         
     public boolean isVisible(){
@@ -107,10 +108,12 @@ public class Jackpot extends JogoCasino{
         return campo3;
     }
     
-    public void rodar(int aposta) throws FichasInsuficientesException, InterruptedException{
+    public void rodar(int aposta) throws FichasInsuficientesException{
         
         this.aposta=aposta;
         Jogador j = this.jogadores.get(jogadorAtual);
+        if(aposta > j.getFichas())
+            throw new FichasInsuficientesException();
         this.jogadores.remove(j);
         j.reduzirFichas(aposta);
         this.jogadores.add(jogadorAtual, j);

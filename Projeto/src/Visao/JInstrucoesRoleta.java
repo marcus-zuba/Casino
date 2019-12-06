@@ -5,20 +5,29 @@
  */
 package Visao;
 import Controle.RoletaHandler;
+import Modelo.Roleta;
+import java.util.Observable;
+import java.util.Observer;
 /**
  *
  * @author eduardo
  */
-public class JInstrucoesRoleta extends javax.swing.JFrame {
+public class JInstrucoesRoleta extends javax.swing.JFrame implements Observer{
 
     RoletaHandler h;
+    Roleta modelo;
     
     /**
      * Creates new form JInstrucoesRoleta
      */
-    public JInstrucoesRoleta(RoletaHandler h) {
+    public JInstrucoesRoleta(RoletaHandler h, Roleta modelo) {
         this.h = h;
+        this.modelo=modelo;
         initComponents();
+        this.jButtonMenu.setName("Menu");
+        this.jButtonComecar.setName("Comecar");
+        this.modelo.addObserver(this);
+        this.update(modelo, this);
     }
 
     /**
@@ -41,9 +50,19 @@ public class JInstrucoesRoleta extends javax.swing.JFrame {
 
         jButtonComecar.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
         jButtonComecar.setText("Começar");
+        jButtonComecar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JInstrucoesRoleta.this.mousePressed(evt);
+            }
+        });
 
         jButtonMenu.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonMenu.setText("Menu");
+        jButtonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JInstrucoesRoleta.this.mousePressed(evt);
+            }
+        });
 
         jLabelTítulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabelTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -99,6 +118,11 @@ public class JInstrucoesRoleta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void mousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mousePressed
+        // TODO add your handling code here:
+        h.mousePressed(evt);
+    }//GEN-LAST:event_mousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -111,4 +135,10 @@ public class JInstrucoesRoleta extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorBaixo;
     private javax.swing.JSeparator jSeparatorCima;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        this.setVisible(modelo.regrasIsVisible());
+        this.setEnabled(modelo.regrasIsVisible());
+    }
 }

@@ -226,7 +226,7 @@
         <Property name="text" type="java.lang.String" value="Salvar Cadastrados Em Arquivo Texto"/>
       </Properties>
       <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MousePressed"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="EscreverArquivoMousePressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonLer">
@@ -237,7 +237,7 @@
         <Property name="text" type="java.lang.String" value="Ler do Arquivo"/>
       </Properties>
       <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MousePressed"/>
+        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="LerArquivoMousePressed"/>
       </Events>
     </Component>
   </SubComponents>

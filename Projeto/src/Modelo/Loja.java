@@ -6,10 +6,7 @@
 package Modelo;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Observable;
-import java.util.Set;
 
 /**
  *
@@ -35,19 +32,22 @@ public class Loja extends Observable{
         this.notifyObservers();
     }
     
-    public void addFichas(String nome,Integer fichasExtras){
+    public void addFichas(String nome,Integer fichasExtras) throws JogadorNaoEncontradoException{
+        boolean conseguiu = false;
         System.out.println(nome);
         ArrayList <Jogador> jogadores = modeloCadastro.getJogadores();
         for(int i=0;i<jogadores.size();i++){
             if(jogadores.get(i).getNome().equals(nome))
             {
+                conseguiu = true;
                 Jogador j = jogadores.get(i);
                 j.addFichas(fichasExtras);
                 jogadores.remove(i);
                 jogadores.add(i, j);
-//                modeloCadastro.printarJogadores();   
             }
         }
+        if(!conseguiu)
+            throw new JogadorNaoEncontradoException();
         modeloCadastro.setJogadores(jogadores);
     }
 }

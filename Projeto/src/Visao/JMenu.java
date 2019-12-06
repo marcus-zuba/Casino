@@ -6,8 +6,13 @@
 package Visao;
 import Controle.MenuHandler;
 import Modelo.Menu;
+import Modelo.SemJogadoresCadastradosException;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -129,7 +134,7 @@ public class JMenu extends javax.swing.JFrame implements Observer {
         jButtonCadastrar.setText("Salvar Cadastrados Em Arquivo Texto");
         jButtonCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                MousePressed(evt);
+                EscreverArquivoMousePressed(evt);
             }
         });
 
@@ -137,7 +142,7 @@ public class JMenu extends javax.swing.JFrame implements Observer {
         jButtonLer.setText("Ler do Arquivo");
         jButtonLer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                MousePressed(evt);
+                LerArquivoMousePressed(evt);
             }
         });
 
@@ -223,14 +228,50 @@ public class JMenu extends javax.swing.JFrame implements Observer {
     
     
     private void jButtonSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSairMousePressed
-        // TODO add your handling code here:
-        h.mousePressed(evt);
+        try {
+            // TODO add your handling code here:
+            h.mousePressedd(evt);
+        } catch (SemJogadoresCadastradosException ex) { //Nunca sera pega aqui
+        } catch (IOException ex) { //Nunca sera pega aqui 
+        }
     }//GEN-LAST:event_jButtonSairMousePressed
 
     private void MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MousePressed
-        // TODO add your handling code here:
-        h.mousePressed(evt);
+        try {
+            // TODO add your handling code here:
+            h.mousePressedd(evt);
+        } catch (SemJogadoresCadastradosException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), 
+                            "Nenhum Jogador Cadastrado", JOptionPane.ERROR_MESSAGE);
+        } catch (IOException ex) { //Nunca sera pega aqui
+        }
     }//GEN-LAST:event_MousePressed
+
+    private void LerArquivoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LerArquivoMousePressed
+        try {
+            // TODO add your handling code here:
+            h.mousePressedd(evt);
+            JOptionPane.showMessageDialog(this, "Arquivo lido com sucesso!", 
+                            "Sucesso ao ler o arquivo", JOptionPane.INFORMATION_MESSAGE);            
+        } catch (SemJogadoresCadastradosException ex) { //Nunca sera pega aqui
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Ocorreu um problema ao tentar ler o arquivo!", 
+                            "Falha ao Ler o arquivo", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_LerArquivoMousePressed
+
+    private void EscreverArquivoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EscreverArquivoMousePressed
+        try {
+            // TODO add your handling code here:
+            h.mousePressedd(evt);
+            JOptionPane.showMessageDialog(this, "Arquivo gravado com sucesso!", 
+                        "Sucesso ao gravar o arquivo", JOptionPane.INFORMATION_MESSAGE);            
+        } catch (SemJogadoresCadastradosException ex) { //Nunca sera pega aqui
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Ocorreu um problema ao tentar gravar o arquivo!", 
+                            "Falha ao Gravar o arquivo", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_EscreverArquivoMousePressed
 
     /**
      * @param args the command line arguments

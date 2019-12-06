@@ -5,23 +5,30 @@
  */
 package Visao;
 import Controle.VinteeUmHandler;
+import Modelo.VinteeUm;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  *
  * @author eduardo
  */
-public class JInstrucoesVinteeUm extends javax.swing.JFrame {
+public class JInstrucoesVinteeUm extends javax.swing.JFrame implements Observer {
 
     VinteeUmHandler h;
-    JVinteeUm vinteeUm;
+    VinteeUm modelo;
     
     /**
      * Creates new form JInstrucoesVinteeUm
      */
-    public JInstrucoesVinteeUm(VinteeUmHandler h, JVinteeUm vinteeUm) {
+    public JInstrucoesVinteeUm(VinteeUmHandler h, VinteeUm modelo) {
         this.h=h;
-        this.vinteeUm=vinteeUm;
+        this.modelo=modelo;
+        modelo.addObserver(this);
         initComponents();
+        jButtonComecar.setName("Comecar");
+        jButtonMenu.setName("Menu");
+        this.update(modelo, this);
     }
 
     /**
@@ -48,9 +55,19 @@ public class JInstrucoesVinteeUm extends javax.swing.JFrame {
 
         jButtonComecar.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
         jButtonComecar.setText("Começar");
+        jButtonComecar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JInstrucoesVinteeUm.this.mousePressed(evt);
+            }
+        });
 
         jButtonMenu.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonMenu.setText("Menu");
+        jButtonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JInstrucoesVinteeUm.this.mousePressed(evt);
+            }
+        });
 
         jLabelTítulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabelTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -124,6 +141,11 @@ public class JInstrucoesVinteeUm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void mousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mousePressed
+        // TODO add your handling code here:
+        h.mousePressed(evt);
+    }//GEN-LAST:event_mousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -140,4 +162,10 @@ public class JInstrucoesVinteeUm extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorBaixo;
     private javax.swing.JSeparator jSeparatorCima;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(Observable arg0, Object arg1) {
+        this.setVisible(modelo.RegrasIsVisible());
+        this.setEnabled(modelo.RegrasIsVisible());
+    }
 }

@@ -5,9 +5,11 @@
  */
 package Visao;
 import Controle.VinteeUmHandler;
+import Modelo.FichasInsuficientesException;
 import Modelo.VinteeUm;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,11 +27,11 @@ public class JVinteeUm extends javax.swing.JFrame implements Observer{
     public JVinteeUm(VinteeUmHandler h, VinteeUm modelo) {
         this.h = h;
         this.modelo=modelo;
-        instrucoes = new JInstrucoesVinteeUm(h,this);
+        instrucoes = new JInstrucoesVinteeUm(h,this.modelo);
         initComponents();
-        jButtonMenu.setName("Menu");
-        modelo.addObserver(this);
-        this.update(modelo, this);
+        setNames();
+        this.modelo.addObserver(this);
+        this.update(this.modelo, this);
     }
 
     /**
@@ -49,22 +51,25 @@ public class JVinteeUm extends javax.swing.JFrame implements Observer{
         jSeparatorCima = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jButtonProxCarta = new javax.swing.JButton();
+        jButtonParar = new javax.swing.JButton();
+        jLabelValorJogador = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jLabelValorTotal = new javax.swing.JLabel();
+        jLabelValorMesa = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jButtonProxJogador = new javax.swing.JButton();
+        jLabelJogadorAtual = new javax.swing.JLabel();
+        jLabelFichasJogadorAtual = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonMenu.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jButtonMenu.setText("Menu");
         jButtonMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonMenuMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JVinteeUm.this.mousePressed(evt);
             }
         });
 
@@ -76,7 +81,7 @@ public class JVinteeUm extends javax.swing.JFrame implements Observer{
         jButtonRegras.setText("Regras");
         jButtonRegras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButtonRegrasMousePressed(evt);
+                JVinteeUm.this.mousePressed(evt);
             }
         });
 
@@ -86,33 +91,57 @@ public class JVinteeUm extends javax.swing.JFrame implements Observer{
         jLabel3.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jLabel3.setText("do Jogador ");
 
-        jButton1.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
-        jButton1.setText("Próxima Carta");
+        jButtonProxCarta.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
+        jButtonProxCarta.setText("Próxima Carta");
+        jButtonProxCarta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JVinteeUm.this.mousePressed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
-        jButton2.setText("Parar");
+        jButtonParar.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
+        jButtonParar.setText("Parar");
+        jButtonParar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JVinteeUm.this.mousePressed(evt);
+            }
+        });
 
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel5.setText("0");
+        jLabelValorJogador.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabelValorJogador.setForeground(new java.awt.Color(255, 0, 0));
+        jLabelValorJogador.setText("0");
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel7.setText("Total");
 
-        jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
-        jLabel8.setText("0");
+        jLabelValorTotal.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
+        jLabelValorTotal.setText("0");
 
-        jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
-        jLabel9.setText("0");
+        jLabelValorMesa.setFont(new java.awt.Font("Ubuntu", 1, 48)); // NOI18N
+        jLabelValorMesa.setText("0");
 
         jLabel10.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
         jLabel10.setText("Valor da Aposta");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
             }
         });
+
+        jButtonProxJogador.setFont(new java.awt.Font("Ubuntu", 3, 18)); // NOI18N
+        jButtonProxJogador.setText("Proximo Jogador");
+        jButtonProxJogador.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JVinteeUm.this.mousePressed(evt);
+            }
+        });
+
+        jLabelJogadorAtual.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
+        jLabelJogadorAtual.setText("Jogador 0");
+
+        jLabelFichasJogadorAtual.setFont(new java.awt.Font("Ubuntu", 3, 15)); // NOI18N
+        jLabelFichasJogadorAtual.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,13 +154,22 @@ public class JVinteeUm extends javax.swing.JFrame implements Observer{
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButtonRegras)
+                                .addGap(165, 165, 165)
+                                .addComponent(jButtonProxJogador)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButtonMenu))
                             .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addComponent(jLabelTítulo, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 149, Short.MAX_VALUE))
+                                .addGap(16, 16, 16)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelFichasJogadorAtual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(388, 388, 388))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelJogadorAtual)
+                                        .addGap(42, 42, 42)
+                                        .addComponent(jLabelTítulo, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addComponent(jSeparatorCima, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
@@ -139,22 +177,22 @@ public class JVinteeUm extends javax.swing.JFrame implements Observer{
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLabel5)
+                                    .addComponent(jLabelValorJogador)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
+                                        .addComponent(jLabelValorMesa)
                                         .addGap(67, 67, 67))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel7)
-                                            .addComponent(jButton2))
+                                            .addComponent(jButtonParar))
                                         .addGap(51, 51, 51))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton1)
+                                .addComponent(jButtonProxCarta)
                                 .addGap(13, 13, 13)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -166,84 +204,100 @@ public class JVinteeUm extends javax.swing.JFrame implements Observer{
                                 .addGap(130, 130, 130))))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(302, 302, 302)
-                .addComponent(jLabel8)
+                .addComponent(jLabelValorTotal)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelTítulo)
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelJogadorAtual)
+                    .addComponent(jLabelTítulo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparatorCima, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelFichasJogadorAtual)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9))
+                        .addComponent(jSeparatorCima, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelValorJogador))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jButtonProxCarta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel1)
+                        .addComponent(jButtonParar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(jLabelValorMesa)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
+                .addComponent(jLabelValorTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparatorBaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonMenu)
-                    .addComponent(jButtonRegras))
+                    .addComponent(jButtonRegras)
+                    .addComponent(jButtonProxJogador))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonRegrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegrasMousePressed
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         // TODO add your handling code here:
-        this.setVisible(false);
-        instrucoes.setVisible(true);
-    }//GEN-LAST:event_jButtonRegrasMousePressed
+        try{
+            h.keyReleased(evt);  //Colocando esse try-catch para evitar excecao no metoto ParseInt de palavra
+        }catch(Exception e){}    //Pois estamos assumindo que só sera digitado numero, conforme as instruções
+    }//GEN-LAST:event_jTextField1KeyReleased
 
-    private void jButtonMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMenuMouseClicked
+    private void mousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mousePressed
         // TODO add your handling code here:
-        h.mousePressed(evt);
-    }//GEN-LAST:event_jButtonMenuMouseClicked
+        try{
+            h.mousePressedd(evt);
+        }catch(FichasInsuficientesException e){
+            JOptionPane.showMessageDialog(this, e.getMessage(), 
+                            "Fichas Insuficientes", JOptionPane.ERROR_MESSAGE);        
+        }    
+    }//GEN-LAST:event_mousePressed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-
+    public void setNames(){
+        jButtonMenu.setName("Menu");
+        jButtonRegras.setName("Regras");
+        jButtonProxJogador.setName("ProxJogador");
+        jButtonProxCarta.setName("ProxCarta");
+        jButtonParar.setName("Parar");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonMenu;
+    private javax.swing.JButton jButtonParar;
+    private javax.swing.JButton jButtonProxCarta;
+    private javax.swing.JButton jButtonProxJogador;
     private javax.swing.JButton jButtonRegras;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelFichasJogadorAtual;
+    private javax.swing.JLabel jLabelJogadorAtual;
     private javax.swing.JLabel jLabelTítulo;
+    private javax.swing.JLabel jLabelValorJogador;
+    private javax.swing.JLabel jLabelValorMesa;
+    private javax.swing.JLabel jLabelValorTotal;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JSeparator jSeparatorBaixo;
     private javax.swing.JSeparator jSeparatorCima;
@@ -252,7 +306,16 @@ public class JVinteeUm extends javax.swing.JFrame implements Observer{
 
     @Override
     public void update(Observable arg0, Object arg1) {
+        System.out.println("entrou adnadaksd 1");        
         this.setVisible(modelo.isVisible());
         this.setEnabled(modelo.isVisible());
+        if(this.isEnabled()){
+            System.out.println("entrou adnadaksd 2");
+            jLabelJogadorAtual.setText(modelo.getNomeJogadorAtual());
+            jLabelFichasJogadorAtual.setText("Fichas: " + modelo.getFichasJogadorAtual());
+            jLabelValorJogador.setText(modelo.getValorMao());
+            jLabelValorMesa.setText(modelo.getValorMesa());
+            jLabelValorTotal.setText(modelo.getValorTotal());
+        }    
     }
 }

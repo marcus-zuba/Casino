@@ -5,10 +5,14 @@
  */
 package Visao;
 import Controle.LojaHandler;
+import Modelo.JogadorNaoEncontradoException;
 import Modelo.Loja;
 import Modelo.Menu;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -61,11 +65,6 @@ public class JLoja extends javax.swing.JFrame implements Observer{
                 jButtonMenuMousePressed(evt);
             }
         });
-        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMenuActionPerformed(evt);
-            }
-        });
 
         jLabelTítulo.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabelTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -83,11 +82,6 @@ public class JLoja extends javax.swing.JFrame implements Observer{
         jLabel2.setText("Fichas:");
 
         jTextFieldFichas.setName("fichas"); // NOI18N
-        jTextFieldFichas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldFichasActionPerformed(evt);
-            }
-        });
         jTextFieldFichas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldFichasKeyReleased(evt);
@@ -100,9 +94,6 @@ public class JLoja extends javax.swing.JFrame implements Observer{
         jButtonComprar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButtonComprarMousePressed(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonComprarMouseClicked(evt);
             }
         });
 
@@ -166,16 +157,16 @@ public class JLoja extends javax.swing.JFrame implements Observer{
     }//GEN-LAST:event_jButtonMenuMousePressed
 
     private void jButtonComprarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonComprarMousePressed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            h.mousePressedd(evt);
+            JOptionPane.showMessageDialog(this, "Fichas adquiridas com suceso!", 
+                            "Sucesso na compra", JOptionPane.INFORMATION_MESSAGE);                    
+        } catch (JogadorNaoEncontradoException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), 
+                            "Jogador Nao Encontrado", JOptionPane.ERROR_MESSAGE);        
+        }
     }//GEN-LAST:event_jButtonComprarMousePressed
-
-    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonMenuActionPerformed
-
-    private void jTextFieldFichasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFichasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFichasActionPerformed
 
     private void jTextFieldNomeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNomeKeyReleased
         h.keyReleased(evt);
@@ -184,10 +175,6 @@ public class JLoja extends javax.swing.JFrame implements Observer{
     private void jTextFieldFichasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldFichasKeyReleased
         h.keyReleased(evt);
     }//GEN-LAST:event_jTextFieldFichasKeyReleased
-
-    private void jButtonComprarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonComprarMouseClicked
-        h.mouseClicked(evt);
-    }//GEN-LAST:event_jButtonComprarMouseClicked
 
     private void setNames(){
         jButtonMenu.setName("Menu");

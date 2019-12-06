@@ -5,6 +5,7 @@
  */
 package Controle;
 
+import Modelo.FichasInsuficientesException;
 import Modelo.Jogador;
 import Modelo.Roleta;
 import Modelo.Menu;
@@ -61,12 +62,15 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
         
     }
 
-    @Override
-    public void mousePressed(MouseEvent me) {
+    public void mousePressedd(MouseEvent me) throws FichasInsuficientesException {
         if(me.getComponent().getName().equals("Menu")){
             roleta.setVisible(false);
             menu.setVisible(true);
-        }else{
+        }else if(me.getComponent().getName().equals("Regras")){
+            roleta.setVisible(false);
+            roleta.setRegrasIsVisible(true);
+        }
+        else{
             
             jogadorAtual = roleta.getJogadores().get(roleta.getJogadorAtual());
 //            System.out.println("jogadorAtual do handler " + jogadorAtual.getNome());
@@ -97,7 +101,6 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
                 }
                 else if(((JButton)me.getSource()).getName().equals("proximo"))
                 {
-                    System.out.println("Chegou aqui");
                     roleta.proximoJogador();
                 }
             }
@@ -147,8 +150,20 @@ public class RoletaHandler implements ActionListener , MouseListener, KeyListene
                 numeroAtual=Integer.parseInt(((JTextField)ke.getSource()).getText());
             if(((JTextField)ke.getSource()).getName().equals("aposta"))
                 valorApostado=Integer.parseInt(((JTextField)ke.getSource()).getText());
-            System.out.println(numeroAtual + " " + corAtual + " " + valorApostado);
         }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) { //Eventos só da tela de regras
+        if(e.getComponent().getName().equals("Comecar")){
+            roleta.setRegrasIsVisible(false);
+            roleta.setVisible(true);
+        }
+        if(e.getComponent().getName().equals("Menu")){
+            roleta.setRegrasIsVisible(false);
+            menu.setVisible(true);
+        }
+        
     }
     
 }
