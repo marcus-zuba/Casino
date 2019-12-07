@@ -21,3 +21,11 @@ Para realizar a execução do programa no Ubuntu, basta abrir o terminar na past
 ### Windows 
 Para realizar a execução do programa no Windows, basta pressionar o botão shift do teclado e clicar com o botão direito do mouse na pasta principal ("Casino") e clicar na opção "abrir janela do PowerShell aqui" ou "abrir janela do Cmd aqui".<br>
 Após isso, basta digitar na janela aberta o comando <em> " java -jar Casino.jar " </em> sem as aspas.
+
+## Créditos
+#### O trabalho foi desenvolvido por:<br>
+Arthur Lopes Sabioni<br>
+Eduardo Martins Gomes Pereira<br>
+Felipe Martins Lemos de Morais<br>
+Iagor de S P Silva<br>
+Marcus Vinicius Durães Zuba<br>
