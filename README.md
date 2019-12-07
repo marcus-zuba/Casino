@@ -16,8 +16,8 @@ No Windows -> seguir as orientações do site https://www.java.com/pt_BR/downloa
 As instruções de funcionamento do programa podem ser obtidas ao executá-lo, no botão "Instruções"
 
 ### Ubuntu 
-Para realizar a execução do programa no Ubuntu, basta abrir o terminar na pasta principal do projeto e digitar o comando <br><em> " java -jar Casino.jar " sem as aspas.</em>
+Para realizar a execução do programa no Ubuntu, basta abrir o terminar na pasta principal ("Casino") e digitar o comando <br><em> " java -jar Casino.jar " sem as aspas.</em>
 
 ### Windows 
-Para realizar a execução do programa no Windows, basta pressionar o botão shift do teclado e clicar com o botão direito do mouse na pasta principal do projeto e clicar na opção "abrir janela do PowerShell aqui" ou "abrir janela do Cmd aqui".<br>
+Para realizar a execução do programa no Windows, basta pressionar o botão shift do teclado e clicar com o botão direito do mouse na pasta principal ("Casino") e clicar na opção "abrir janela do PowerShell aqui" ou "abrir janela do Cmd aqui".<br>
 Após isso, basta digitar na janela aberta o comando <em> " java -jar Casino.jar " </em> sem as aspas.
